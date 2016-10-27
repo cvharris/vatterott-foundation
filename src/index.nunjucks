@@ -1,0 +1,7 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block content %}
+<div class="main-container">
+  {% include "_layouts/header.nunjucks" %}
+</div>
+{% endblock %}

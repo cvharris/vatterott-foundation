@@ -20,9 +20,10 @@
     <title>vatterott-foundation</title>
     <meta name="description" content="A new Yeogurt application"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Prompt:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{baseUrl}}styles/main.css"/>
     {% block stylesheets %}{% endblock %}
-
+    <script src="https://use.fontawesome.com/f1bafda325.js"></script>
   </head>
   <body>
     <!--[if lt IE 9]>

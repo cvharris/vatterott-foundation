@@ -15,10 +15,10 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
 
       // Nunjucks Templates
       gulp.watch([
-        path.join(dirs.source, '**/*.nunjucks'),
+        path.join(dirs.source, '**/*.+(njk|html|nunjucks)'),
         path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml}')
       ], ['nunjucks']);
-      
+
 
       // Copy
       gulp.watch([

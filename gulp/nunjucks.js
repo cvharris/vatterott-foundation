@@ -49,7 +49,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     }
 
     return gulp.src([
-      path.join(dirs.source, '**/*.nunjucks'),
+      path.join(dirs.source, '**/*.+(nunjucks|njk|html)'),
       '!' + path.join(dirs.source, '{**/\_*,**/\_*/**}')
     ])
     .pipe(plugins.changed(dest))

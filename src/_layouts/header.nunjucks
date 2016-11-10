@@ -1,3 +1,7 @@
-<div class="header">
-  <h1>Hello World!</h1>
+<div class="site-header">
+  <div class="header-wrapper">
+    <div class="logo">
+      <img alt="The Vatterott Foundation logo" title="The Vatterott Foundation logo" src="images/VFlogo.png" />
+    </div>
+  </div>
 </div>

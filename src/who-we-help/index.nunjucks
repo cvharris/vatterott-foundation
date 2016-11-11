@@ -1,9 +1,14 @@
 {% extends '_layouts/base.nunjucks' %}
 
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
 {% block content %}
 <div class="main-container">
   {% include "_layouts/header.nunjucks" %}
-  {% include "home.njk" %}
+  {% include "who-we-help/who-we-help.njk" %}
   {% include "_layouts/footer.nunjucks" %}
 </div>
 {% endblock %}

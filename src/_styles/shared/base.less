@@ -71,14 +71,35 @@ blockquote {
   margin: 0 0 2rem 0;
   position: relative;
 
-  &:before {
+  p::before {
     content: open-quote;
     display: inline;
   }
 
-  &:after {
+  p::after {
     content: close-quote;
     display: inline;
+  }
+
+  footer {
+    text-align: right;
+
+    cite {
+
+      &.author {
+        font-weight: 400;
+
+        &::before {
+          content: '\2014';
+          display: inline;
+        }
+      }
+
+      &.citation-title {
+        display: block;
+        font-size: .8rem;
+      }
+    }
   }
 }
 

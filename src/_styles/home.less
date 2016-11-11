@@ -1,28 +1,43 @@
 .normal-section, .transparent-section {
   position: relative;
   z-index: 1;
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.transparent-section {
+  color: white;
 }
 
 .normal-section {
-  background: @background-swatch;
+  background: @background-texture;
 }
 
 #top-image {
   top: 0;
 }
 
+.section-header {
+  text-align: center;
+  font-size: 3rem;
+}
+
 #top-splash {
   text-align: center;
+  margin-top: -100px;
 
   .splash-container {
     padding-bottom: 2rem;
+    margin-top: 100px;
 
     .image-container {
-      margin-top: 100px;
       margin-bottom: 2rem;
 
       img {
-        background-color: rgba(242,242,242,0.8);
+        background-color: rgba(255,255,255,0.8);
         height: 250px;
         padding: 2rem;
       }
@@ -30,10 +45,141 @@
 
     p {
       margin: 0 auto 2rem;
-      color: white;
       font-size: 3rem;
       font-weight: 900;
       line-height: 1.5;
     }
+  }
+}
+
+.do-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 1rem;
+  padding: 3rem 0;
+}
+
+.do-header {
+  line-height: 1.3;
+  text-align: center;
+  z-index: 1;
+}
+
+.do-box {
+  position: relative;
+  z-index: 1;
+  color: white;
+  flex: 1 0 275px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+}
+
+.do-description {
+  text-align: center;
+  line-height: 1.2;
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  z-index: 1;
+}
+
+#what-we-do {
+  .section-header {
+    margin: 0;
+  }
+}
+
+#education {
+  background-image: url(/images/students.jpg);
+}
+
+#sickness {
+  background-image: url(/images/sickness.jpg);
+}
+
+#welfare {
+  background-image: url(/images/welfare.jpg);
+}
+
+#religious {
+  background-image: url(/images/religious.jpg);
+}
+
+.centered-quotations {
+  text-align: center;
+  font-size: 2.2rem;
+  line-height: 1.75;
+  margin-bottom: 4rem;
+
+  &::before, &::after {
+    content: none;
+  }
+}
+
+#mission-statement, #vfyb-link {
+
+  &::before {
+    background-color: rgba(0, 0, 0, .6);
+    content: '';
+    position: absolute;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.home-text {
+  text-indent: 3rem;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.big-quote {
+  max-width: 36rem;
+  margin: 0 auto;
+
+  p {
+    text-indent: 0;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.figures {
+  display: flex;
+  justify-content: space-around;
+
+  figure {
+
+    img {
+      width: 200px;
+    }
+  }
+}
+
+#grant-action {
+  text-align: center;
+
+  .home-text {
+    text-indent: 0;
   }
 }

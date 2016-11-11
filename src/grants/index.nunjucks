@@ -6,5 +6,9 @@
 {% endblock %}
 
 {% block content %}
-<p>grants page</p>
+<div class="main-container">
+  {% include "_layouts/header.nunjucks" %}
+  {% include "grants/grants.njk" %}
+  {% include "_layouts/footer.nunjucks" %}
+</div>
 {% endblock %}

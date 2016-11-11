@@ -18,12 +18,9 @@ body {
   min-height: 100vh;
 }
 
-.header-wrapper {
-  background-color: @offBlack;
-}
-
 main {
   flex: 1;
+  padding-top: 100px;
 }
 
 .action-button {
@@ -33,7 +30,7 @@ main {
   background-color: @blue-primary;
   color: @white;
   font-size: 1.1rem;
-  line-height: 1;
+  line-height: 1.5;
   font-weight: 500;
   width: 100%;
   padding: 1.25rem 3.5rem;
@@ -71,9 +68,10 @@ main {
     top: 0;
     left: 0;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top center;
     background-size: cover;
     will-change: transform; // creates a new paint layer
     z-index: -1;
+    pointer-events: none; // we shouldn't interact with them anyway
   }
 }

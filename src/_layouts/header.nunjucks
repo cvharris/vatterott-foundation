@@ -1,7 +1,14 @@
 <div class="site-header">
   <div class="header-wrapper">
-    <div class="logo">
-      <img alt="The Vatterott Foundation logo" title="The Vatterott Foundation logo" src="images/VFlogo.png" />
+    <div class="site-title">
+      <a href="/" class="menu-item"><h1>Vatterott Foundation</h1></a>
+    </div>
+    <div class="menu">
+      {% for item in site.data.menu %}
+      <a href="{{ item.route }}" class="menu-item">
+        {{ item.label }}
+      </a>
+      {% endfor %}
     </div>
   </div>
 </div>

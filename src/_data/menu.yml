@@ -1,0 +1,12 @@
+---
+- label: 'Who We Help'
+  route: '/who-we-help'
+
+- label: 'Grants'
+  route: '/grants'
+
+- label: 'Trustees'
+  route: '/trustees'
+
+- label: 'VFYB'
+  route: '/vfyb'

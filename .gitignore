@@ -1,6 +1,35 @@
-node_modules
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
 *.log
 build
+dist
+ng-cli
 tmp
 .grunt
+
+# dependencies
+node_modules
+bower_components
+
+# IDEs and editors
+.idea
+
+# misc
+.sass-cache
+connect.lock
+coverage/*
+libpeerconnection.log
+npm-debug.log
+testem.log
+typings
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+#System Files
 .DS_Store
+.ftpconfig
+.ftpignore
+Thumbs.db

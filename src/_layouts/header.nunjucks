@@ -1,7 +1,10 @@
 <div class="site-header">
   <div class="header-wrapper">
     <div class="site-title">
-      <a href="/" class="menu-item"><h1>Vatterott Foundation</h1></a>
+      <a href="/" class="menu-item">
+        <h1>Vatterott Foundation</h1>
+      </a>
+      <small><em>Family Giving Since 1948</em></small>
     </div>
     <div class="menu">
       {% for item in site.data.menu %}

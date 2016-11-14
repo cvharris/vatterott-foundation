@@ -1,0 +1,54 @@
+.trustees-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.trustee {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  max-width: @content-width / 2;
+  flex: 1 0 450px;
+
+  .image-container {
+    flex: 0 0 225px;
+    margin-right: 1rem;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.trustee-information {
+  padding-left: 1rem;
+  text-align: center;
+  flex: 1;
+}
+
+.trustee-name {
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.trustee-family {
+
+  &::before {
+    content: '"The ';
+    display: inline;
+    position: relative;
+  }
+
+  &::after {
+    content: '"';
+    display: inline;
+    position: relative;
+  }
+}
+
+.administrator {
+  text-align: center;
+}

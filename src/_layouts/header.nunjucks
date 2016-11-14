@@ -2,13 +2,13 @@
   <div class="header-wrapper">
     <div class="site-title">
       <a href="/" class="menu-item">
-        <h1>Vatterott Foundation</h1>
+        <h1>The Vatterott Foundation</h1>
       </a>
       <small><em>Family Giving Since 1948</em></small>
     </div>
     <div class="menu">
       {% for item in site.data.menu %}
-      <a href="{{ item.route }}" class="menu-item">
+      <a title="{{ item.description }}" href="{{ item.route }}" class="menu-item">
         {{ item.label }}
       </a>
       {% endfor %}

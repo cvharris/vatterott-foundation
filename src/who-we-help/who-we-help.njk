@@ -1,3 +1,27 @@
 <main>
-  <h1>Hello World!</h1>
+  <div class="container">
+    <h1 class="page-title">Who We Help</h1>
+    <p class="page-description">The Vatterott Foundation would like to thank each organization for their commitment to social justice and service to the poor.</p>
+    <div class="year-selectors">
+    {% for year in site.data.grants %}
+      <div class="year-selector">
+        <h2 data-active="{{ year.year }}-orgs">{{ year.year }}</h2>
+      </div>
+    {% endfor %}
+    </div>
+    <div class="all-organizations">
+    {% for year in site.data.grants %}
+      <div id="{{ year.year }}-orgs" class="years-organizations">
+      {% for org in year.orgs %}
+        <dl class="organization">
+          <dt><a class="organization-link" href="{{ org.link }}" target="_blank">
+            <h3 class="organization-name">{{ org.name }}</h3>
+          </a></dt>
+          <dd class="organization-description">{{ org.description }}</dd>
+        </dl>
+      {% endfor %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
 </main>

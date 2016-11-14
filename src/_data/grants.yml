@@ -1,0 +1,94 @@
+---
+- year: 2014
+  orgs:
+    - name: "Almost Home"
+      description: "Transitional housing program that works to fight homelessness in St. Louis by providing safe homes and support services for teenage mothers, and their children, who are working toward an education."
+      link: "http://www.almosthomestl.org/"
+
+    - name: "ALS Association"
+      description: "The St. Louis Regional Chapter was founded in 1984 to serve the needs of those living with Amyotrophic Lateral Sclerosis and their caregivers."
+      link: "http://webstl.alsa.org/"
+
+    - name: "Blessed Teresa of Calcutta Catholic School"
+      description: "Blessed Teresa of Calcutta Catholic School (K-8) provides value-based educational opportunities in a culturally diverse and caring environment."
+      link: "http://www.btcparish.org/site/"
+
+    - name: "Ladies of Charity Service Center"
+      description: "The Ladies of Charity, recognizing this lack of human awareness, seek every opportunity to make Christ present by serving the material and spiritual needs of the sick, the poor and the marginalized of our society."
+      link: "http://www.aic.ladiesofcharity.us/"
+
+    - name: "Cardinal Ritter Senior Services"
+      description: "Cardinal Ritter Senior Services (CRSS) provides programs, facilities and services designed to meet the needs of senior adults across a continuum of care with choices and opportunities. The CRSS objective is to continue their long tradition of providing independence, options and the highest quality of service to senior adults."
+      link: "http://www.cardinalritterseniorservices.org/"
+
+    - name: "Better Family Life Inc."
+      description: "BFL's mission is to plan and establish social, cultural, artistic, youth, economic, housing and educational programs that help to promote positive and innovative changes within the metropolitan St. Louis area. Much of BFL's programming is geared towards people who are unemployed, underemployed, disadvantaged and skill-deficient."
+      link: "http://www.betterfamilylife.org/"
+
+    - name: "Assistance League of St. Louis"
+      description: "Assistance League has served as a nonprofit, nonpolitical, nonsectarian organization of volunteers helping the less fortunate. Today, across the USA, 120 chapters through their member volunteers address the emotional, educational and physical needs of children and adults in their local communities regardless of race or creed."
+      link: "http://www.assistanceleague.org/"
+
+    - name: "The Institute for Peace & Justice"
+      description: "Institute for Peace & Justice is an independent, interfaith, not-for-profit organization that creates resources, provides learning experiences, and advocates publicly for alternatives to violence and injustice at the individual, family, community, institutional and global levels."
+      link: "http://www.ipj-ppj.org/"
+
+    - name: "Meds and Food for Kids"
+      description: "Meds and Food for Kids (MFK) is dedicated to saving the lives of Haiti's malnourished children and other nutritionally vulnerable people."
+      link: "http://mfkhaiti.org/"
+
+    - name: "Let’s Start, Inc. (St. Vincent Church)"
+      description: "Let’s Start, Inc., an organization led by and for formerly incarcerated women, aims to break the cycle of incarceration in families by using the personal experiences of its participants to support recovery; educate the community and inform policy."
+      link: "http://www.letsstart.org/"
+
+    - name: "Marian Middle School"
+      description: "Marian Middle School’s program emphasizes an academic foundation and offers a full range of educational experiences that enables its graduates to choose a high school with a strong college preparatory program.  Students learn communication, critical-thinking, problem solving, leadership, and life skills, and thereby develop a strong sense of self-worth and confidence in their ability to overcome personal obstacles."
+      link: "http://www.marianmiddleschool.org/"
+
+    - name: "Our Lady’s Inn"
+      description: "Our Lady's Inn provides a loving home and an array of services supporting pregnant women and their children dealing with homelessness."
+      link: "http://www.ourladysinn.org/"
+
+    - name: "Peter and Paul Community Services"
+      description: "Peter and Paul Community Services is an ecumenical human service agency committed to providing immediate and transitional housing and supportive services to the homeless, especially those experiencing mental illness; HIV/AIDS and drug and alcohol addiction."
+      link: "http://www.ppcsinc.org/"
+
+    - name: "Sister Thea Bowman Catholic School"
+      description: "Sister Thea Bowman Catholic School, a ministry of the Diocese of Belleville, IL, is committed to deepening faith in Jesus Christ, and to providing a holistic learning approach to faith development and education within a Catholic framework."
+      link: "http://www.stbcs.com/wp/"
+
+    - name: "Food Outreach, Inc."
+      description: "The Food Outreach mission is to provide nutritional support and enhance the quality of life of men, women and children living with HIV/AIDS or Cancer."
+      link: "http://www.foodoutreach.org/"
+
+    - name: "St. Charles Lwanga Center"
+      description: "The mission of the St. Charles Lwanga Center is to promote Christian spiritual formation and leadership development within the African-American Catholic Community and for all who collaborate with the Center, in accordance with the Gospel of Jesus Christ, in the tradition of the Catholic Church."
+      link: "http://www.archstl.org/lwangacenter"
+
+    - name: "St. Louis Area Women Religious Collaborative"
+      description: "The goal of ICJM is to speak with a united voice to effect change on some local justice effort."
+      link: "http://www.stlcatholicsisters.org/collaborating-ministries"
+
+    - name: "St. Louis Catholic Academy"
+      description: "St. Louis Catholic Academy is committed to educate the whole child- mind, body, and spirit."
+      link: "http://www.stlcatholicacademy.org/"
+
+    - name: "Today Tomorrow Educational Foundation"
+      description: "The Today and Tomorrow Educational Foundation - following the example of Jesus Christ in His service to those in need - assists faith based and private schools in providing quality, affordable and accessible educational opportunities for any economically disadvantaged family within the St. Louis Region by generating financial assistance in the form of scholarships from local and national funding sources."
+      link: "http://www.archstl.org/ttef"
+
+    - name: "St. Margaret of Scotland Church"
+      description: "St. Margaret of Scotland Church is a diverse urban Catholic parish. Inspired by the Holy Spirit and the example of our patroness, the St. Margaret of Scotland Church proclaims the Gospel of Jesus Christ in word and action."
+      link: "http://www.stmargaretstl.org/"
+
+    - name: "St. Vincent Home for Children"
+      description: "Serving children and families since 1850, the St. Vincent Home for Children works to provide love, security, and professional treatment for troubled children and their families through a fully integrated program of services. They focus on the following child welfare services:"
+      link: "http://www.saintvincenthome.org/"
+
+    - name: "Women's Place"
+      description: "Woman’s Place is dedicated to helping women heal from the isolation, pain, and trauma of abuse."
+      link: "http://womansplacestl.org/"
+
+    - name: "Vitae Care Foundation"
+      description: "Vitae Foundation is a non-profit, educational organization focused on using research-based messaging to educate the public about the value and sanctity of human life; restoring this value as a core belief in the American culture; and reducing the number of abortions."
+      link: "http://www.vitaefoundation.org/"

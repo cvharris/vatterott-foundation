@@ -1,12 +1,16 @@
 ---
 - label: 'Who We Help'
   route: '/who-we-help'
+  description: "List of all organizations we've helped in recent years"
 
 - label: 'Grants'
   route: '/grants'
-
-- label: 'Trustees'
-  route: '/trustees'
+  description: 'Information on who qualifies for a grant and how to apply for one'
 
 - label: 'VFYB'
-  route: '/vfyb'
+  route: '/youth-board'
+  description: 'The Vatterott Foundation Youth Board, with its grants and policies'
+
+- label: 'Contact Us'
+  route: '#contact-us'
+  description: 'Best ways you can reach out and contact us'

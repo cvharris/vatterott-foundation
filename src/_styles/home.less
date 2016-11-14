@@ -10,6 +10,10 @@
 
 .transparent-section {
   color: white;
+
+  .section-header {
+    .text-shadow();
+  }
 }
 
 .normal-section {
@@ -23,6 +27,7 @@
 .section-header {
   text-align: center;
   font-size: 3rem;
+  margin-top: 2rem;
 }
 
 #top-splash {
@@ -48,6 +53,10 @@
       font-size: 3rem;
       font-weight: 900;
       line-height: 1.5;
+
+      &.slogan {
+        .text-shadow();
+      }
     }
   }
 }
@@ -129,12 +138,16 @@
 
 .centered-quotations {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   line-height: 1.75;
   margin-bottom: 4rem;
 
   &::before, &::after {
     content: none;
+  }
+
+  strong {
+    font-style: normal;
   }
 }
 
@@ -159,7 +172,7 @@
 
 .big-quote {
   max-width: 36rem;
-  margin: 0 auto;
+  margin: 2rem auto;
 
   p {
     text-indent: 0;

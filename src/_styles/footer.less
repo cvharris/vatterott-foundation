@@ -3,15 +3,7 @@
 
   h3 {
     line-height: 1;
-  }
-
-  .links {
-    margin: 0;
-    padding: 0;
-
-    li {
-      display: block;
-    }
+    margin-bottom: 2rem;
   }
 
   .footer-top {
@@ -23,15 +15,24 @@
   }
 }
 
+.links {
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: block;
+  }
+}
+
 .footer-columns {
   display: flex;
 
   .footer-column {
-    flex: 1 0 0;
+    flex: 0 0 33%;
   }
 }
 
-.contact-us {
+#contact-us {
   position: relative;
 
   i {
@@ -65,6 +66,15 @@
 
     &:hover {
       background-color: fade(@blue-focus, 75%);
+      text-decoration: underline;
+    }
+  }
+
+  &.first-column {
+    margin-top: 2rem;
+
+    li {
+      max-width: 250px;
     }
   }
 }
@@ -72,7 +82,7 @@
 .social-media.links {
   display: flex;
   justify-content: space-around;
-  margin: 1rem 0;
+  margin: 0 0 2rem;
 
   li {
     height: 4rem;

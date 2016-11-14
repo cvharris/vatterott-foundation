@@ -1,0 +1,27 @@
+#vfyb-about {
+  figure {
+    flex: 0 0 33%;
+
+    img {
+      width: 300px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    &:first-child img {
+      object-position: bottom right -20px;
+    }
+
+    &:nth-child(2) img {
+      object-position: bottom -40px center;
+    }
+
+    &:last-child img {
+      object-position: bottom -60px center;
+    }
+  }
+}
+
+.organization-name {
+  font-size: 1rem;
+}

@@ -1,6 +1,7 @@
 {
   "name": "vatterott-foundation",
   "version": "0.0.1",
+  "license": "MIT",
   "dependencies": {
     "jquery": "~2.2.0",
     "normalize.css": "~3.0.3",

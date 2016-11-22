@@ -8,7 +8,7 @@
 {% block content %}
 <div class="main-container">
   {% include "_layouts/header.nunjucks" %}
-  {% include "grants/new-application/new-application.njk" %}
+  {% include "applications/new-application/new-application.njk" %}
   {% include "_layouts/footer.nunjucks" %}
 </div>
 {% endblock %}

@@ -33,6 +33,9 @@
 #top-splash {
   text-align: center;
   margin-top: -100px;
+  max-height: 85vh;
+  height: 100%;
+  min-height: 500px;
 
   .splash-container {
     padding-bottom: 2rem;
@@ -56,7 +59,14 @@
 
       &.slogan {
         .text-shadow();
+        display: none;
       }
+    }
+  }
+
+  @media (min-height: 750px) {
+    .splash-container p.slogan {
+      display: block;
     }
   }
 }
@@ -112,7 +122,7 @@
 
 #what-we-do {
   .section-header {
-    margin: 0;
+    margin-bottom: 0;
   }
 
   .action-button {
@@ -161,6 +171,10 @@
     display: block;
     height: 100%;
     width: 100%;
+  }
+
+  .action-button {
+    margin-bottom: 4rem;
   }
 }
 

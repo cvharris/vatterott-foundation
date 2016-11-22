@@ -98,3 +98,36 @@ main {
   max-width: 45rem;
   margin: 0 auto 2rem;
 }
+
+.red-double-border {
+  position: relative;
+
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-style: solid;
+    border-right-width: 0;
+    border-left-width: 0;
+    height: 3px;
+  }
+
+  &:before {
+    top: 5px;
+    border-top-color: @red-color;
+    border-bottom-color: @red-dark;
+    border-top-width: 7px;
+    border-bottom-width: 2px;
+  }
+
+  &:after {
+    bottom: 5px;
+    border-top-color: @red-dark;
+    border-bottom-color: @red-color;
+    border-top-width: 2px;
+    border-bottom-width: 7px;
+  }
+}

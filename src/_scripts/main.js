@@ -12,7 +12,7 @@ $(() => {
       element: $('#top-splash'),
       handler: (direction) => {
         $(window).on('scroll', () => {
-          $('#top-splash > .parallax-image').css('transform', `translateY(${$(window).scrollTop() * -.2}px)`)
+          $('#top-splash > .parallax-image').css('transform', `translateY(${$(window).scrollTop() * -.3}px)`)
         })
       },
       offset: 0
@@ -22,7 +22,7 @@ $(() => {
       element: $('#mission-statement'),
       handler: (direction) => {
         $(window).on('scroll', () => {
-          $('#mission-statement > .parallax-image').css('transform', `translateY(${($(window).scrollTop() - $('#mission-statement').offset().top) * -.2}px)`)
+          $('#mission-statement > .parallax-image').css('transform', `translateY(${($(window).scrollTop() - $('#mission-statement').offset().top) * -.3}px)`)
         })
       },
       offset: '100%'
@@ -32,7 +32,7 @@ $(() => {
       element: $('#vfyb-link'),
       handler: (direction) => {
         $(window).on('scroll', () => {
-          $('#vfyb-link > .parallax-image').css('transform', `translateY(${($(window).scrollTop() - $('#vfyb-link').offset().top) * -.2}px)`)
+          $('#vfyb-link > .parallax-image').css('transform', `translateY(${($(window).scrollTop() - $('#vfyb-link').offset().top) * -.3}px)`)
         })
       },
       offset: '100%'

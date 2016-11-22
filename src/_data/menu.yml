@@ -3,8 +3,8 @@
   route: '/who-we-help'
   description: "List of all organizations we've helped in recent years"
 
-- label: 'Grants'
-  route: '/grants'
+- label: 'Applications'
+  route: '/applications'
   description: 'Information on who qualifies for a grant and how to apply for one'
 
 - label: 'VFYB'

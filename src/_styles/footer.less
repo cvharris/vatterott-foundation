@@ -25,10 +25,20 @@
 }
 
 .footer-columns {
-  display: flex;
+  display: block;
 
   .footer-column {
     flex: 0 0 33%;
+
+    @media (max-width: tablet) {
+      padding: 1rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: @tablet) {
+    display: flex;
   }
 }
 
@@ -36,8 +46,14 @@
   position: relative;
 
   i {
-    position: absolute;
-    left: -1.5rem;
+    display: block;
+    position: relative;
+
+    @media (min-width: @tablet) {
+      position: absolute;
+      left: -1.5rem;
+      display: inline;
+    }
   }
 
   a {
@@ -74,7 +90,11 @@
     margin-top: 2rem;
 
     li {
-      max-width: 250px;
+      max-width: 100%;
+
+      @media (min-width: @tablet) {
+        max-width: 250px;
+      }
     }
   }
 }
@@ -118,7 +138,13 @@
 
 .copyright-row {
   margin: 0;
-  display: flex;
   justify-content: space-between;
+  line-height: 2;
+  display: block;
   color: @grey-light;
+
+  @media (min-width: @tablet) {
+    display: flex;
+    line-height: 1;
+  }
 }

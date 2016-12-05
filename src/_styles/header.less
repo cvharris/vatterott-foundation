@@ -1,21 +1,23 @@
 .site-header {
   position: absolute;
   width: 100%;
-  border-left: 2rem solid transparent;
-  border-right: 2rem solid transparent;
   z-index: 9;
   top: 0;
+
+  @media (min-width: @tablet) {
+    border-left: 2rem solid transparent;
+    border-right: 2rem solid transparent;
+  }
 }
 
 .site-title {
-  display: flex;
   color: white;
   align-items: center;
+  padding: 1rem;
 
   a {
     display: block;
     color: white;
-    padding: 1rem;
 
     &:hover {
       text-decoration: underline;
@@ -26,6 +28,14 @@
       font-weight: 700;
       line-height: 1.5;
       margin: 0;
+    }
+  }
+
+  @media (min-width: @tablet) {
+    display: flex;
+
+    a {
+      padding-right: 1rem;
     }
   }
 }
@@ -39,14 +49,35 @@
 
 .menu {
   padding: 1rem 2rem;
-  display: flex;
+  display: none;
 
   .menu-item {
     color: white;
-    padding: 0 1rem;
-    &:hover {
-      text-decoration: underline;
+    margin: 0 1rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: inline;
+      position: absolute;
+      bottom: 0rem;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-bottom: 2px solid transparent;
     }
+
+    &:hover {
+      text-decoration: none;
+
+      &::after{
+        border-bottom: 2px solid @red-color;
+      }
+    }
+  }
+
+  @media (min-width: @tablet) {
+    display: flex;
   }
 }
 

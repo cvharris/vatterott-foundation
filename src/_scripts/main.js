@@ -7,35 +7,31 @@ import $ from 'jquery';
 import 'waypoints';
 
 $(() => {
-  if (window.location.pathname === '/') {
-    let topWaypoint = new Waypoint({
-      element: $('#top-splash'),
-      handler: (direction) => {
-        $(window).on('scroll', () => {
-          $('#top-splash > .parallax-image').css('transform', `translateY(${$(window).scrollTop() * -.3}px)`)
-        })
-      },
-      offset: 0
+  const jWindow = $(window);
+
+  if (window.location.pathname === '/' && jWindow.width() >= 600) {
+    const topSection = $('#top-splash')
+    const middleSection = $('#mission-statement')
+    const bottomSection = $('#vfyb-link')
+
+    jWindow.on('scroll', () => {
+      topSection.find('.parallax-image').css('transform', `translate3d(0, ${jWindow.scrollTop() * -.3}px, 0)`)
+      middleSection.find('.parallax-image').css('transform', `translate3d(0, ${(jWindow.scrollTop() - middleSection.offset().top) * -.3}px, 0)`)
+      bottomSection.find('.parallax-image').css('transform', `translate3d(0, ${(jWindow.scrollTop() - bottomSection.offset().top) * -.3}px, 0)`)
     })
 
-    let middleWaypoint = new Waypoint({
-      element: $('#mission-statement'),
-      handler: (direction) => {
-        $(window).on('scroll', () => {
-          $('#mission-statement > .parallax-image').css('transform', `translateY(${($(window).scrollTop() - $('#mission-statement').offset().top) * -.3}px)`)
-        })
-      },
-      offset: '100%'
-    })
 
-    let bottomWaypoint = new Waypoint({
-      element: $('#vfyb-link'),
-      handler: (direction) => {
-        $(window).on('scroll', () => {
-          $('#vfyb-link > .parallax-image').css('transform', `translateY(${($(window).scrollTop() - $('#vfyb-link').offset().top) * -.3}px)`)
-        })
-      },
-      offset: '100%'
-    })
+    // $(window).on('scroll', _.throttle( () => {
+    //   $('#top-splash .parallax-image').css('transform', `translate3d(0, ${$(window).scrollTop() * -.2}px, 0)`)
+    // }, 100))
+    //
+    // $(window).on('scroll', _.throttle( () => {
+    //   $('#mission-statement .parallax-image').css('transform', `translate3d(0, ${($(window).scrollTop() - $('#mission-statement').offset().top) * -.2}px, 0)`)
+    // }, 100))
+    //
+    // $(window).on('scroll', _.throttle( () => {
+    //   $('#vfyb-link .parallax-image').css('transform', `translate3d(0, ${($(window).scrollTop() - $('#vfyb-link').offset().top) * -.2}px, 0)`)
+    // }, 100))
+
   }
 });

@@ -3,7 +3,10 @@
 {% block content %}
 <div class="main-container">
   {% include "_layouts/header.nunjucks" %}
-  {% include "home.njk" %}
-  {% include "_layouts/footer.nunjucks" %}
+  {% include "nav.njk" %}
+  <main class="home-main">
+    {% include "home.njk" %}
+    {% include "_layouts/footer.nunjucks" %}
+  </main>
 </div>
 {% endblock %}

@@ -1,4 +1,8 @@
 ---
+- label: 'Home'
+  route: '/'
+  description: 'High level information about the Vatterott Foundation'
+
 - label: 'Who We Help'
   route: '/who-we-help'
   description: "List of all organizations we've helped in recent years"

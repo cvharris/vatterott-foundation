@@ -13,5 +13,8 @@
       </a>
       {% endfor %}
     </div>
+    <div id="menu-reveal" class="menu-button-container right">
+      Menu&nbsp;<i class="fa fa-bars"></i>
+    </div>
   </div>
 </div>

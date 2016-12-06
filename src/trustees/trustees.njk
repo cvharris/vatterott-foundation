@@ -1,27 +1,25 @@
-<main>
-  <div class="container">
-    <h1 class="page-title">Board of Trustees</h1>
-    <p class="page-description">
-      In adherence to the Vatterott Foundation's tradition of strong family relationships, each board member descends from one of the founders' 10 siblings.
-    </p>
-    <div class="trustees-list">
-      {% for trustee in site.data.trustees %}
-      <div class="trustee">
-        <div class="trustee-information">
-          <h3 class="trustee-name">{{ trustee.name }}</h3>
-        </div>
+<div class="container">
+  <h1 class="page-title">Board of Trustees</h1>
+  <p class="page-description">
+    In adherence to the Vatterott Foundation's tradition of strong family relationships, each board member descends from one of the founders' 10 siblings.
+  </p>
+  <div class="trustees-list">
+    {% for trustee in site.data.trustees %}
+    <div class="trustee">
+      <div class="trustee-information">
+        <h3 class="trustee-name">{{ trustee.name }}</h3>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </div>
-  <div class="administrator">
-    <h2>Administrator</h2>
-    <div class="trustees-list">
-      <div class="trustee">
-        <div class="trustee-information">
-          <h3 class="trustee-name">William Vatterott</h3>
-        </div>
+</div>
+<div class="administrator">
+  <h2>Administrator</h2>
+  <div class="trustees-list">
+    <div class="trustee">
+      <div class="trustee-information">
+        <h3 class="trustee-name">William Vatterott</h3>
       </div>
     </div>
   </div>
-</main>
+</div>

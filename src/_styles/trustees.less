@@ -10,7 +10,7 @@
   align-items: center;
   margin-bottom: 3rem;
   max-width: @content-width / 2;
-  flex: 0 0 25%;
+  flex: 0 0 100%;
 
   .image-container {
     flex: 0 0 225px;
@@ -20,6 +20,10 @@
   p {
     margin: 0;
   }
+
+  @media (min-width: @tablet) {
+    flex: 0 0 25%;
+  }
 }
 
 .trustee-information {
@@ -28,9 +32,13 @@
 }
 
 .trustee-name {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1;
   margin-bottom: 0;
+
+  @media (min-width: @tablet) {
+    font-size: 1.2rem;
+  }
 }
 
 .administrator {

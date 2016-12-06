@@ -6,7 +6,7 @@
  * rem Sizing Base
  */
 html {
-  font-size: 12px;
+  font-size: 13px;
 
   @media (min-width: @tablet) {
     font-size: @base-font-size;
@@ -48,7 +48,14 @@ ul, ol, dl {
  * Lists
  */
 ul, ol {
-  margin-left: @spacing-unit;
+  margin-left: 0;
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: @tablet) {
+    margin-left: @spacing-unit;
+    padding-left: 2.5rem;
+  }
 }
 
 li {

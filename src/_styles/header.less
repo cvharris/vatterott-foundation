@@ -1,7 +1,7 @@
 .site-header {
   position: absolute;
   width: 100%;
-  z-index: 9;
+  z-index: 11;
   top: 0;
 
   @media (min-width: @tablet) {
@@ -24,11 +24,15 @@
     }
 
     h1 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 700;
       line-height: 1.5;
       margin: 0;
     }
+  }
+
+  small {
+    font-size: 1rem;
   }
 
   @media (min-width: @tablet) {
@@ -36,6 +40,10 @@
 
     a {
       padding-right: 1rem;
+    }
+
+    small {
+      font-size: 80%;
     }
   }
 }
@@ -73,6 +81,10 @@
       &::after{
         border-bottom: 2px solid @red-color;
       }
+    }
+
+    &:first-child {
+      display: none;
     }
   }
 

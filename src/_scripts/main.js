@@ -9,6 +9,24 @@ import 'waypoints';
 $(() => {
   const jWindow = $(window);
 
+  let sidebarVisible = false;
+
+  const body = $('body');
+
+  $('#menu-reveal').click(function() {
+    sidebarVisible = !sidebarVisible;
+    if (sidebarVisible) {
+      body.addClass('menuOpen');
+    } else {
+      body.removeClass('menuOpen');
+    }
+  });
+
+  $('.section-link').click(function() {
+    body.removeClass('menuOpen');
+    sidebarVisible = false;
+  });
+
   if (window.location.pathname === '/' && jWindow.width() >= 600) {
     const topSection = $('#top-splash')
     const middleSection = $('#mission-statement')

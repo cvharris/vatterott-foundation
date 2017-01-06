@@ -36,6 +36,27 @@
   }
 }
 
+#vfyb-about {
+
+  .figures {
+    display: block;
+
+    @media (min-width: @tablet) {
+      display: flex;
+    }
+  }
+}
+
+iframe {
+  height: 200px;
+  width: 100%;
+
+  @media (min-width: @tablet) {
+    height: 360px;
+    width: 640px;
+  }
+}
+
 h4.grant-requirement {
   line-height: 1.5;
 }

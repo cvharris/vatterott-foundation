@@ -10,8 +10,10 @@
   {% include "_layouts/header.nunjucks" %}
   {% include "nav.njk" %}
   <main>
-    {% include "applications/new-application/new-application.njk" %}
+    {% include "applications/new-application/new-application.html" %}
     {% include "_layouts/footer.nunjucks" %}
   </main>
 </div>
+<script src="<$ baseUrl $>scripts/application.js"></script>
+<script src="<$ baseUrl $>scripts/templates.js"></script>
 {% endblock %}

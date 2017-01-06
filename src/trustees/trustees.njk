@@ -7,7 +7,7 @@
     {% for trustee in site.data.trustees %}
     <div class="trustee">
       <div class="trustee-information">
-        <h3 class="trustee-name">{{ trustee.name }}</h3>
+        <h3 class="trustee-name"><$ trustee.name $></h3>
       </div>
     </div>
     {% endfor %}

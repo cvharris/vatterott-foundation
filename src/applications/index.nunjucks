@@ -10,7 +10,7 @@
   {% include "_layouts/header.nunjucks" %}
   {% include "nav.njk" %}
   <main>
-    {% include "applications/grants.njk" %}
+    {% include "applications/applications.njk" %}
     {% include "_layouts/footer.nunjucks" %}
   </main>
 </div>

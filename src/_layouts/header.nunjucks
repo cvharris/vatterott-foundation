@@ -8,8 +8,8 @@
     </div>
     <div class="menu">
       {% for item in site.data.menu %}
-      <a title="{{ item.description }}" href="{{ item.route }}" class="menu-item">
-        {{ item.label }}
+      <a title="<$  item.description  $>" href="<$  item.route  $>" class="menu-item">
+        <$  item.label  $>
       </a>
       {% endfor %}
     </div>

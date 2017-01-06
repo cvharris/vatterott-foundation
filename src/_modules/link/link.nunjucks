@@ -8,11 +8,11 @@
 {% set _text = spec.text or 'Default Link' %}
 
 <a
-  id="{{_id}}"
-  class="link {{_class}}"
-  href="{{_href}}"
-  target="{{_target}}"
+  id="<$ _id $>"
+  class="link <$ _class $>"
+  href="<$ _href $>"
+  target="<$ _target $>"
 >
-{{_text}}
+<$ _text $>
 </a>
 {% endmacro %}

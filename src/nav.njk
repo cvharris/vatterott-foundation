@@ -2,8 +2,8 @@
 <nav id="main-menu" class="right nav-menu">
   <div class="menu-section">
     {% for section in site.data.menu %}
-      <a href="{{section.route}}" class="section-link">
-        {{section.label}}
+      <a href="<$ section.route $>" class="section-link">
+        <$ section.label $>
       </a>
     {% endfor %}
   </div>

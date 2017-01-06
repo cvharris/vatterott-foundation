@@ -65,19 +65,19 @@
     <div class="year-selectors">
       {% for year in site.data.vfybGrants %}
       <div class="year-selector">
-        <h3 data-active="{{ year.year }}-orgs">{{ year.year }}</h2>
+        <h3 data-active="<$ year.year $>-orgs"><$ year.year $></h2>
         </div>
         {% endfor %}
       </div>
       <div class="all-organizations">
         {% for year in site.data.vfybGrants %}
-        <div id="{{ year.year }}-orgs" class="years-organizations">
+        <div id="<$ year.year $>-orgs" class="years-organizations">
           {% for org in year.orgs %}
           <dl class="organization">
-            <dt><a class="organization-link" href="{{ org.link }}" target="_blank">
-              <h4 class="organization-name">{{ org.name }}</h3>
+            <dt><a class="organization-link" href="<$ org.link $>" target="_blank">
+              <h4 class="organization-name"><$ org.name $></h3>
               </a></dt>
-              <dd class="organization-description">{{ org.description }}</dd>
+              <dd class="organization-description"><$ org.description $></dd>
             </dl>
             {% endfor %}
           </div>

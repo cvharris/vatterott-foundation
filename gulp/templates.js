@@ -12,6 +12,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         module: 'vf-app'
       }))
       .pipe(plugins.changed(dest))
-      .pipe(gulp.dest(dest));
+      .pipe(gulp.dest(dest))
+      .on('end', browserSync.reload);
   })
 }

@@ -1,1 +1,18 @@
-<h1>Hello{{loginForm.name}}</h1>
+<p>To apply for a grant or manage a previous application, please sign in or register for an account</p>
+<button ng-click="loginForm.newUser = true">Register</button>
+<button ng-click="loginForm.newUser = false">Sign In</button>
+<form name="credentialsForm" ng-submit="loginForm.submitCredentials()">
+  <fieldset>
+    <legend class="form-description">{{loginForm.type}}</legend>
+    <label for="email">
+      E-mail address
+      <input name="email" ng-model="loginForm.email" required />
+    </label>
+    <label for="authentication">
+      Password
+      <input name="authentication" ng-model="loginForm.authentication" required />
+    </label>
+    <button class="secondary" ng-click="loginForm.cancel()">Cancel</button>
+    <button class="primary" type="submit">{{loginForm.type}}</button>
+  </fieldset>
+</form>

@@ -14,6 +14,6 @@
     {% include "_layouts/footer.nunjucks" %}
   </main>
 </div>
-<script src="<$ baseUrl $>scripts/application.js"></script>
+<script src="<$ baseUrl $>scripts/mainApp.js"></script>
 <script src="<$ baseUrl $>scripts/templates.js"></script>
 {% endblock %}

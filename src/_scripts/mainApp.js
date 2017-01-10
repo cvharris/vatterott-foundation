@@ -27,12 +27,19 @@ ngModule.config(function ($urlRouterProvider, $stateProvider) {
     url: '/',
     template: '<grant-application></grant-application>',
     resolve: {
-      authorized: function ($q, $timeout) {
-        var deferred = $q.defer();
-        $timeout(function(){
-          deferred.reject("Not Authorized");
-        }, 500);
-        return deferred.promise;
+      uploadedFiles: function (localStorageService, GrantApplication, $state, loginToken) {
+        const token = localStorageService.get(loginToken);
+        if (!token) {
+          $state.go("login")
+        }
+
+        return GrantApplication.query((data) => {
+          return data
+        }, (error) => {
+          if (error.status === 401) {
+            $state.go("login")
+          }
+        })
       }
     }
   })
@@ -54,7 +61,7 @@ ngModule.controller('MainCtrl', function($rootScope, $state) {
   const ctrl = this
 
   ctrl.$onInit = function() {
-    ctrl.fart = 'derp!'
+
   }
 
   $rootScope.$on('$stateChangeError', function(e, toState, toParams, fromState, fromParams, error) {
@@ -65,5 +72,8 @@ ngModule.controller('MainCtrl', function($rootScope, $state) {
 })
 
 ngModule.config((localStorageServiceProvider) => {
-  localStorageServiceProvider.setPrefix('wwtOrderStatus')
+  localStorageServiceProvider.setPrefix('vatterottFoundation')
 })
+
+ngModule.constant('baseUrl', '/api')
+ngModule.constant('loginToken', 'login-token')

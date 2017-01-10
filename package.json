@@ -55,7 +55,9 @@
     "lodash": "~4.0.0",
     "minimist": "~1.2.0",
     "nunjucks": "~2.4.0",
+    "proxy-middleware": "^0.15.0",
     "rimraf": "~2.5.0",
+    "url": "^0.11.0",
     "vinyl-buffer": "~1.0.0",
     "vinyl-source-stream": "~1.1.0",
     "watchify": "~3.7.0 ",
@@ -67,8 +69,10 @@
   "engines": {
     "node": ">=0.12.0"
   },
-  "browserify" : {
-    "transform": [ "browserify-shim" ]
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
   },
   "browser": {
     "waypoints": "./node_modules/waypoints/lib/jquery.waypoints.min.js"

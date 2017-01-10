@@ -6,7 +6,6 @@ const loginComp = {
 
     ctrl.$onInit = function() {
       ctrl.name = ', Nina!'
-
     }
 
     ctrl.apiStuff = $resource('/applications', {}, {})

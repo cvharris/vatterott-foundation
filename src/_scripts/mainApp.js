@@ -25,7 +25,7 @@ const ngModule = angular.module('vf-app', [
 ngModule.config(function ($urlRouterProvider, $stateProvider) {
   $stateProvider.state('grantApplication', {
     url: '/',
-    template: '<grant-application></grant-application>',
+    component: 'grantApplication',
     resolve: {
       uploadedFiles: function (localStorageService, GrantApplication, $state, loginToken) {
         const token = localStorageService.get(loginToken);
@@ -46,12 +46,17 @@ ngModule.config(function ($urlRouterProvider, $stateProvider) {
 
   $stateProvider.state('login', {
     url: '/login',
-    template: '<login-form></login-form>'
+    component: 'loginForm',
+    resolve: {
+      isNewUser: function (localStorageService, loginToken) {
+        return !localStorageService.get(loginToken)
+      }
+    }
   })
 
   $stateProvider.state('logout', {
     url: '/logout',
-    template: '<logout-page></logout-page>'
+    component: 'logoutPage'
   })
 
   $urlRouterProvider.otherwise('/login')
@@ -77,3 +82,4 @@ ngModule.config((localStorageServiceProvider) => {
 
 ngModule.constant('baseUrl', '/api')
 ngModule.constant('loginToken', 'login-token')
+ngModule.constant('localUser', 'vfUser')

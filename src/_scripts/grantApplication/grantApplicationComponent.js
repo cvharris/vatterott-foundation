@@ -1,6 +1,9 @@
 const grantApp = {
   templateUrl: 'grantApplication/grantApplication.html',
   controllerAs: 'grantApp',
+  bindings: {
+    uploadedFiles: '<'
+  },
   controller: function($resource) {
     const ctrl = this
 

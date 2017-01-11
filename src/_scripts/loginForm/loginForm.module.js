@@ -1,6 +1,8 @@
 import loginFormComp from './loginFormComponent'
-import authFactory from './Auth'
+import userFactory from './User'
+import encodeCreds from './encodeCreds'
 
 module.exports = angular.module('loginForm', [])
   .component('loginForm', loginFormComp)
-  .factory('Auth', authFactory)
+  .factory('User', userFactory)
+  .factory('encodeCreds', encodeCreds)

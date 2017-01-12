@@ -1,5 +1,6 @@
 const userFactory = function ($resource, baseUrl, appReqAuthFactory, appResDecorator, encodeCreds) {
   return function (customHeaders) {
+    // TODO: Yeah...I screwed up making most of these GETs, thinking I didn't have SSL
     const methods = {
       getCurrentUser: {
         methods: 'GET',
@@ -8,8 +9,9 @@ const userFactory = function ($resource, baseUrl, appReqAuthFactory, appResDecor
       },
       login: {
         url: `${baseUrl}/user/login`,
-        methods: 'POST',
-        headers: customHeaders || {}
+        methods: 'GET',
+        headers: customHeaders || {},
+        transformResponse: appResDecorator
       },
       logout: {
         url: `${baseUrl}/user/logout`,

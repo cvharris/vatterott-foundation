@@ -13,6 +13,14 @@
           <p><strong>Your registration was successful!</strong></p>
           <p>Redirecting you now...</p>
         </ng-message>
+        <ng-message when="signedIn">
+          <p><strong>Signed in!</strong></p>
+          <p>Redirecting you now...</p>
+        </ng-message>
+        <ng-message when="incorrectAuth">
+          <p><strong>Incorrect email and password</strong></p>
+          <p>Please try again</p>
+        </ng-message>
       </ng-messages>
 
       <label for="email"> E-mail address </label>
@@ -26,7 +34,7 @@
     </fieldset>
   </form>
   <div class="form-footer">
-    <button ng-if="!loginForm.isNewUser" ng-click="loginForm.isNewUser = true">Register</button>
-    <button ng-if="loginForm.isNewUser" ng-click="loginForm.isNewUser = false">Sign In</button>
+    <button ng-if="!loginForm.isNewUser" ng-click="loginForm.changeFormType()">Register</button>
+    <button ng-if="loginForm.isNewUser" ng-click="loginForm.changeFormType()">Sign In</button>
   </div>
 </div>

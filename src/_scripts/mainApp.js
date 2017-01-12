@@ -27,7 +27,7 @@ ngModule.config(function ($urlRouterProvider, $stateProvider) {
     url: '/',
     component: 'grantApplication',
     resolve: {
-      uploadedFiles: function (localStorageService, GrantApplication, $state, loginToken) {
+      currentApplication: function (localStorageService, GrantApplication, $state, loginToken) {
         const token = localStorageService.get(loginToken);
         if (!token) {
           $state.go("login")

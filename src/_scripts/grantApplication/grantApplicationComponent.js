@@ -2,13 +2,19 @@ const grantApp = {
   templateUrl: 'grantApplication/grantApplication.html',
   controllerAs: 'grantApp',
   bindings: {
-    uploadedFiles: '<'
+    currentApplication: '<'
   },
-  controller: function($resource) {
+  controller: function($scope, Upload) {
     const ctrl = this
 
     ctrl.$onInit = function() {
 
+    }
+
+    ctrl.uploadForm = function() {
+      if ($scope.grantAppForm.$valid) {
+
+      }
     }
 
   }

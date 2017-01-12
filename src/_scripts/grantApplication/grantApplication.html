@@ -1,1 +1,30 @@
-<h1>Grant Applicaiton</h1>
+<p>You must upload all of these files before the deadline to submit a valid application, but you don't have to upload every file all at once.</p>
+<p>Upload one file now and come back before the deadline. We'll save your progress till you come back.</p>
+<form name="grantAppForm" ng-submit="grantApp.uploadForm()">
+  <label for="company">Organization Name</label>
+  <input type="text" name="company" required ng-model="currentApplication.company" placeholder="ex. Non-Profits 'R Us" />
+
+  <label for="name">Contact Name</label>
+  <input type="text" name="name" ng-model="currentApplication.name" required placeholder="ex. Charles Vatterott" />
+
+  <label for="phone">Contact Phone #</label>
+  <input type="text" name="name" ng-model="currentApplication.phone" required placeholder="ex. 314-222-2222" />
+
+  <fieldset>
+    <legend class="section-description">&nbsp;We ask that you submit the following documents:&nbsp;</legend>
+
+    <label for="application">Application Form (<a href="/public/VF_Application_Form.docx">download</a>)</label>
+    <input id="application" type="file" ngf-select ngf-max-size="2MB" name="fullForm" ng-model="currentApplication.fullForm" />
+
+    <label for="project-budget">Project Budget Template Form (<a href="/public/VF_Budget_Template_form.xls">download</a>)</label>
+    <input id="project-budget" type="file" ngf-select ngf-max-size="2MB" name="projectBudget" ng-model="currentApplication.projectBudget" />
+
+    <label for="current-budget">Current Organizational Budget</label>
+    <input id="current-budget" type="file" ngf-select ngf-max-size="2MB" name="orgBudget" ng-model="currentApplication.orgBudget" />
+
+    <label for="irs-letter">IRS Letter of Determination</label>
+    <input id="irs-letter" type="file" ngf-select ngf-max-size="2MB" name="irsLetter" ng-model="currentApplication.irsLetter" />
+
+  </fieldset>
+  <button type="submit" class="primary">Upload Files</button>
+</form>

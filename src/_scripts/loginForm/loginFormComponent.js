@@ -9,13 +9,15 @@ const loginComp = {
 
     ctrl.$onInit = function() {
       ctrl.type = ctrl.isNewUser ? 'Register' : 'Sign In'
-      ctrl.messages = {}
+      ctrl.resetFormMessages()
     }
 
     ctrl.submitCredentials = function() {
+      ctrl.resetFormMessages()
+      const auth = encodeCreds(ctrl.email, ctrl.authentication)
+      ctrl.user = new User(auth)
+
       if (ctrl.isNewUser) {
-        const auth = encodeCreds(ctrl.email, ctrl.authentication)
-        ctrl.user = new User(auth)
         ctrl.user.register(data => {
           ctrl.messages.registered = true
           $timeout(() => {
@@ -27,8 +29,15 @@ const loginComp = {
           }
         })
       } else {
-        User.login(creds, result => {
-          console.log(result);
+        ctrl.user.login(data => {
+          ctrl.messages.signedIn = true
+          $timeout(() => {
+            $state.go('grantApplication')
+          }, 1500)
+        }, error => {
+          if (error.data.message === 'Incorrect password and e-mail!') {
+            ctrl.messages.incorrectAuth = true
+          }
         })
       }
     }
@@ -37,6 +46,10 @@ const loginComp = {
       ctrl.messages = {}
     }
 
+    ctrl.changeFormType = function () {
+      ctrl.isNewUser = !ctrl.isNewUser
+      ctrl.type = ctrl.isNewUser ? 'Register' : 'Sign In'
+    }
   }
 }
 

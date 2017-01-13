@@ -1,19 +1,32 @@
+import _ from 'lodash'
+
 const applicationsFactory = function ($resource, baseUrl, appReqAuthFactory, appResDecorator) {
   const methods = {
     getOne: {
-      methods: 'GET'
+      method: 'GET'
     },
     query: {
-      methods: 'GET',
+      method: 'GET',
       headers: appReqAuthFactory(),
       transformResponse: appResDecorator,
       isArray: true
     },
-    uploadFiles: {
-      methods: 'POST'
+    save: {
+      method: 'POST',
+      headers: _.assign(appReqAuthFactory(), {'Content-Type' : undefined}),
+      transformRequest: data => {
+        const payload = new FormData()
+
+        for (let key in data) {
+          if (data.hasOwnProperty(key)) {
+            payload.append(key, data[key])
+          }
+        }
+        return payload
+      }
     },
     removeFile: {
-      methods: 'DELETE'
+      method: 'DELETE'
     }
   }
 

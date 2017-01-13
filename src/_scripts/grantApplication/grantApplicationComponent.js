@@ -9,15 +9,41 @@ const grantApp = {
     const ctrl = this
 
     ctrl.$onInit = function() {
-
+      ctrl.resetFormMessages()
     }
 
     ctrl.uploadForm = function() {
-      if ($scope.grantAppForm.$valid) {
-
+      if ($scope.grantAppForm.$invalid) {
+        ctrl.messages.unfinished = true
+        return
       }
+
+      if (!hasAtLeastOneUploadedFile()) {
+        ctrl.messages.needFile = true
+        return
+      }
+      ctrl.currentApplication.$save(data => {
+        console.log(data);
+      }, error => {
+        console.log(error);
+      })
     }
 
+    function hasAtLeastOneUploadedFile() {
+      if (
+        ctrl.currentApplication.applicationForm ||
+        ctrl.currentApplication.projectBudget ||
+        ctrl.currentApplication.orgBudget ||
+        ctrl.currentApplication.irsLetter) {
+        return true
+      }
+
+      return false
+    }
+
+    ctrl.resetFormMessages = function() {
+      ctrl.messages = {}
+    }
   }
 }
 module.exports = grantApp

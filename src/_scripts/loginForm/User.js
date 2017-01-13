@@ -3,23 +3,23 @@ const userFactory = function ($resource, baseUrl, appReqAuthFactory, appResDecor
     // TODO: Yeah...I screwed up making most of these GETs, thinking I didn't have SSL
     const methods = {
       getCurrentUser: {
-        methods: 'GET',
+        method: 'GET',
         headers: appReqAuthFactory(),
         transformResponse: appResDecorator
       },
       login: {
         url: `${baseUrl}/user/login`,
-        methods: 'GET',
+        method: 'POST',
         headers: customHeaders || {},
         transformResponse: appResDecorator
       },
       logout: {
         url: `${baseUrl}/user/logout`,
-        methods: 'POST'
+        method: 'POST'
       },
       register: {
         url: `${baseUrl}/user/new`,
-        methods: 'GET',
+        method: 'POST',
         headers: customHeaders || {},
         transformResponse: appResDecorator
       }

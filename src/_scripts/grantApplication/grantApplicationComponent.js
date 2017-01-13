@@ -2,7 +2,8 @@ const grantApp = {
   templateUrl: 'grantApplication/grantApplication.html',
   controllerAs: 'grantApp',
   bindings: {
-    currentApplication: '<'
+    currentApplication: '<',
+    user: '<'
   },
   controller: function($scope, Upload) {
     const ctrl = this

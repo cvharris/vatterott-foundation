@@ -27,19 +27,30 @@ ngModule.config(function ($urlRouterProvider, $stateProvider) {
     url: '/',
     component: 'grantApplication',
     resolve: {
-      currentApplication: function (localStorageService, GrantApplication, $state, loginToken) {
+      user: function (localStorageService, loginToken, $state, User) {
         const token = localStorageService.get(loginToken);
         if (!token) {
           $state.go("login")
         }
 
-        return GrantApplication.query((data) => {
-          return data
+        return User().getCurrentUser()
+      },
+      currentApplication: function (GrantApplication, $state, $q) {
+        const deferred = $q.defer()
+
+        GrantApplication.query((data) => {
+          if (data.length === 0) {
+            deferred.resolve(new GrantApplication)
+          } else {
+            deferred.resolve(data[0])
+          }
         }, (error) => {
           if (error.status === 401) {
             $state.go("login")
           }
         })
+
+        return deferred.promise
       }
     }
   })

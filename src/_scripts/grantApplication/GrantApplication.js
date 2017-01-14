@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-const applicationsFactory = function ($resource, baseUrl, appReqAuthFactory, appResDecorator) {
+const applicationsFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAuthFactory, appResDecorator) {
   const methods = {
     getOne: {
       method: 'GET',

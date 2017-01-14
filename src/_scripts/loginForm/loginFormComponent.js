@@ -4,7 +4,7 @@ const loginComp = {
   bindings: {
     isNewUser: '<'
   },
-  controller: function(localStorageService, loginToken, User, $state, encodeCreds, $timeout) {
+  controller: /*@ngInject*/ function(User, $state, encodeCreds, $timeout) {
     const ctrl = this
 
     ctrl.$onInit = function() {

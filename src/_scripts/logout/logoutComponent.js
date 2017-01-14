@@ -1,7 +1,7 @@
 const logoutComp = {
   templateUrl: 'logout/logout.html'
   controllerAs: 'logout',
-  controller: function() {
+  controller: /*@ngInject*/ function($scope) {
     const ctrl = this
 
     ctrl.$onInit = function() {

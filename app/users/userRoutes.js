@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt')
 
 module.exports = function(log, server, userController, User) {
   const ctrl = userController
-  const root = 'user'
+  const root = 'api/user'
 
   function* verifyUniqueUser(request, reply) {
     const auth = decodeBasicAuth(request)

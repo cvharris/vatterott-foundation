@@ -5,7 +5,7 @@ const grantApp = {
     currentApplication: '<',
     user: '<'
   },
-  controller: function($scope, Upload) {
+  controller: /*@ngInject*/ function ($scope) {
     const ctrl = this
 
     ctrl.$onInit = function() {

@@ -1,4 +1,4 @@
-const userFactory = function ($resource, baseUrl, appReqAuthFactory, appResDecorator, encodeCreds) {
+const userFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAuthFactory, appResDecorator) {
   return function (customHeaders) {
     // TODO: Yeah...I screwed up making most of these GETs, thinking I didn't have SSL
     const methods = {

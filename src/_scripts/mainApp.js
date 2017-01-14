@@ -22,7 +22,7 @@ const ngModule = angular.module('vf-app', [
   grantApp.name
 ])
 
-ngModule.config(function ($urlRouterProvider, $stateProvider) {
+ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
   $stateProvider.state('grantApplication', {
     url: '/',
     component: 'grantApplication',
@@ -73,7 +73,7 @@ ngModule.config(function ($urlRouterProvider, $stateProvider) {
   $urlRouterProvider.otherwise('/login')
 })
 
-ngModule.controller('MainCtrl', function($rootScope, $state) {
+ngModule.controller('MainCtrl', /*@ngInject*/ function($rootScope, $state) {
   const ctrl = this
 
   ctrl.$onInit = function() {
@@ -87,7 +87,7 @@ ngModule.controller('MainCtrl', function($rootScope, $state) {
   })
 })
 
-ngModule.config((localStorageServiceProvider) => {
+ngModule.config(/*@ngInject*/ function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix('vatterottFoundation')
 })
 

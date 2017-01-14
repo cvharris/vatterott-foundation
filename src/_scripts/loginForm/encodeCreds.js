@@ -1,4 +1,4 @@
-function encodeCreds($window) {
+const encodeCreds = /*@ngInject*/ function ($window) {
   return function(username, password) {
     const authString = $window.btoa(`${username}:${password}`)
     return {

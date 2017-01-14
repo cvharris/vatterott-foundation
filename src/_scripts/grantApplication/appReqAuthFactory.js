@@ -1,4 +1,4 @@
-function addReqAuthFactory(localStorageService, loginToken) {
+const appReqAuthFactory = /*@ngInject*/ function(localStorageService, loginToken) {
   return function() {
     return {
       "Authorization": localStorageService.get(loginToken)
@@ -6,4 +6,4 @@ function addReqAuthFactory(localStorageService, loginToken) {
   }
 }
 
-module.exports = addReqAuthFactory
+module.exports = appReqAuthFactory

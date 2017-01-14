@@ -2,7 +2,7 @@
 
 module.exports = function (server, applicationController) {
   const ctrl = applicationController
-  const root = 'application'
+  const root = 'api/application'
 
   server.route({
     method: 'GET',

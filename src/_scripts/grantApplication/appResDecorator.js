@@ -1,4 +1,4 @@
-function appResDecorator(localStorageService, loginToken) {
+const appResDecorator = /*@ngInject*/ function (localStorageService, loginToken) {
   function decorate(data, headers, status) {
     const headerList = headers();
     if (headerList.authorization) {

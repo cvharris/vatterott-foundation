@@ -8,9 +8,9 @@
 {% block content %}
 <div class="main-container">
   {% include "_layouts/header.nunjucks" %}
-  {% include "nav.njk" %}
+  {% include "_layouts/nav.njk" %}
   <main>
-    {% include "trustees/trustees.njk" %}
+    {% include "_layouts/trustees.njk" %}
     {% include "_layouts/footer.nunjucks" %}
   </main>
 </div>

@@ -4,6 +4,9 @@ function appResDecorator(localStorageService, loginToken) {
     if (headerList.authorization) {
       localStorageService.set(loginToken, headerList.authorization)
     }
+    if (!data) {
+      return null
+    }
 
     return angular.fromJson(data)
   }

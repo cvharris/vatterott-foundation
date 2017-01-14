@@ -7,6 +7,8 @@ dist
 ng-cli
 tmp
 .grunt
+config.js
+grantApplications
 
 # dependencies
 node_modules

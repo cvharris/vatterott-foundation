@@ -38,11 +38,11 @@ ngModule.config(function ($urlRouterProvider, $stateProvider) {
       currentApplication: function (GrantApplication, $state, $q) {
         const deferred = $q.defer()
 
-        GrantApplication.query((data) => {
+        GrantApplication.getOne((data) => {
           if (data.length === 0) {
             deferred.resolve(new GrantApplication)
           } else {
-            deferred.resolve(data[0])
+            deferred.resolve(data)
           }
         }, (error) => {
           if (error.status === 401) {

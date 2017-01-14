@@ -3,7 +3,9 @@ import _ from 'lodash'
 const applicationsFactory = function ($resource, baseUrl, appReqAuthFactory, appResDecorator) {
   const methods = {
     getOne: {
-      method: 'GET'
+      method: 'GET',
+      headers: appReqAuthFactory(),
+      transformResponse: appResDecorator
     },
     query: {
       method: 'GET',
@@ -18,7 +20,7 @@ const applicationsFactory = function ($resource, baseUrl, appReqAuthFactory, app
         const payload = new FormData()
 
         for (let key in data) {
-          if (data.hasOwnProperty(key)) {
+          if (data.hasOwnProperty(key) && !data[key].hasOwnProperty('uploaded')) {
             payload.append(key, data[key])
           }
         }

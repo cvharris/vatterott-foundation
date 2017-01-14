@@ -67,14 +67,7 @@ module.exports = function grantControllerFactory(Application, log) {
     return `${Sugar.String.titleize(name)} - ${file.hapi.filename} - ${format(new Date(), 'YYYY-M-D h mA')}`
   }
 
-  return {
-		list: co.wrap(list),
-    download: co.wrap(download),
-    deleteApplication: co.wrap(deleteApplication),
-    upload: co.wrap(upload)
-  }
-
-  function* list(request, reply) {
+  function* ownCurrent(request, reply) {
     // Lists grant applications for the current deadline and the requesting user
     const endDate = endOfDay(subMonths(endOfQuarter(new Date()), 1))
     const startDate = startOfDay(subMonths(subQuarters(endOfQuarter(new Date()), 1), 1))
@@ -89,17 +82,17 @@ module.exports = function grantControllerFactory(Application, log) {
 
     return reply(application)
 
-    // fs.readdir(fileDir, (err, files) => {
-    //   if (err) {
-    //     throw err
-    //   }
-    //
-    //   let data = loadFiles(files)
-    //   data = _.sortBy(data, f => f.created)
-    //
-    //   reply(data).header("Authorization", request.auth.token)
-    // })
 	}
+
+  function* list(request, reply) {
+    // Lists grant applications for the current deadline and the requesting user
+    const endDate = endOfDay(subMonths(endOfQuarter(new Date()), 1))
+    const startDate = startOfDay(subMonths(subQuarters(endOfQuarter(new Date()), 1), 1))
+
+    const application = yield Application.find()
+
+    return reply(application)
+  }
 
 	function* upload(request, reply) {
     let uploadedFiles = Object.keys(request.payload)
@@ -135,10 +128,28 @@ module.exports = function grantControllerFactory(Application, log) {
 	}
 
   function* download(request, reply) {
+    // fs.readdir(fileDir, (err, files) => {
+    //   if (err) {
+    //     throw err
+    //   }
+    //
+    //   let data = loadFiles(files)
+    //   data = _.sortBy(data, f => f.created)
+    //
+    //   reply(data).header("Authorization", request.auth.token)
+    // })
     reply('downloading file')
   }
 
   function* deleteApplication(request, reply) {
     reply(`application "${request.params.application_name}" deleted!`)
+  }
+
+  return {
+		list: co.wrap(list),
+    ownCurrent: co.wrap(ownCurrent),
+    download: co.wrap(download),
+    deleteApplication: co.wrap(deleteApplication),
+    upload: co.wrap(upload)
   }
 }

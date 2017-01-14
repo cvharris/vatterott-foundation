@@ -11,6 +11,7 @@ import ngFileUpload from 'ng-file-upload'
 // Import other modules
 import loginForm from './loginForm/loginForm.module'
 import grantApp from './grantApplication/grantApplication.module'
+import admin from './admin/admin.module'
 
 const ngModule = angular.module('vf-app', [
   'ngResource',
@@ -19,7 +20,8 @@ const ngModule = angular.module('vf-app', [
   'LocalStorageModule',
   'ngFileUpload',
   loginForm.name,
-  grantApp.name
+  grantApp.name,
+  admin.name
 ])
 
 ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
@@ -38,7 +40,7 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
       currentApplication: function (GrantApplication, $state, $q) {
         const deferred = $q.defer()
 
-        GrantApplication.getOne((data) => {
+        GrantApplication.getOwn((data) => {
           if (data.length === 0) {
             deferred.resolve(new GrantApplication)
           } else {
@@ -70,6 +72,16 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
     component: 'logoutPage'
   })
 
+  $stateProvider.state('admin', {
+    url: '/admin',
+    component: 'adminPage',
+    resolve: {
+      applications: function (GrantApplication) {
+        return GrantApplication.query()
+      }
+    }
+  })
+
   $urlRouterProvider.otherwise('/login')
 })
 
@@ -81,6 +93,8 @@ ngModule.controller('MainCtrl', /*@ngInject*/ function($rootScope, $state) {
   }
 
   $rootScope.$on('$stateChangeError', function(e, toState, toParams, fromState, fromParams, error) {
+    console.log('state changed');
+    // TODO: Handle 401 rejection/redirects from admin
     if(error === "Not Authorized") {
       $state.go("login")
     }
@@ -89,6 +103,18 @@ ngModule.controller('MainCtrl', /*@ngInject*/ function($rootScope, $state) {
 
 ngModule.config(/*@ngInject*/ function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix('vatterottFoundation')
+})
+
+ngModule.config(/*@ngInject*/ function ($httpProvider) {
+  $httpProvider.interceptors.push(function($state, $q) {
+    return {
+      responseError: function(res) {
+        if (res.status === 401) {
+          return $q.reject($state.go("login"))
+        }
+      }
+    }
+  })
 })
 
 ngModule.constant('baseUrl', '/api')

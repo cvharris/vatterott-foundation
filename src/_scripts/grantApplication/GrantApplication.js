@@ -2,8 +2,9 @@ import _ from 'lodash'
 
 const applicationsFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAuthFactory, appResDecorator) {
   const methods = {
-    getOne: {
+    getOwn: {
       method: 'GET',
+      url: `${baseUrl}/application/ownCurrent`,
       headers: appReqAuthFactory(),
       transformResponse: appResDecorator
     },

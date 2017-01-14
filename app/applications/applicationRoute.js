@@ -1,13 +1,38 @@
 "use strict"
 
-module.exports = function (server, applicationController) {
+const co = require('co')
+const Boom = require('boom')
+
+module.exports = function (server, applicationController, User) {
   const ctrl = applicationController
   const root = 'api/application'
 
+  function* verifyAdminUser(request, reply) {
+    const user = yield User.findOne({email: request.auth.credentials.email}).exec()
+
+    if (user) {
+      if (!user.admin) {
+        reply(Boom.unauthorized('User is not an admin!'));
+        return;
+      }
+    }
+    return reply(user);
+  }
+
+  server.route({
+    method: 'GET',
+    path: `/${root}/ownCurrent`,
+    config: {
+      handler: ctrl.ownCurrent
+    }
+  })
   server.route({
     method: 'GET',
     path: `/${root}`,
     config: {
+      pre: [{
+        method: co.wrap(verifyAdminUser)
+      }],
       handler: ctrl.list
     }
   })

@@ -1,3 +1,69 @@
 .invisible-input {
   visibility: hidden;
 }
+
+admin-page {
+  display: block;
+  width: 100%;
+  overflow: auto;
+
+  .applications-list {
+
+  }
+
+  td {
+    white-space: nowrap;
+    padding: .5rem 1rem;
+    border: 1px solid @grey-light;
+  }
+
+  th {
+    white-space: nowrap;
+    padding: .25rem 1rem;
+    border: 1px solid @grey-light;
+    border-bottom: 3px solid @grey-light;
+  }
+
+  .file-actions {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .file-button {
+    cursor: pointer;
+    padding: 0 .4rem;
+    border-radius: .5rem;
+    transition: all .5s ease-in-out;
+
+    &.download {
+      background-color: @blue-primary;
+      color: @white;
+
+      &:hover {
+        background-color: @blue-dark;
+        color: @grey-lightest;
+      }
+    }
+
+    &.trash {
+      background-color: @red-color;
+      color: @white;
+
+      &:hover {
+        background-color: @red-dark;
+        color: @grey-lightest;
+      }
+
+      &.secondary {
+        color: @red-color;
+        background-color: @white;
+
+        &:hover {
+          background-color: @white;
+          color: @red-dark;
+        }
+      }
+    }
+
+  }
+}

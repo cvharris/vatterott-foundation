@@ -1,0 +1,90 @@
+<p>Hi Bill!</p>
+<table class="applications-list">
+  <thead>
+    <tr class="grant-application header">
+      <th class="org-col">
+        Organization
+      </th>
+      <th class="contact-col">
+        Contact Info
+      </th>
+      <th class="form-col">
+        Application Form
+      </th>
+      <th class="proj-col">
+        Project Budget
+      </th>
+      <th class="budget-col">
+        Org Budget
+      </th>
+      <th class="irs-col">
+        IRS Letter
+      </th>
+      <th class="update-col">
+        Updated At
+      </th>
+      <th class="action-col">
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="grant-application" ng-repeat="appl in adminCtrl.applications">
+      <td class="org-col">
+        {{appl.company}}
+      </td>
+      <td class="contact-col">
+        {{appl.contactName}} - {{appl.contactPhone}}
+      </td>
+      <td class="form-col">
+        <span class="no-link" ng-show="!appl.applicationForm"></span>
+        <div class="file-actions" ng-show="appl.applicationForm">
+          <span class="file-button download" ng-click="adminCtrl.downloadFile(appl.applicationForm.filename)">
+            <i class="fa fa-download"></i>
+          </span>
+          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.applicationForm.filename)">
+            <i class="fa fa-trash"></i>
+          </span>
+        </div>
+      </td>
+      <td class="proj-col">
+        <span class="no-link" ng-show="!appl.projectBudget"></span>
+        <div class="file-actions" ng-show="appl.projectBudget">
+          <span class="file-button download" ng-click="adminCtrl.downloadFile(appl.projectBudget.filename)">
+            <i class="fa fa-download"></i>
+          </span>
+          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.projectBudget.filename)">
+            <i class="fa fa-trash"></i>
+          </span>
+        </div>
+      </td>
+      <td class="budget-col">
+        <span class="no-link" ng-show="!appl.orgBudget"></span>
+        <div class="file-actions" ng-show="appl.orgBudget">
+          <span class="file-button download" ng-click="adminCtrl.downloadFile(appl.orgBudget.filename)">
+            <i class="fa fa-download"></i>
+          </span>
+          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.orgBudget.filename)">
+            <i class="fa fa-trash"></i>
+          </span>
+        </div>
+      </td>
+      <td class="irs-col">
+        <span class="no-link" ng-show="!appl.irsLetter"></span>
+        <div class="file-actions" ng-show="appl.irsLetter">
+          <span class="file-button download" ng-click="adminCtrl.downloadFile(appl.irsLetter.filename)">
+            <i class="fa fa-download"></i>
+          </span>
+          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.irsLetter.filename)">
+            <i class="fa fa-trash"></i>
+          </span>
+        </div>
+      </td>
+      <td class="update-col">
+        {{appl.updatedAt | date:'M/d/yy'}}
+      </td>
+      <td class="action-col">
+        <span class="file-button trash" ng-click="adminCtrl.deleteApplication(appl.id)"><i class="fa fa-trash"></i></span>
+      </td>
+    </tr>
+  </tbody>
+</table>

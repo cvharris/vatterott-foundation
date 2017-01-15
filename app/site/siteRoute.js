@@ -10,7 +10,7 @@ module.exports = function(server) {
     },
     handler: {
       directory: {
-        path: 'tmp',
+        path: 'build',
         index: true
       }
     }

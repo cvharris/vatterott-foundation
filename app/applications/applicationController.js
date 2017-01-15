@@ -137,7 +137,7 @@ module.exports = function grantControllerFactory(Application, log) {
   }
 
   function* deleteApplication(request, reply) {
-    reply(`application "${request.params.application_name}" deleted!`)
+    return reply(Application.findByIdAndRemove(request.params.application_name))
   }
 
   function* deleteFile(request, reply) {

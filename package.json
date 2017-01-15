@@ -58,6 +58,7 @@
     "joi": "9.0.4",
     "jquery": "2.2.0",
     "js-yaml": "3.5.2",
+    "less": "2.7.2",
     "lodash": "4.17.2",
     "mongoose": "4.7.5",
     "minimist": "1.2.0",

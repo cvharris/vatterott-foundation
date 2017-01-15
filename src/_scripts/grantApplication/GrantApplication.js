@@ -14,6 +14,15 @@ const applicationsFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAu
       transformResponse: appResDecorator,
       isArray: true
     },
+    downloadFile: {
+      method: 'GET',
+      url: `${baseUrl}/application/:filename`,
+      headers: appReqAuthFactory(),
+      responseType: 'arraybuffer',
+      transformResponse: (data, headersGetter) => {
+        return {data: data, headers: headersGetter()}
+      }
+    },
     save: {
       method: 'POST',
       headers: _.assign(appReqAuthFactory(), {'Content-Type' : undefined}),
@@ -28,12 +37,21 @@ const applicationsFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAu
         return payload
       }
     },
+    removeApplication: {
+      method: 'DELETE',
+      url: `${baseUrl}/application/:appId`,
+      headers: appReqAuthFactory(),
+      transformResponse: appResDecorator
+    },
     removeFile: {
-      method: 'DELETE'
+      method: 'DELETE',
+      url: `${baseUrl}/application/:appId/file/:filename`,
+      headers: appReqAuthFactory(),
+      transformResponse: appResDecorator
     }
   }
 
-  return $resource(`${baseUrl}/application/:applicationName`, {}, methods)
+  return $resource(`${baseUrl}/application`, {}, methods)
 }
 
 module.exports = applicationsFactory

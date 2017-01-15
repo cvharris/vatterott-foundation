@@ -38,14 +38,21 @@ module.exports = function (server, applicationController, User) {
   })
   server.route({
     method: 'GET',
-    path: `/${root}/{application_name}`,
+    path: `/${root}/{filename}`,
     config: {
       handler: ctrl.download
     }
   })
   server.route({
     method: 'DELETE',
-    path: `/${root}/{application_name}`,
+    path: `/${root}/{application_id}/file/{filename}`,
+    config: {
+      handler: ctrl.deleteFile
+    }
+  })
+  server.route({
+    method: 'DELETE',
+    path: `/${root}/{application_id}`,
     config: {
       handler: ctrl.deleteApplication
     }

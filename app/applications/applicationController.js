@@ -2,6 +2,7 @@
 
 const co = require('co')
 const fs = require('fs')
+const mime = require('mime')
 const path = require('path')
 const root = path.dirname(require.main.filename)
 const Boom = require('boom')
@@ -54,7 +55,6 @@ module.exports = function grantControllerFactory(Application, log) {
 
     return new Promise(resolve => {
       file.on('end', function(err) {
-        log.info('ended!')
         resolve({
           filename: file.hapi.filename,
           headers: file.hapi.headers
@@ -64,7 +64,7 @@ module.exports = function grantControllerFactory(Application, log) {
   }
 
   function generateFilename(file, name) {
-    return `${Sugar.String.titleize(name)} - ${file.hapi.filename} - ${format(new Date(), 'YYYY-M-D h mA')}`
+    return `${Sugar.String.underscore(name)}-${format(new Date(), 'YYYY-M-D-hmA')}-${Sugar.String.underscore(file.hapi.filename)}`
   }
 
   function* ownCurrent(request, reply) {
@@ -128,21 +128,20 @@ module.exports = function grantControllerFactory(Application, log) {
 	}
 
   function* download(request, reply) {
-    // fs.readdir(fileDir, (err, files) => {
-    //   if (err) {
-    //     throw err
-    //   }
-    //
-    //   let data = loadFiles(files)
-    //   data = _.sortBy(data, f => f.created)
-    //
-    //   reply(data).header("Authorization", request.auth.token)
-    // })
-    reply('downloading file')
+    const filePath = `${fileDir}/${request.params.filename}`
+    const mimetype = mime.lookup(filePath)
+
+    fs.readFile(filePath, (err, data) => {
+      return reply(null, data).header('Content-disposition', `attachment; filename=${request.params.filename}`).header('Content-type', mimetype)
+    })
   }
 
   function* deleteApplication(request, reply) {
     reply(`application "${request.params.application_name}" deleted!`)
+  }
+
+  function* deleteFile(request, reply) {
+    reply(`file deleted!`)
   }
 
   return {
@@ -150,6 +149,7 @@ module.exports = function grantControllerFactory(Application, log) {
     ownCurrent: co.wrap(ownCurrent),
     download: co.wrap(download),
     deleteApplication: co.wrap(deleteApplication),
+    deleteFile: co.wrap(deleteFile),
     upload: co.wrap(upload)
   }
 }

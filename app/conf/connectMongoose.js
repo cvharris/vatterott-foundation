@@ -2,16 +2,18 @@
 
 const mongoose = require('mongoose')
 
-const databaseName = 'vatterottFoundation'
+const localConnection = 'mongodb://127.0.0.1:27017/vatterottFoundation'
 mongoose.Promise = global.Promise
 
 module.exports = function (log) {
-  log.info('Connecting to MongoDb.', {
-    databaseName
-  })
 
+  const connUrl = process.env.MONGODB_URI || localConnection
   const options = {
     promiseLibrary: global.Promise
   }
-  mongoose.connect(`mongodb://127.0.0.1:27017/${databaseName}`, options)
+  mongoose.connect(`${connUrl}`, options)
+
+  log.info('Connecting to MongoDb.', {
+    connUrl
+  })
 }

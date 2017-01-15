@@ -1,7 +1,11 @@
 "use strict"
 
-module.exports = function(server) {
-  // TODO: add env flag for local dev vs production to point to right dir
+const dir = process.env.ENV === 'production' ? 'build' : 'tmp'
+
+module.exports = function(server, log) {
+  log.info('Setting static file', {
+    dir
+  })
   server.route({
     method: 'GET',
     path: '/{folder*}',
@@ -10,7 +14,7 @@ module.exports = function(server) {
     },
     handler: {
       directory: {
-        path: 'build',
+        path: dir,
         index: true
       }
     }

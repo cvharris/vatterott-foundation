@@ -3,7 +3,7 @@
 const co = require('co')
 const good = require('good')
 const Boom = require('boom')
-const secret = require('../config.js')
+const secret = process.env.SECRET_KEY || require('../config.js')
 
 // Log ops info very rarely when running locally. Time is in milliseconds.
 const monitoringInterval = process.env['ENV'] === 'prod' ? 60 * 1000 : 60 * 60 * 1000

@@ -4,7 +4,7 @@ const co = require('co')
 const bcrypt = require('bcrypt')
 const Boom = require('boom')
 const jwt = require('jsonwebtoken')
-const secret = require('../../config.js')
+const secret = process.env.SECRET_KEY || require('../../config.js')
 
 module.exports = function(log, User) {
 
@@ -82,7 +82,7 @@ module.exports = function(log, User) {
     user.password = hash
     yield user.save()
 
-    const token = createToken(user)
+    const token = yield createToken(user)
     // If the user is saved successfully, issue a JWT
     return reply(user).header("Authorization", token).code(201)
   }

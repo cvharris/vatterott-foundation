@@ -1,6 +1,9 @@
 <div class="container">
-  <h1 class="page-title">New Application</h1>
   <div class="" ng-app="vf-app" ng-controller="MainCtrl as main" id="ng-app">
-    <div ui-view></div>
+    <ui-view>
+      <div class="loading-container">
+        <i class="fa fa-spinner fa-pulse fa-5x"></i>
+      </div>
+    </ui-view>
   </div>
 </div>

@@ -4,17 +4,19 @@ const co = require('co')
 const fs = require('fs')
 const mime = require('mime')
 const path = require('path')
-const root = path.dirname(require.main.filename)
 const Boom = require('boom')
 const Sugar = require('sugar')
 const _ = require('lodash')
+const storj = require('storj-lib')
+const bucketId = 'b8b4280a0b0d21b73981a333'
 const subMonths = require('date-fns/sub_months')
 const subQuarters = require('date-fns/sub_quarters')
 const endOfQuarter = require('date-fns/end_of_quarter')
 const startOfDay = require('date-fns/start_of_day')
 const endOfDay = require('date-fns/end_of_day')
 const format = require('date-fns/format')
-const fileDir = `${root}/grantApplications`
+
+const secret = process.env.SECRET_KEY || require('../../config.js')
 const fileParams = [
   'applicationForm',
   'projectBudget',
@@ -22,7 +24,7 @@ const fileParams = [
   'irsLetter'
 ]
 
-module.exports = function grantControllerFactory(Application, log) {
+module.exports = function grantControllerFactory(Application, log, storjClient) {
 
   function loadFiles(files) {
     let data = []
@@ -45,21 +47,46 @@ module.exports = function grantControllerFactory(Application, log) {
   }
 
   function writeFile(file) {
-    let newStream = fs.createWriteStream(`${fileDir}/${file.hapi.filename}`)
-
-    file.on('error', (err) => {
-      log.error(err)
-    })
-
-    file.pipe(newStream)
+    const tmppath = `./${file.hapi.filename}.crypt`;
+    const keyring = storj.KeyRing('./', secret);
+    const storjSecret = new storj.DataCipherKeyIv();
+    const encrypter = new storj.EncryptStream(storjSecret);
 
     return new Promise(resolve => {
-      file.on('end', function(err) {
-        resolve({
-          filename: file.hapi.filename,
-          headers: file.hapi.headers
+      file.pipe(encrypter)
+        .pipe(fs.createWriteStream(tmppath))
+        .on('finish', () => {
+          log.info('Finished encrypting file')
+          storjClient.createToken(bucketId, 'PUSH', function(err, token) {
+            if (err) {
+              return log.error('Storj token generation error', err.message);
+            }
+            log.info('Created token for file', token);
+
+            // Store the file
+            storjClient.storeFileInBucket(bucketId, token.token, tmppath, function(err, storjFile) {
+              if (err) {
+                return log.error('Storj error storing file', err.message);
+              }
+              log.info('Stored file in bucket!');
+
+              keyring.set(storjFile.id, storjSecret);
+
+              // Delete tmp file
+              fs.unlink(tmppath, function(err) {
+                if (err) {
+                  return log.error(err);
+                }
+                log.info('Temporary encrypted file deleted');
+                resolve({
+                  filename: file.hapi.filename,
+                  storjId: storjFile.id,
+                  headers: file.hapi.headers
+                })
+              });
+            })
+          })
         })
-      })
     })
   }
 
@@ -108,19 +135,23 @@ module.exports = function grantControllerFactory(Application, log) {
       } else {
         appl = new Application(request.payload)
         appl.userId = request.auth.credentials.id
+        console.log('created a new application!')
       }
 
       for (var i = 0; i < fileParams.length; i++) {
         if (request.payload[fileParams[i]]) {
           const file = request.payload[fileParams[i]]
           file.hapi.filename = generateFilename(file, fileParams[i])
+          const storjFile = yield writeFile(file)
+          console.log('storjFile', storjFile);
           appl[fileParams[i]] = {
             fileName: file.hapi.filename,
+            storjId: storjFile.storjId,
             uploaded: true
           }
-          yield writeFile(file)
         }
       }
+      console.log('APPLICATION', appl);
       yield appl.save()
 
       return reply(appl)

@@ -7,6 +7,8 @@ dist
 ng-cli
 tmp
 .grunt
+key.ring
+private.key
 config.js
 grantApplications
 

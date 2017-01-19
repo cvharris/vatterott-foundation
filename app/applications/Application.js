@@ -12,18 +12,22 @@ module.exports = function () {
     contactPhone: String,
     applicationForm: {
       fileName: String,
+      storjId: String,
       uploaded: Boolean
     },
     projectBudget: {
       fileName: String,
+      storjId: String,
       uploaded: Boolean
     },
     orgBudget: {
       fileName: String,
+      storjId: String,
       uploaded: Boolean
     },
     irsLetter: {
       fileName: String,
+      storjId: String,
       uploaded: Boolean
     }
   }, {

@@ -1,9 +1,8 @@
+<h1 class="page-title">{{loginForm.type}}</h1>
 <p>To apply for a grant or manage a previous application, please sign in or register for an account</p>
 <div class="centered-form">
   <form name="credentialsForm" ng-submit="loginForm.submitCredentials()">
     <fieldset>
-      <legend class="form-description">{{loginForm.type}}</legend>
-
       <ng-messages for="loginForm.messages">
         <ng-message when="emailTaken">
           <p><strong>That e-mail address is already taken.</strong></p>

@@ -29,6 +29,11 @@
     </tr>
   </thead>
   <tbody>
+    <tr class="grant-application" ng-if="adminCtrl.applications.length === 0">
+      <td colspan="10">
+        There are no applications to review!
+      </td>
+    </tr>
     <tr class="grant-application" ng-repeat="appl in adminCtrl.applications">
       <td class="org-col">
         {{appl.company}}
@@ -42,7 +47,7 @@
           <span class="file-button download" ng-click="adminCtrl.downloadFile(appl.applicationForm.fileName)">
             <i class="fa fa-download"></i>
           </span>
-          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.applicationForm.fileName)">
+          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.id, appl.applicationForm.fileName)">
             <i class="fa fa-trash"></i>
           </span>
         </div>
@@ -53,7 +58,7 @@
           <span class="file-button download" ng-click="adminCtrl.downloadFile(appl.projectBudget.fileName)">
             <i class="fa fa-download"></i>
           </span>
-          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.projectBudget.fileName)">
+          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.id, appl.projectBudget.fileName)">
             <i class="fa fa-trash"></i>
           </span>
         </div>
@@ -64,7 +69,7 @@
           <span class="file-button download" ng-click="adminCtrl.downloadFile(appl.orgBudget.fileName)">
             <i class="fa fa-download"></i>
           </span>
-          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.orgBudget.fileName)">
+          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.id, appl.orgBudget.fileName)">
             <i class="fa fa-trash"></i>
           </span>
         </div>
@@ -75,7 +80,7 @@
           <span class="file-button download" ng-click="adminCtrl.downloadFile(appl.irsLetter.fileName)">
             <i class="fa fa-download"></i>
           </span>
-          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.irsLetter.fileName)">
+          <span class="file-button trash secondary" ng-click="adminCtrl.deleteFile(appl.id, appl.irsLetter.fileName)">
             <i class="fa fa-trash"></i>
           </span>
         </div>

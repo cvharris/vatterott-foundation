@@ -123,6 +123,9 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
   }
 
 	function* upload(request, reply) {
+    log.info('Uplodaing file(s)', {
+      appId: request.payload.id
+    })
     let uploadedFiles = Object.keys(request.payload)
 
     if (uploadedFiles.length === 0) {
@@ -141,8 +144,12 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
         if (request.payload[fileParams[i]]) {
           const file = request.payload[fileParams[i]]
           file.hapi.filename = generateFilename(file, fileParams[i])
+          log.info('Uploading file', {
+            fileName: file.hapi.filename
+          })
 
           const storjFile = yield writeFile(file)
+
           appl[fileParams[i]] = {
             fileName: file.hapi.filename,
             fileType: storjFile.fileType,
@@ -158,6 +165,9 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
 	}
 
   function* download(request, reply) {
+    log.info('Downloading file', {
+      filename: request.params.filename
+    })
     const whichFile = Sugar.String.camelize(request.params.filename.split('-')[0], false)
     const query = {}
     query[`${whichFile}.fileName`] = request.params.filename
@@ -168,7 +178,6 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
 
     const decrypter = new storj.DecryptStream(fileSecret);
 
-    console.log('Creating file stream');
     storjClient.createFileStream(bucketId, fileId, { exclude: [] }, function(err, stream) {
       if (err) {
         return console.log('error', err.message);
@@ -181,18 +190,63 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
 
       return reply(null, stream.pipe(decrypter)).header('Content-disposition', `attachment; filename=${request.params.filename}`).header('Content-type', mimetype)
     });
-
-    // fs.readFile(filePath, (err, data) => {
-    //   return reply(null, data).header('Content-disposition', `attachment; filename=${request.params.filename}`).header('Content-type', mimetype)
-    // })
   }
 
   function* deleteApplication(request, reply) {
-    return reply(Application.findByIdAndRemove(request.params.application_name))
+    log.info('Deleting application', {
+      appId: request.params.application_id
+    })
+    const appl = yield Application.findById(request.params.application_id).exec()
+    for (var i = 0; i < fileParams.length; i++) {
+      if (appl[fileParams[i]].uploaded) {
+        log.info('removing file from Storj', {
+          file: appl[fileParams[i]].fileName
+        })
+        yield storjDeleteFile(appl[fileParams[i]].storjId)
+      }
+    }
+    yield Application.findByIdAndRemove(request.params.application_id)
+
+    return reply()
   }
 
   function* deleteFile(request, reply) {
-    reply(`file deleted!`)
+    log.info('Deleting file', {
+      fileName: request.params.filename,
+      appId: request.params.application_id
+    })
+    const appl = yield Application.findById(request.params.application_id).exec()
+
+    for (var i = 0; i < fileParams.length; i++) {
+      if (appl[fileParams[i]] && appl[fileParams[i]].fileName === request.params.filename) {
+        log.info('removing file from Storj', {
+          fileId: appl[fileParams[i]].storjId
+        })
+        yield storjDeleteFile(appl[fileParams[i]].storjId)
+        appl[fileParams[i]] = undefined
+        yield appl.save()
+      }
+    }
+    reply(appl)
+  }
+
+  function storjDeleteFile(fileId) {
+    return new Promise(resolve => {
+      storjClient.removeFileFromBucket(bucketId, fileId, err => {
+        if (err) {
+          log.error('Could not remove file from Storj', fileId, bucketId, err)
+          Boom.internal('Could not remove file from Storj', err)
+        }
+
+        keyring.del(fileId);
+        log.info('Deleted file', {
+          fileId: fileId
+        })
+        resolve({
+          fileId: fileId
+        })
+      })
+    })
   }
 
   return {

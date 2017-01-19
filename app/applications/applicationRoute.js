@@ -54,6 +54,9 @@ module.exports = function (server, applicationController, User) {
     method: 'DELETE',
     path: `/${root}/{application_id}`,
     config: {
+      response: {
+        emptyStatusCode: 204
+      },
       handler: ctrl.deleteApplication
     }
   })

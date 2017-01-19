@@ -22,11 +22,7 @@ const grantApp = {
         ctrl.messages.needFile = true
         return
       }
-      ctrl.currentApplication.$save(data => {
-        console.log(data);
-      }, error => {
-        console.log(error);
-      })
+      ctrl.currentApplication.$save()
     }
 
     function hasAtLeastOneUploadedFile() {

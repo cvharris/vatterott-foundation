@@ -82,7 +82,7 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
     }
   })
 
-  $urlRouterProvider.otherwise('/login')
+  $urlRouterProvider.otherwise('/')
 })
 
 ngModule.controller('MainCtrl', /*@ngInject*/ function($rootScope, $state) {

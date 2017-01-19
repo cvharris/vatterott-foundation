@@ -24,17 +24,17 @@
 
     <label for="project-budget">
       Project Budget Template Form (<a href="/public/VF_Budget_Template_form.xls">download</a>)
-      <input id="project-budget" type="file" ngf-select ngf-max-size="2MB" name="projectBudget" ng-model="grantApp.currentApplication.projectBudget" />
+      <input id="project-budget" ng-class="{'invisible-input': grantApp.currentApplication.projectBudget.uploaded}" ng-disabled="grantApp.currentApplication.projectBudget.uploaded" type="file" ngf-select ngf-max-size="2MB" name="projectBudget" ng-model="grantApp.currentApplication.projectBudget" />
     </label>
 
     <label for="current-budget">
       Current Organizational Budget
-      <input id="current-budget" type="file" ngf-select ngf-max-size="2MB" name="orgBudget" ng-model="grantApp.currentApplication.orgBudget" />
+      <input id="current-budget" ng-class="{'invisible-input': grantApp.currentApplication.orgBudget.uploaded}" ng-disabled="grantApp.currentApplication.orgBudget.uploaded" type="file" ngf-select ngf-max-size="2MB" name="orgBudget" ng-model="grantApp.currentApplication.orgBudget" />
     </label>
 
     <label for="irs-letter">
       IRS Letter of Determination
-      <input id="irs-letter" type="file" ngf-select ngf-max-size="2MB" name="irsLetter" ng-model="grantApp.currentApplication.irsLetter" />
+      <input id="irs-letter" ng-class="{'invisible-input': grantApp.currentApplication.irsLetter.uploaded}" ng-disabled="grantApp.currentApplication.irsLetter.uploaded" type="file" ngf-select ngf-max-size="2MB" name="irsLetter" ng-model="grantApp.currentApplication.irsLetter" />
     </label>
 
   </fieldset>

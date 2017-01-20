@@ -10,16 +10,18 @@ module.exports = function(log, server, userController, User) {
   const root = 'api/user'
 
   function* verifyUniqueUser(request, reply) {
-    const auth = decodeBasicAuth(request)
-    const user = yield User.findOne({email: auth.email}).exec()
+    const user = yield User.findOne({email: request.payload.email}).exec()
 
     if (user) {
-      if (user.email === auth.email) {
+      if (user.email === request.payload.email) {
         reply(Boom.badRequest('User with that e-mail already exists!'));
         return;
       }
     }
-    return reply(auth);
+    return reply({
+      email: request.payload.email,
+      password: request.payload.password
+    });
   }
 
   function decodeBasicAuth(request) {
@@ -33,22 +35,24 @@ module.exports = function(log, server, userController, User) {
   }
 
   function* logInUser(request, reply) {
-    const auth = decodeBasicAuth(request)
-    const password = auth.password;
-
-    const user = yield User.findOne({email: auth.email}).exec()
+    log.info('logging user in', {
+      email: request.payload.email,
+      payload: request.payload
+    })
+    const query = User.findOne({ email: request.payload.email })
+    const user = yield query.exec()
 
     if (!user) {
       return reply(Boom.badRequest('No user with that e-mail'))
     }
-    const isValid = yield bcrypt.compare(password, user.password)
+    const isValid = yield bcrypt.compare(request.payload.password, user.password)
 
     if (isValid) {
       return reply(user)
     }
 
     log.info('Incorrect password for user:', {
-      email: auth.email
+      email: request.payload.email
     })
     return reply(Boom.badRequest('Incorrect password and e-mail!'))
   }
@@ -72,9 +76,10 @@ module.exports = function(log, server, userController, User) {
       }],
       handler: ctrl.login,
       validate: {
-        headers: Joi.object({
-          authorization: Joi.string().required()
-        }).options({ allowUnknown: true })
+        payload: Joi.object({
+          email: Joi.string().required(),
+          password: Joi.string().required()
+        })
       }
     }
   })

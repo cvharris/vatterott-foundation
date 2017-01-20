@@ -14,11 +14,13 @@ const loginComp = {
 
     ctrl.submitCredentials = function() {
       ctrl.resetFormMessages()
-      const auth = encodeCreds(ctrl.email, ctrl.authentication)
-      ctrl.user = new User(auth)
+      const auth = {
+        email: ctrl.email,
+        password: ctrl.authentication
+      }
 
       if (ctrl.isNewUser) {
-        ctrl.user.register(data => {
+        ctrl.user = User.register({}, auth, data => {
           ctrl.messages.registered = true
           $timeout(() => {
             $state.go('grantApplication')
@@ -29,7 +31,7 @@ const loginComp = {
           }
         })
       } else {
-        ctrl.user.login(data => {
+        ctrl.user = User.login({}, auth, data => {
           ctrl.messages.signedIn = true
           $timeout(() => {
             $state.go('grantApplication')

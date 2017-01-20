@@ -180,7 +180,7 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
 
     storjClient.createFileStream(bucketId, fileId, { exclude: [] }, function(err, stream) {
       if (err) {
-        return console.log('error', err.message);
+        return log.error('error with Storj file stream', err.message);
       }
 
       // Handle stream errors

@@ -37,7 +37,7 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
           $state.go("login")
         }
 
-        return User().getCurrentUser()
+        return User.getCurrentUser()
       },
       currentApplication: function (GrantApplication, $state, $q) {
         const deferred = $q.defer()
@@ -79,7 +79,7 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
           $state.go("login")
         }
 
-        return User().getCurrentUser()
+        return User.getCurrentUser()
       }
     }
   })

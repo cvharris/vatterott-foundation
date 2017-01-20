@@ -49,14 +49,14 @@ module.exports = function(log, User) {
 
   function* login(request, reply) {
     log.info('logging user in', {
-      user: request.pre.user
+      user: request.pre.user.email
     })
     // If the user's password is correct, we can issue a token.
     // If it was incorrect, the error will bubble up from the pre method
     const token = yield createToken(request.pre.user)
     const user = yield request.pre.user.update({loggedIn: true}).exec()
 
-    if (!user) {
+    if (user.nModified === 0) {
       log.info('Could not update user:', {
         email: request.pre.user.email
       })
@@ -67,6 +67,9 @@ module.exports = function(log, User) {
   }
 
   function* logout(request, reply) {
+    log.info('Logging out user', {
+      email: request.auth.credentials.email
+    })
     const decoded = request.auth.credentials
     const user = yield User.findOne({_id: decoded.id}).exec()
     const updated = yield user.update({loggedIn: false}).exec()

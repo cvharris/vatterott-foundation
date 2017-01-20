@@ -49,6 +49,20 @@
   height: 100%;
   min-height: 500px;
 
+  .container {
+    padding-top: 8rem;
+
+    @media (min-width: @tablet) {
+      padding-top: 0;
+    }
+  }
+
+  @media (max-width: @tablet) {
+    .action-button {
+      margin-bottom: 0;
+    }
+  }
+
   .splash-container {
     padding-bottom: 2rem;
     padding-top: 3rem;

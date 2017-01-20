@@ -19,7 +19,7 @@ const adminComp = {
         const blob = new Blob([res.data], {type: headers()['content-type']});
         FileSaver.saveAs(blob, filename);
       }, err => {
-        console.log('error!', err);
+        console.error('error!', err);
       })
     }
 
@@ -28,7 +28,7 @@ const adminComp = {
         const appIndex = _.findIndex(ctrl.applications, it => it.id === appId)
         ctrl.applications[appIndex] = res
       }, err => {
-        console.log('error!', err);
+        console.error('error!', err);
       })
     }
 
@@ -37,7 +37,7 @@ const adminComp = {
         const appIndex = _.findIndex(ctrl.applications, it => it.id === applId)
         ctrl.applications.splice(appIndex, 1)
       }, err => {
-        console.log('error!', err);
+        console.error('error!', err);
       })
 
     }

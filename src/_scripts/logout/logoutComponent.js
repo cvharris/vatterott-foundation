@@ -10,7 +10,7 @@ const logoutComp = {
     ctrl.$onInit = function() {
       ctrl.message = "Logging you out now..."
 
-      User().logout({}, res => {
+      User.logout({}, res => {
         ctrl.message = "Logout successful, redirecting you to login..."
         $timeout(() => {
           $state.go('login')

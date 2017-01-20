@@ -11,6 +11,7 @@ import ngFileUpload from 'ng-file-upload'
 // Import other modules
 import loginForm from './loginForm/loginForm.module'
 import grantApp from './grantApplication/grantApplication.module'
+import logout from './logout/logout.module'
 import admin from './admin/admin.module'
 
 const ngModule = angular.module('vf-app', [
@@ -21,6 +22,7 @@ const ngModule = angular.module('vf-app', [
   'ngFileUpload',
   loginForm.name,
   grantApp.name,
+  logout.name,
   admin.name
 ])
 
@@ -69,7 +71,17 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
 
   $stateProvider.state('logout', {
     url: '/logout',
-    component: 'logoutPage'
+    component: 'logoutPage',
+    resolve: {
+      user: function (localStorageService, loginToken, $state, User) {
+        const token = localStorageService.get(loginToken);
+        if (!token) {
+          $state.go("login")
+        }
+
+        return User().getCurrentUser()
+      }
+    }
   })
 
   $stateProvider.state('admin', {

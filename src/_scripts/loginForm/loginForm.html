@@ -33,7 +33,13 @@
     </fieldset>
   </form>
   <div class="form-footer">
-    <button ng-if="!loginForm.isNewUser" ng-click="loginForm.changeFormType()">Register</button>
-    <button ng-if="loginForm.isNewUser" ng-click="loginForm.changeFormType()">Sign In</button>
+    <div class="login-switch" ng-if="!loginForm.isNewUser">
+      <p>Don't have an account?</p>
+      <button class="secondary" ng-if="!loginForm.isNewUser" ng-click="loginForm.changeFormType()">Register</button>
+    </div>
+    <div class="login-switch" ng-if="loginForm.isNewUser">
+      <p>Already have an account?</p>
+      <button class="secondary" ng-if="loginForm.isNewUser" ng-click="loginForm.changeFormType()">Sign In</button>
+    </div>
   </div>
 </div>

@@ -5,7 +5,9 @@ const fs = require('fs')
 
 const storjUrl = "https://api.storj.io"
 
-module.exports = function (log, storjInit) {
+// Disabled
+// module.exports = function (log, storjInit) {
+function storjAuth(log, storjInit) {
 
   const keypair = storj.KeyPair();
   storjInit.addPublicKey(keypair.getPublicKey(), function(err) {

@@ -15,6 +15,7 @@ const userFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAuthFactor
       },
       logout: {
         url: `${baseUrl}/user/logout`,
+        headers: appReqAuthFactory(),
         method: 'POST'
       },
       register: {

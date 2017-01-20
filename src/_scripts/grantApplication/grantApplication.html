@@ -1,4 +1,7 @@
-<h1 class="page-title">New Application</h1>
+<h1 class="page-title">
+  New Application
+  <span class="logout-button link-like" ng-click="grantApp.logout()">Logout</span>
+</h1>
 <p>You must upload all of these files before the deadline to submit a valid application, but you don't have to upload every file all at once.</p>
 <p>Upload one file now and come back before the deadline. We'll save your progress till you come back.</p>
 <form name="grantAppForm" ng-submit="grantApp.uploadForm()">
@@ -38,5 +41,7 @@
     </label>
 
   </fieldset>
-  <button type="submit" class="primary">Upload Files</button>
+  <div class="form-actions">
+    <button type="submit" class="primary">Upload Files</button>
+  </div>
 </form>

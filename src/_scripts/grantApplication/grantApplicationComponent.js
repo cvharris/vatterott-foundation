@@ -5,7 +5,7 @@ const grantApp = {
     currentApplication: '<',
     user: '<'
   },
-  controller: /*@ngInject*/ function ($scope) {
+  controller: /*@ngInject*/ function ($scope, $state) {
     const ctrl = this
 
     ctrl.$onInit = function() {
@@ -39,6 +39,10 @@ const grantApp = {
 
     ctrl.resetFormMessages = function() {
       ctrl.messages = {}
+    }
+
+    ctrl.logout = function() {
+      $state.go('logout')
     }
   }
 }

@@ -117,18 +117,6 @@ ngModule.config(/*@ngInject*/ function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix('vatterottFoundation')
 })
 
-ngModule.config(/*@ngInject*/ function ($httpProvider) {
-  $httpProvider.interceptors.push(function($state, $q) {
-    return {
-      responseError: function(res) {
-        if (res.status === 401) {
-          return $q.reject($state.go("login"))
-        }
-      }
-    }
-  })
-})
-
 ngModule.constant('baseUrl', '/api')
 ngModule.constant('loginToken', 'login-token')
 ngModule.constant('localUser', 'vfUser')

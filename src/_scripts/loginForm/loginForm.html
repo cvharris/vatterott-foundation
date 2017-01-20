@@ -6,7 +6,7 @@
       <ng-messages for="loginForm.messages">
         <ng-message when="emailTaken">
           <p><strong>That e-mail address is already taken.</strong></p>
-          <p>Try <span class="link-like">signing in</span> instead or registering with a different e-mail address.</p>
+          <p>Try <span class="link-like" ng-click="loginForm.changeFormType()">signing in</span> instead or registering with a different e-mail address.</p>
         </ng-message>
         <ng-message when="registered">
           <p><strong>Your registration was successful!</strong></p>
@@ -35,11 +35,11 @@
   <div class="form-footer">
     <div class="login-switch" ng-if="!loginForm.isNewUser">
       <p>Don't have an account?</p>
-      <button class="secondary" ng-if="!loginForm.isNewUser" ng-click="loginForm.changeFormType()">Register</button>
+      <button class="secondary" ng-click="loginForm.changeFormType()">Register</button>
     </div>
     <div class="login-switch" ng-if="loginForm.isNewUser">
       <p>Already have an account?</p>
-      <button class="secondary" ng-if="loginForm.isNewUser" ng-click="loginForm.changeFormType()">Sign In</button>
+      <button class="secondary" ng-click="loginForm.changeFormType()">Sign In</button>
     </div>
   </div>
 </div>

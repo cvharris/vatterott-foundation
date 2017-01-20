@@ -37,6 +37,10 @@ module.exports = function(log, User) {
   }
 
   function* getCurrentUser(request, reply) {
+    log.info('getting current user', {
+      token: request.auth.token,
+      creds: request.auth.credentials
+    })
     const decoded = request.auth.credentials
     const user = yield User.findOne({ _id: decoded.id }).exec()
 
@@ -44,6 +48,9 @@ module.exports = function(log, User) {
   }
 
   function* login(request, reply) {
+    log.info('logging user in', {
+      user: request.pre.user
+    })
     // If the user's password is correct, we can issue a token.
     // If it was incorrect, the error will bubble up from the pre method
     const token = yield createToken(request.pre.user)
@@ -73,6 +80,7 @@ module.exports = function(log, User) {
   function* register(request, reply) {
     let user = new User()
     user.email = request.pre.creds.email
+    user.loggedIn = true
     user.admin = false
     let hash = yield hashPassword(request.pre.creds.password)
 

@@ -14,7 +14,7 @@ module.exports = function (log, storjInit) {
     }
 
     // Save the private key for using to login later
-    fs.writeFileSync('private.key', keypair.getPrivateKey());
+    fs.writeFileSync('./private.key', keypair.getPrivateKey());
   })
 
   return keypair.getPublicKey()

@@ -21,8 +21,8 @@
     <meta name="description" content="Family philanthropy for the amelioration of human poverty, the advance of education, the promotion of the public welfare, and the advance of religion"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <base href="/">
-    <link href="https://fonts.googleapis.com/css?family=Prompt:300,300i,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="<$ baseUrl $>styles/main.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Prompt:300,300i,400,400i,700" rel="stylesheet" media="none" onload="this.media='all';">
+    <link rel="stylesheet" href="<$ baseUrl $>styles/main.css" onload="this.media='all';">
     {% block stylesheets %}{% endblock %}
     <script src="https://use.fontawesome.com/f1bafda325.js"></script>
   </head>

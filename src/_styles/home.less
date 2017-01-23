@@ -32,7 +32,7 @@
 
 .section-header {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1.2;
   margin-top: 2rem;
 
@@ -64,8 +64,11 @@
   }
 
   .splash-container {
-    padding-bottom: 2rem;
-    padding-top: 3rem;
+    padding: 2rem 0;
+
+    @media (min-width: @tablet) {
+      padding: 4rem 0 2rem;
+    }
 
     .image-container {
       margin-bottom: 2rem;
@@ -83,7 +86,7 @@
 
     p {
       margin: 0 auto 2rem;
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       font-weight: 900;
       line-height: 1.5;
 
@@ -117,7 +120,7 @@
 }
 
 .do-header {
-  line-height: 1.3;
+  line-height: 1;
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
@@ -132,13 +135,12 @@
   position: relative;
   z-index: 1;
   color: white;
-  flex: 1 0 275px;
+  flex: 1 0 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem .5rem;
-  margin: 1rem;
+  padding: 3rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -158,6 +160,8 @@
 
   @media (min-width: @tablet) {
     padding: 2rem;
+    margin: 1rem;
+    flex: 1 0 275px;
   }
 }
 
@@ -196,9 +200,9 @@
 
 .centered-quotations {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 5rem;
-  line-height: 1.75;
+  line-height: 1.5;
 
   &::before, &::after {
     content: none;
@@ -209,7 +213,7 @@
   }
 
   @media (min-width: @tablet) {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     margin-bottom: 4rem;
   }
 }
@@ -237,9 +241,12 @@
 }
 
 .home-text {
-  text-indent: 3rem;
   font-size: 1.25rem;
   margin-bottom: 2rem;
+
+  @media (min-width: @tablet) {
+    text-indent: 3rem;
+  }
 }
 
 .big-quote {
@@ -248,7 +255,7 @@
 
   p {
     text-indent: 0;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
 
     @media (min-width: @tablet) {

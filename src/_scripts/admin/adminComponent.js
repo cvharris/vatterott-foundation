@@ -7,7 +7,7 @@ const adminComp = {
   bindings: {
     applications: '<'
   },
-  controller: /*@ngInject*/ function (GrantApplication, $window) {
+  controller: /*@ngInject*/ function (GrantApplication, $window, $state) {
     const ctrl = this
 
     ctrl.$onInit = function () {
@@ -40,6 +40,10 @@ const adminComp = {
         console.error('error!', err);
       })
 
+    }
+
+    ctrl.logout = function() {
+      $state.go('logout')
     }
   }
 }

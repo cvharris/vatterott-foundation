@@ -6,42 +6,71 @@
 <p>Upload one file now and come back before the deadline. We'll save your progress till you come back.</p>
 <form name="grantAppForm" ng-submit="grantApp.uploadForm()">
   <label for="company">Organization Name
-    <input type="text" name="company" ng-model="grantApp.currentApplication.company" required placeholder="ex. Non-Profits 'R Us" />
+    <input type="text" name="company" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.company" required placeholder="ex. Non-Profits 'R Us" />
   </label>
 
   <label for="name">Contact Name
-    <input type="text" name="contactName" ng-model="grantApp.currentApplication.contactName" required placeholder="ex. Charles Vatterott" />
+    <input type="text" name="contactName" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.contactName" required placeholder="ex. Charles Vatterott" />
   </label>
 
   <label for="phone">Contact Phone #
-    <input type="text" name="contactPhone" ng-model="grantApp.currentApplication.contactPhone" required placeholder="ex. 314-222-2222" />
+    <input type="text" name="contactPhone" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.contactPhone" required placeholder="ex. 314-222-2222" />
   </label>
 
   <fieldset>
     <legend class="section-description">&nbsp;We ask that you submit the following documents:&nbsp;</legend>
 
     <label for="application">
-      Application Form (<a href="/public/VF_Application_Form.docx">download</a>)
-      <input id="application" ng-class="{'invisible-input': grantApp.currentApplication.applicationForm.uploaded}" ng-disabled="grantApp.currentApplication.applicationForm.uploaded" type="file" ngf-select ngf-max-size="2MB" name="applicationForm" ng-model="grantApp.currentApplication.applicationForm" />
+      <div>Application Form (<a href="/public/VF_Application_Form.docx">download</a>)</div>
+      <div class="uploaded" ng-if="grantApp.currentApplication.applicationForm.uploaded">
+        <i class="fa fa-check-square"></i>Uploaded!
+      </div>
+      <input id="application" ng-class="{'invisible-input': grantApp.currentApplication.applicationForm.uploaded}" ng-disabled="grantApp.currentApplication.applicationForm.uploaded" type="file" ngf-select name="applicationForm" ng-model="grantApp.currentApplication.applicationForm" />
     </label>
 
     <label for="project-budget">
-      Project Budget Template Form (<a href="/public/VF_Budget_Template_Form.xls">download</a>)
-      <input id="project-budget" ng-class="{'invisible-input': grantApp.currentApplication.projectBudget.uploaded}" ng-disabled="grantApp.currentApplication.projectBudget.uploaded" type="file" ngf-select ngf-max-size="2MB" name="projectBudget" ng-model="grantApp.currentApplication.projectBudget" />
+      <div>Project Budget Template Form (<a href="/public/VF_Budget_Template_Form.xls">download</a>)</div>
+      <div class="uploaded" ng-if="grantApp.currentApplication.projectBudget.uploaded">
+        <i class="fa fa-check-square"></i>Uploaded!
+      </div>
+      <input id="project-budget" ng-class="{'invisible-input': grantApp.currentApplication.projectBudget.uploaded}" ng-disabled="grantApp.currentApplication.projectBudget.uploaded" type="file" ngf-select name="projectBudget" ng-model="grantApp.currentApplication.projectBudget" />
     </label>
 
     <label for="current-budget">
-      Current Organizational Budget
-      <input id="current-budget" ng-class="{'invisible-input': grantApp.currentApplication.orgBudget.uploaded}" ng-disabled="grantApp.currentApplication.orgBudget.uploaded" type="file" ngf-select ngf-max-size="2MB" name="orgBudget" ng-model="grantApp.currentApplication.orgBudget" />
+      <div>Current Organizational Budget</div>
+      <div class="uploaded" ng-if="grantApp.currentApplication.orgBudget.uploaded">
+        <i class="fa fa-check-square"></i>Uploaded!
+      </div>
+      <input id="current-budget" ng-class="{'invisible-input': grantApp.currentApplication.orgBudget.uploaded}" ng-disabled="grantApp.currentApplication.orgBudget.uploaded" type="file" ngf-select name="orgBudget" ng-model="grantApp.currentApplication.orgBudget" />
     </label>
 
     <label for="irs-letter">
-      IRS Letter of Determination
-      <input id="irs-letter" ng-class="{'invisible-input': grantApp.currentApplication.irsLetter.uploaded}" ng-disabled="grantApp.currentApplication.irsLetter.uploaded" type="file" ngf-select ngf-max-size="2MB" name="irsLetter" ng-model="grantApp.currentApplication.irsLetter" />
+      <div>IRS Letter of Determination</div>
+      <div class="uploaded" ng-if="grantApp.currentApplication.irsLetter.uploaded">
+        <i class="fa fa-check-square"></i>Uploaded!
+      </div>
+      <input id="irs-letter" ng-class="{'invisible-input': grantApp.currentApplication.irsLetter.uploaded}" ng-disabled="grantApp.currentApplication.irsLetter.uploaded" type="file" ngf-select name="irsLetter" ng-model="grantApp.currentApplication.irsLetter" />
     </label>
 
   </fieldset>
+  <ng-messages for="grantApp.messages">
+    <ng-message when="unfinished">
+      <p><strong>The form is not finished</strong></p>
+      <p>Please fill in every field first before submitting</p>
+    </ng-message>
+    <ng-message when="needFile">
+      <p><strong>You have to upload at least one file</strong></p>
+      <p>Please upload at least one file</p>
+    </ng-message>
+    <ng-message when="uploading">
+      <p><i class="fa fa-spinner fa-pulse fa-2x"></i>Uploading...please wait</p>
+    </ng-message>
+    <ng-message when="completed">
+      <p><strong>Application completed!</strong></p>
+      <p>Thank you! You have finished uploading all required files. Our administrator will be in contact with you after reviewing the files. If you have any questions or concerns please e-mail info@vatterottfoundation.org.</p>
+    </ng-message>
+  </ng-messages>
   <div class="form-actions">
-    <button type="submit" class="primary">Upload Files</button>
+    <button type="submit" class="primary" ng-disabled="grantApp.messages.completed">Upload Files</button>
   </div>
 </form>

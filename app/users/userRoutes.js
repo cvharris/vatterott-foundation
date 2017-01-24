@@ -35,7 +35,7 @@ module.exports = function(log, server, userController, User) {
   }
 
   function* logInUser(request, reply) {
-    log.info('logging user in', {
+    log.info('routes logging user in', {
       email: request.payload.email,
       payload: request.payload
     })

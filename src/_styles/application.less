@@ -1,5 +1,12 @@
 .invisible-input {
-  visibility: hidden;
+  display: none;
+}
+
+label input[disabled],
+button[disabled] {
+  cursor: not-allowed;
+  color: @grey-light;
+  border-color: @grey-lighter;
 }
 
 admin-page {
@@ -136,4 +143,16 @@ form {
 .form-actions {
   display: flex;
   justify-content: flex-end;
+}
+
+.uploaded {
+  height: 3rem;
+  line-height: 1.8;
+  padding: .6rem 0.7em;
+  max-width: 28rem;
+  margin: 3.4px 0;
+
+  i {
+    padding-right: 0.3rem;
+  }
 }

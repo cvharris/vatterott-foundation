@@ -8,7 +8,7 @@ const appResDecorator = /*@ngInject*/ function (localStorageService, loginToken)
     }
     const headerList = headers();
     if (headerList.authorization) {
-      localStorageService.set(loginToken, headerList.authorization)
+      localStorageService.set(loginToken, headerList.authorization.toString())
     }
 
     return angular.fromJson(data)

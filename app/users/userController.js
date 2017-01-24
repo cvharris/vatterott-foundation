@@ -44,11 +44,11 @@ module.exports = function(log, User) {
     const decoded = request.auth.credentials
     const user = yield User.findOne({ _id: decoded.id }).exec()
 
-    return reply(user).header("Authorization", request.auth.token)
+    return reply(user)
   }
 
   function* login(request, reply) {
-    log.info('logging user in', {
+    log.info('ctrl logging user in', {
       user: request.pre.user.email
     })
     // If the user's password is correct, we can issue a token.
@@ -62,6 +62,9 @@ module.exports = function(log, User) {
       })
       throw Boom.badRequest('Unable to log in user')
     }
+    log.info('user logged in:', {
+      token: token
+    })
     // If the user is saved successfully, issue a JWT
     return reply(request.pre.user).header("Authorization", token).code(201)
   }
@@ -77,7 +80,7 @@ module.exports = function(log, User) {
     if (updated.nModified === 0) {
       throw Boom.badRequest('Failed to log user out')
     }
-    return reply('Logged out!')
+    return reply('Logged out!').header("Authorization", '')
   }
 
   function* register(request, reply) {

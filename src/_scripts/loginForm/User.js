@@ -1,9 +1,8 @@
 const userFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAuthFactory, appResDecorator) {
-  // TODO: Yeah...I screwed up making most of these GETs, thinking I didn't have SSL
   const methods = {
     getCurrentUser: {
       method: 'GET',
-      headers: appReqAuthFactory(),
+      headers: appReqAuthFactory,
       transformResponse: appResDecorator
     },
     login: {
@@ -13,7 +12,7 @@ const userFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAuthFactor
     },
     logout: {
       url: `${baseUrl}/user/logout`,
-      headers: appReqAuthFactory(),
+      headers: appReqAuthFactory,
       method: 'POST'
     },
     register: {

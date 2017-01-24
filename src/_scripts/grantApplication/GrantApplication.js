@@ -5,19 +5,19 @@ const applicationsFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAu
     getOwn: {
       method: 'GET',
       url: `${baseUrl}/application/ownCurrent`,
-      headers: appReqAuthFactory(),
+      headers: appReqAuthFactory,
       transformResponse: appResDecorator
     },
     query: {
       method: 'GET',
-      headers: appReqAuthFactory(),
+      headers: appReqAuthFactory,
       transformResponse: appResDecorator,
       isArray: true
     },
     downloadFile: {
       method: 'GET',
       url: `${baseUrl}/application/:filename`,
-      headers: appReqAuthFactory(),
+      headers: appReqAuthFactory,
       responseType: 'arraybuffer',
       transformResponse: (data, headersGetter) => {
         return {data: data, headers: headersGetter()}
@@ -25,7 +25,7 @@ const applicationsFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAu
     },
     save: {
       method: 'POST',
-      headers: _.assign(appReqAuthFactory(), {'Content-Type' : undefined}),
+      headers: _.assign(appReqAuthFactory, {'Content-Type' : undefined}),
       transformRequest: data => {
         const payload = new FormData()
 
@@ -40,13 +40,13 @@ const applicationsFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAu
     removeApplication: {
       method: 'DELETE',
       url: `${baseUrl}/application/:appId`,
-      headers: appReqAuthFactory(),
+      headers: appReqAuthFactory,
       transformResponse: appResDecorator
     },
     removeFile: {
       method: 'DELETE',
       url: `${baseUrl}/application/:appId/file/:filename`,
-      headers: appReqAuthFactory(),
+      headers: appReqAuthFactory,
       transformResponse: appResDecorator
     }
   }

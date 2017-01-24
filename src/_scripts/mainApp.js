@@ -88,8 +88,18 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
     url: '/admin',
     component: 'adminPage',
     resolve: {
-      applications: function (GrantApplication) {
-        return GrantApplication.query()
+      applications: function (GrantApplication, $q, $state) {
+        const deferred = $q.defer()
+
+        GrantApplication.query(data => {
+          deferred.resolve(data)
+        }, error => {
+          if (error.status === 401) {
+            $state.go("login")
+          }
+        })
+
+        return deferred.promise
       }
     }
   })

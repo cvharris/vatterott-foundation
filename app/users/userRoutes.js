@@ -103,9 +103,10 @@ module.exports = function(log, server, userController, User) {
       }],
       handler: ctrl.register,
       validate: {
-        headers: Joi.object({
-          authorization: Joi.string().required()
-        }).options({ allowUnknown: true })
+        payload: Joi.object({
+          email: Joi.string().required(),
+          password: Joi.string().required()
+        })
       }
     }
   })

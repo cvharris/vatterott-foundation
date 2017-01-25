@@ -17,7 +17,7 @@
 - name: "American Youth Foundation"
   link: "https://ayf.com/"
 
-- name: "Arch. of St. Louis"
+- name: "Archdiocese of St. Louis"
   link: "http://archstl.org/"
 
 - name: "Assistance League of Saint Louis"
@@ -29,7 +29,7 @@
 - name: "Beyond Housing"
   link: "www.beyondhousing.org/"
 
-- name: "Birthright Counseling, St. Louis, St. Charles"
+- name: "Birthright Counseling"
   link: "http://birthright.org"
 
 - name: "Blessed Teresa of Calcutta Catholic School"
@@ -41,7 +41,7 @@
 - name: "Cardinal Carberry Senior Living Center"
   link: "http://www.cardinalritterseniorservices.org"
 
-- name: "Cardinal Glennon Children's Hospital Fdn."
+- name: "Cardinal Glennon Children's Hospital Foundation"
   link: ""
 
 - name: "Cardinal Ritter College Prep"
@@ -59,16 +59,7 @@
 - name: "Carondelet Community Center"
   link: ""
 
-- name: "Catholic Community On Housing: Healthy Homes (Youth Board)"
-  link: ""
-
-- name: "Catholic Services-Child Center Marygrove (Youth Board)"
-  link: ""
-
 - name: "Catholic Charities Christmas Appeal"
-  link: ""
-
-- name: "Catholic Charities of St. Louis (Youth Board)"
   link: ""
 
 - name: "Catholic Family Counseling"
@@ -104,12 +95,6 @@
 - name: "Chaminade College Prep"
   link: ""
 
-- name: "Child Center- Marygrove (Youth Board)"
-  link: ""
-
-- name: "Children's Home Society (Youth Board)"
-  link: ""
-
 - name: "Christian Home Care Services, Inc."
   link: ""
 
@@ -128,7 +113,7 @@
 - name: "Community Hope Center"
   link: ""
 
-- name: "Cong.Mission Vincentian Fathers & Brothers"
+- name: "Congregation Mission Vincentian"
   link: ""
 
 - name: "Connection Aftercare Ministry"
@@ -179,7 +164,7 @@
 - name: "Educare Learning Center"
   link: ""
 
-- name: "English Tutoring Project (see St. Louis Area Women Religious Collaborative)"
+- name: "English Tutoring Project"
   link: ""
 
 - name: "Educational Freedom Foundation"
@@ -242,7 +227,7 @@
 - name: "Holy Angels Church"
   link: ""
 
-- name: "Holy Trinity Catholic Church-formerly St.Gregory"
+- name: "Holy Trinity Catholic Church"
   link: ""
 
 - name: "Homeworks"
@@ -275,9 +260,6 @@
 - name: "Kenrick-Glennon Seminary"
   link: ""
 
-- name: "Kids Under Twenty-One (Youth Board)"
-  link: ""
-
 - name: "L'Arche St. Louis"
   link: ""
 
@@ -294,9 +276,6 @@
   link: ""
 
 - name: "Living Faith Foundation"
-  link: ""
-
-- name: "Loyola Academy (Youth Board)"
   link: ""
 
 - name: "Lutheran Family & Children's Services"
@@ -339,9 +318,6 @@
   link: ""
 
 - name: "Mindseye"
-  link: ""
-
-- name: "Mission St. Louis (Youth Board)"
   link: ""
 
 - name: "Missouri Catholic Conference"
@@ -407,9 +383,6 @@
 - name: "Our M.O.M., Inc."
   link: ""
 
-- name: "Papal Visit St. Louis - 1999"
-  link: ""
-
 - name: "Passionist Nuns"
   link: ""
 
@@ -432,9 +405,6 @@
   link: ""
 
 - name: "RHCDA"
-  link: ""
-
-- name: "Room at the Inn (Youth Board)"
   link: ""
 
 - name: "Rosati Kain High School"
@@ -503,10 +473,7 @@
 - name: "St. Augustine Catholic Church"
   link: ""
 
-- name: "St. Cecilia School & Academy"
-  link: ""
-
-- name: "St. Cecilia School & Academy (Youth Board)"
+- name: "St. Cecilia School"
   link: ""
 
 - name: "St. Charles Lwanga Center"
@@ -539,7 +506,7 @@
 - name: "St. John the Baptist High School"
   link: ""
 
-- name: "St. John's Mercy Fdn. (Priest Wellness)"
+- name: "St. John's Mercy Foundation (Priest Wellness)"
   link: ""
 
 - name: "St. Joseph Institute for the Deaf"

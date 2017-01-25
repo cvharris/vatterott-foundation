@@ -57,31 +57,19 @@
     </p>
     <h4 class="section-subheader">DEADLINE INFORMATION</h4>
     <p class="section-description">
-      All Vatterott Foundation Youth Board Applications must be submitted before <strong>April 11th, 2017.</strong> Funding decisions are made in May / Spring.
+      All Vatterott Foundation Youth Board Applications must be submitted before <strong>April 11th, 2017.</strong> Funding decisions are made in June / Spring.
     </p>
   </section>
   <section id="vfyb-grantees">
     <h2 class="page-section-header">VFYB Previous Organizations</h2>
-    <div class="year-selectors">
-      {% for year in site.data.vfybGrants %}
-      <div class="year-selector">
-        <h3 data-active="<$ year.year $>-orgs"><$ year.year $></h2>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="all-organizations">
-        {% for year in site.data.vfybGrants %}
-        <div id="<$ year.year $>-orgs" class="years-organizations">
-          {% for org in year.orgs %}
-          <dl class="organization">
-            <dt><a class="organization-link" href="<$ org.link $>" target="_blank">
-              <h4 class="organization-name"><$ org.name $></h3>
-              </a></dt>
-              <dd class="organization-description"><$ org.description $></dd>
-            </dl>
-            {% endfor %}
-          </div>
-          {% endfor %}
-        </div>
-      </section>
-    </div>
+    <ul class="all-organizations">
+      {% for org in site.data.vfybGrants|sort(false, true, 'name') %}
+      <li class="organization">
+        <a class="organization-link" href="<$ org.link $>" target="_blank">
+          <h3 class="organization-name"><$ org.name $></h3>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

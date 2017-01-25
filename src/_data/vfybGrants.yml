@@ -1,53 +1,30 @@
 ---
-- year: 2014
-  orgs:
-    - name: "Children’s Home Society"
-      link: "http://www.chsmo.org/"
-      description: "Children's Home Society is dedicated to improving the quality of life for children in need. Services include:
-        -Pregnancy counseling, infant placements, assistance for families pursuing international adoptions and intensive training and support for families able to adopt children presently in foster care
-        -Education and counseling services to families formed through adoption
-        -Short and long term care for children with significant developmental disabilities and medical needs"
+- name: "Children’s Home Society"
+  link: "http://www.chsmo.org/"
 
-    - name: "De La Salle Middle School"
-      link: "http://delasallems.org/"
-      description: "Located in St. Louis' North City, De La Salle Middle School believes that excellence in education increases individuals’ opportunities while also building stronger families and a better community.
+- name: "De La Salle Middle School"
+  link: "http://delasallems.org/"
 
-      De La Salle offers students an education centered on comprehensive academic preparation, small class sizes, and dedicated teachers and staff, all within the framework of an extended school day and a year-round academic calendar. Staff members help place graduates in one of St. Louis’ preparatory high schools and offer academic and counseling support throughout their high school and college years."
+- name: "Food Outreach, Inc."
+  link: "http://www.foodoutreach.org/"
 
-    - name: "Food Outreach, Inc."
-      link: "http://www.foodoutreach.org/"
-      description: "Food Outreach is the only St. Louis area organization whose mission is to provide nutritional support and enhance the quality of life of men, women and children living with HIV/AIDS or Cancer."
+- name: "Good Shepherd Children & Family Services"
+  link: "https://www.facebook.com/goodshepherdstl"
 
-    - name: "Good Shepherd Children & Family Services"
-      link: "https://www.facebook.com/goodshepherdstl"
-      description: "Good Shepherd is based on the belief that every child is entitled to be part of a safe and loving family. Their staff works to prevent separation of children from their biological families, helps families create safe homes in at-risk situations, provides a safe, comfortable home for those with no where else to go and find loving, permanent families for those unable to return home."
+- name: "Griffin Center"
+  link: "http://www.griffincenter-esl.org/"
 
-    - name: "Griffin Center"
-      link: "http://www.griffincenter-esl.org/"
-      description: "Griffin Center’s mission is to help the African-American families it serves, most of whom have been on welfare for generations, to break the cycle of poverty. They provide support for children to achieve academic success and develop social skills, self-confidence, and sensitivity to others.
-      Griffin Center provides:
-        -After school social recreation and tutoring
-        -Summer day camps
-        -Violence prevention training
-        -Advocacy for individuals in the school; public aid; housing and health systems"
+- name: "Kids Under Twenty-One"
+  link: "http://www.kuto.org/"
 
-    - name: "Kids Under Twenty-One"
-      link: "http://www.kuto.org/"
-      description: "KUTO is dedicated to providing youth focused programming throughout the greater St. Louis area. KUTO prepares teens with the skills, confidence and courage to help their peers and themselves cope before, during and after crisis.
-      Services include:
-        -Community awareness, outreach and education
-        -A youth staffed telephone hotline
-        -Peer Helper Skills Training
-        -Support for survivors of a completed suicide"
+- name: "Our Little Haven"
+  link: "http://www.ourlittlehaven.org/"
 
-    - name: "Our Little Haven"
-      link: "http://www.ourlittlehaven.org/"
-      description: "Our Little Haven is relentlessly committed to providing a safe, secure and healing environment for children suffering from the tragedy of abuse and neglect. Their dedicated and compassionate community of caregivers makes the hurting stop, the healing begin and the love last, one child at a time."
+- name: "Sister Thea Bowman Catholic School"
+  link: "http://stbcs.com/wp/"
 
-    - name: "Sister Thea Bowman Catholic School"
-      link: "http://stbcs.com/wp/"
-      description: "Sister Thea Bowman Catholic School, a ministry of the Diocese of Belleville, IL, is committed to deepening faith in Jesus Christ, and to providing a holistic learning approach to faith development and education within a Catholic framework."
+- name: "Support Dogs, Inc."
+  link: "http://www.supportdogs.org/"
 
-    - name: "Support Dogs, Inc."
-      link: "http://www.supportdogs.org/"
-      description: "Support Dogs, Inc. is a national not-for-profit organization that offers dignity, hope, and independence by providing highly skilled service dogs to individuals with disabilities and uniquely trained therapy teams to serve the community."
+- name: "Access Academies"
+  link: "https://accessacademies.org"

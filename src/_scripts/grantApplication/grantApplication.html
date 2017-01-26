@@ -1,5 +1,6 @@
 <h1 class="page-title">
   New Application
+  <span class="logout-button admin link-like" ng-if="grantApp.user.admin === true" ng-click="grantApp.goToAdmin()">Admin Page</span>
   <span class="logout-button link-like" ng-click="grantApp.logout()">Logout</span>
 </h1>
 <p>You must upload all of these files before the deadline to submit a valid application, but you don't have to upload every file all at once.</p>

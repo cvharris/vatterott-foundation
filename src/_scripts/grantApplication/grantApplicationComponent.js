@@ -54,6 +54,10 @@ const grantApp = {
       return
     }
 
+    ctrl.goToAdmin = function() {
+      $state.go('admin')
+    }
+
     ctrl.resetFormMessages = function() {
       ctrl.messages = {}
     }

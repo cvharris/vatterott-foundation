@@ -24,7 +24,6 @@
     <link href="https://fonts.googleapis.com/css?family=Prompt:300,300i,400,400i,700" rel="stylesheet" media="none" onload="this.media='all';">
     <link rel="stylesheet" href="<$ baseUrl $>styles/main.css" onload="this.media='all';">
     {% block stylesheets %}{% endblock %}
-    <script src="https://use.fontawesome.com/f1bafda325.js"></script>
   </head>
   <body>
     <!--[if lt IE 9]>

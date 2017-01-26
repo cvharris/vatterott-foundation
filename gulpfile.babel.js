@@ -56,6 +56,7 @@ gulp.task('build', [
 // Server tasks with watch
 gulp.task('serve', [
   'imagemin',
+  'fontmin',
   'templates',
   'copy',
   'nunjucks',

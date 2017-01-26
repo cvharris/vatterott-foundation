@@ -12,7 +12,12 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
   gulp.task('fontmin', () => {
     return gulp.src(path.join(dirs.source, dirs.fonts, '**/*.{ttf}'))
       .pipe(plugins.changed(dest))
-      .pipe(gulpif(args.production, plugins.fontmin()))
-      .pipe(gulp.dest(dest));
+      .pipe(plugins.fontmin())
+      .pipe(gulp.dest(dest))
+      .on('end', function() {
+        return gulp.src('node_modules/font-awesome/fonts/*.*')
+          .pipe(plugins.changed(dest))
+          .pipe(gulp.dest(dest))
+      })
   });
 }

@@ -6,15 +6,15 @@
 <p>Upload one file now and come back before the deadline. We'll save your progress till you come back.</p>
 <form name="grantAppForm" ng-submit="grantApp.uploadForm()">
   <label for="company"><span  class="required">Organization Name</span>
-    <input type="text" name="company" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.company" required placeholder="ex. Non-Profits 'R Us" />
+    <input type="text" name="company" ng-disabled="grantApp.lockFields" ng-model="grantApp.currentApplication.company" required placeholder="ex. Non-Profits 'R Us" />
   </label>
 
   <label for="name"><span  class="required">Contact Name</span>
-    <input type="text" name="contactName" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.contactName" required placeholder="ex. Charles Vatterott" />
+    <input type="text" name="contactName" ng-disabled="grantApp.lockFields" ng-model="grantApp.currentApplication.contactName" required placeholder="ex. Charles Vatterott" />
   </label>
 
   <label for="phone"><span  class="required">Contact Phone #</span>
-    <input type="text" name="contactPhone" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.contactPhone" required placeholder="ex. 314-222-2222" />
+    <input type="text" name="contactPhone" ng-disabled="grantApp.lockFields" ng-model="grantApp.currentApplication.contactPhone" required placeholder="ex. 314-222-2222" />
   </label>
 
   <fieldset>

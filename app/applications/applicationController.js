@@ -123,9 +123,6 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
   }
 
 	function* upload(request, reply) {
-    log.info('Uplodaing file(s)', {
-      appId: request.payload.id
-    })
     let uploadedFiles = Object.keys(request.payload)
 
     if (uploadedFiles.length === 0) {

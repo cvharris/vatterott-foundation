@@ -11,6 +11,7 @@ const grantApp = {
     ctrl.$onInit = function() {
       ctrl.resetFormMessages()
       checkIfCompleted()
+      ctrl.lockFields = ctrl.currentApplication.hasOwnProperty('company')
     }
 
     ctrl.uploadForm = function() {
@@ -23,8 +24,11 @@ const grantApp = {
         ctrl.messages.needFile = true
         return
       }
-      GrantApplication.save(ctrl.currentApplication).then(appl => {
-        ctrl.currentApplication = appl
+      ctrl.messages.uploading = true
+      GrantApplication.save(ctrl.currentApplication).then(res => {
+        ctrl.messages.uploading = undefined
+        ctrl.lockFields = true
+        ctrl.currentApplication = res.data
       })
     }
 

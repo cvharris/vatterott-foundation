@@ -42,11 +42,16 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
       currentApplication: function (GrantApplication, $state, $q) {
         const deferred = $q.defer()
 
-        GrantApplication.getOwn().then(data => {
-          if (data.length === 0) {
-            deferred.resolve({})
+        GrantApplication.getOwn().then(res => {
+          if (!res.data) {
+            deferred.resolve({
+              applicationForm: null,
+              projectBudget: null,
+              orgBudget: null,
+              irsLetter: null
+            })
           } else {
-            deferred.resolve(data)
+            deferred.resolve(res.data)
           }
         }, (error) => {
           if (error.status === 401) {
@@ -91,8 +96,8 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
       applications: function (GrantApplication, $q, $state) {
         const deferred = $q.defer()
 
-        GrantApplication.query().then(data => {
-          deferred.resolve(data)
+        GrantApplication.query().then(res => {
+          deferred.resolve(res.data)
         }, error => {
           if (error.status === 401) {
             $state.go("login")

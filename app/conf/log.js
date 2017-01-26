@@ -3,6 +3,7 @@
 const winston = require('winston')
 
 const consoleLogger = new(winston.transports.Console)({
+  prettyPrint: true,
   colorize: true
 })
 const logLevel = process.env['ENV'] === 'prod' ? 'info' : 'debug'

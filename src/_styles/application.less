@@ -156,3 +156,21 @@ form {
     padding-right: 0.3rem;
   }
 }
+
+.required {
+  position: relative;
+
+  &:after {
+    content: '\f069';
+    font-family: FontAwesome;
+    font-size: 0.75rem;
+    color: @red-color;
+    position: absolute;
+    top: 0;
+    right: -1rem;
+
+    legend& {
+      right: 0.3rem;
+    }
+  }
+}

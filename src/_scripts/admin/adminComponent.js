@@ -15,7 +15,7 @@ const adminComp = {
     }
 
     ctrl.downloadFile = function(filename) {
-      GrantApplication.downloadFile({ filename: filename }, (res, headers) => {
+      GrantApplication.downloadFile({ filename: filename }).then((res, headers) => {
         const blob = new Blob([res.data], {type: headers()['content-type']});
         FileSaver.saveAs(blob, filename);
       }, err => {
@@ -24,7 +24,7 @@ const adminComp = {
     }
 
     ctrl.deleteFile = function(appId, filename) {
-      GrantApplication.removeFile({ appId: appId, filename: filename }, res => {
+      GrantApplication.removeFile({ appId: appId, filename: filename }).then(res => {
         const appIndex = _.findIndex(ctrl.applications, it => it.id === appId)
         ctrl.applications[appIndex] = res
       }, err => {
@@ -33,7 +33,7 @@ const adminComp = {
     }
 
     ctrl.deleteApplication = function(applId) {
-      GrantApplication.removeApplication({ appId: applId }, res => {
+      GrantApplication.removeApplication({ appId: applId }).then(res => {
         const appIndex = _.findIndex(ctrl.applications, it => it.id === applId)
         ctrl.applications.splice(appIndex, 1)
       }, err => {

@@ -42,9 +42,9 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
       currentApplication: function (GrantApplication, $state, $q) {
         const deferred = $q.defer()
 
-        GrantApplication.getOwn((data) => {
+        GrantApplication.getOwn().then(data => {
           if (data.length === 0) {
-            deferred.resolve(new GrantApplication)
+            deferred.resolve({})
           } else {
             deferred.resolve(data)
           }
@@ -91,7 +91,7 @@ ngModule.config(/*@ngInject*/ function ($urlRouterProvider, $stateProvider) {
       applications: function (GrantApplication, $q, $state) {
         const deferred = $q.defer()
 
-        GrantApplication.query(data => {
+        GrantApplication.query().then(data => {
           deferred.resolve(data)
         }, error => {
           if (error.status === 401) {
@@ -115,7 +115,6 @@ ngModule.controller('MainCtrl', /*@ngInject*/ function($rootScope, $state) {
   }
 
   $rootScope.$on('$stateChangeError', function(e, toState, toParams, fromState, fromParams, error) {
-    console.log('state changed');
     // TODO: Handle 401 rejection/redirects from admin
     if(error === "Not Authorized") {
       $state.go("login")
@@ -125,6 +124,10 @@ ngModule.controller('MainCtrl', /*@ngInject*/ function($rootScope, $state) {
 
 ngModule.config(/*@ngInject*/ function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix('vatterottFoundation')
+})
+
+ngModule.config(/*@ngInject*/ function ($httpProvider) {
+  $httpProvider.interceptors.push('interceptorFactory')
 })
 
 ngModule.constant('baseUrl', '/api')

@@ -1,28 +1,35 @@
-const userFactory = /*@ngInject*/ function ($resource, baseUrl, appReqAuthFactory, appResDecorator) {
-  const methods = {
-    getCurrentUser: {
-      method: 'GET',
-      headers: appReqAuthFactory,
-      transformResponse: appResDecorator
+const userFactory = /*@ngInject*/ function ($resource, baseUrl, appResDecorator, $http) {
+  return {
+    getCurrentUser: function() {
+      return $http({
+        method: 'GET',
+        url: `${baseUrl}/user`,
+        transformResponse: appResDecorator
+      })
     },
-    login: {
-      url: `${baseUrl}/user/login`,
-      method: 'POST',
-      transformResponse: appResDecorator
+    login: function(data) {
+      return $http({
+        method: 'POST',
+        url: `${baseUrl}/user/login`,
+        data: data,
+        transformResponse: appResDecorator
+      })
     },
-    logout: {
-      url: `${baseUrl}/user/logout`,
-      headers: appReqAuthFactory,
-      method: 'POST'
+    logout: function() {
+      return $http({
+        method: 'POST',
+        url: `${baseUrl}/user/logout`
+      })
     },
-    register: {
-      url: `${baseUrl}/user/new`,
-      method: 'POST',
-      transformResponse: appResDecorator
+    register: function(data) {
+      return $http({
+        method: 'POST',
+        url: `${baseUrl}/user/new`,
+        data: data,
+        transformResponse: appResDecorator
+      })
     }
   }
-
-  return $resource(`${baseUrl}/user`, {}, methods)
 }
 
 module.exports = userFactory

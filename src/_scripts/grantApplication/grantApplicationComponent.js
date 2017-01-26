@@ -5,7 +5,7 @@ const grantApp = {
     currentApplication: '<',
     user: '<'
   },
-  controller: /*@ngInject*/ function ($scope, $state) {
+  controller: /*@ngInject*/ function ($scope, $state, GrantApplication) {
     const ctrl = this
 
     ctrl.$onInit = function() {
@@ -23,7 +23,9 @@ const grantApp = {
         ctrl.messages.needFile = true
         return
       }
-      ctrl.currentApplication.$save()
+      GrantApplication.save(ctrl.currentApplication).then(appl => {
+        ctrl.currentApplication = appl
+      })
     }
 
     function hasAtLeastOneUploadedFile() {

@@ -10,7 +10,6 @@ module.exports = function (server, applicationController, User) {
   function* verifyAdminUser(request, reply) {
     const user = yield User.findOne({email: request.auth.credentials.email}).exec()
 
-    console.log(user);
     if (user) {
       if (!user.admin) {
         reply(Boom.unauthorized('User is not an admin!'));

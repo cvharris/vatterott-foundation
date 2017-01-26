@@ -5,20 +5,20 @@
 <p>You must upload all of these files before the deadline to submit a valid application, but you don't have to upload every file all at once.</p>
 <p>Upload one file now and come back before the deadline. We'll save your progress till you come back.</p>
 <form name="grantAppForm" ng-submit="grantApp.uploadForm()">
-  <label for="company">Organization Name
+  <label for="company"><span  class="required">Organization Name</span>
     <input type="text" name="company" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.company" required placeholder="ex. Non-Profits 'R Us" />
   </label>
 
-  <label for="name">Contact Name
+  <label for="name"><span  class="required">Contact Name</span>
     <input type="text" name="contactName" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.contactName" required placeholder="ex. Charles Vatterott" />
   </label>
 
-  <label for="phone">Contact Phone #
+  <label for="phone"><span  class="required">Contact Phone #</span>
     <input type="text" name="contactPhone" ng-disabled="grantApp.messages.completed" ng-model="grantApp.currentApplication.contactPhone" required placeholder="ex. 314-222-2222" />
   </label>
 
   <fieldset>
-    <legend class="section-description">&nbsp;We ask that you submit the following documents:&nbsp;</legend>
+    <legend class="section-description required">&nbsp;We ask that you submit the following documents (at least one at a time)&nbsp;&nbsp;&nbsp;</legend>
 
     <label for="application">
       <div>Application Form (<a href="/public/VF_Application_Form.docx">download</a>)</div>

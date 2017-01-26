@@ -20,7 +20,8 @@ const loginComp = {
       }
 
       if (ctrl.isNewUser) {
-        ctrl.user = User.register({}, auth, data => {
+        User.register(auth).then(data => {
+          ctrl.user = data
           ctrl.messages.registered = true
           $timeout(() => {
             $state.go('grantApplication')
@@ -31,7 +32,8 @@ const loginComp = {
           }
         })
       } else {
-        ctrl.user = User.login({}, auth, data => {
+        User.login(auth).then(data => {
+          ctrl.user = data
           ctrl.messages.signedIn = true
           $timeout(() => {
             $state.go('grantApplication')

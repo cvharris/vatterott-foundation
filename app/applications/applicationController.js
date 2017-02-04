@@ -17,7 +17,7 @@ const format = require('date-fns/format')
 
 const secret = process.env.SECRET_KEY || require('../../config.js')
 const bucketId = 'b8b4280a0b0d21b73981a333' // grantApplications
-const keyring = storj.KeyRing('./', secret);
+const keyring = storj.KeyRing(`${__dirname}/../..`, secret);
 const fileParams = [
   'applicationForm',
   'projectBudget',
@@ -170,28 +170,20 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
     query[`${whichFile}.fileName`] = request.params.filename
     const appl = yield Application.findOne(query).exec()
     const fileId = appl[whichFile].storjId
-    log.info('FileId', {
-      fileId: fileId
-    });
     const mimetype = mime.lookup(appl[whichFile].fileType)
-    log.info('mimetype', {
-      mimetype: mimetype
-    })
     const fileSecret = keyring.get(fileId);
     log.info('fileSecret', {
+      keyring: keyring,
       fileSecret: fileSecret
     });
 
     const decrypter = new storj.DecryptStream(fileSecret);
-    log.info('Troubleshooting download', {
-      decr: decrypter
-    })
+    log.info('Troubleshooting download')
 
     storjClient.createFileStream(bucketId, fileId, { exclude: [] }, function(err, stream) {
       if (err) {
         return log.error('error with Storj file stream', err.message);
       }
-      log.info('Created file stream')
 
       // Handle stream errors
       stream.on('error', function(err) {

@@ -17,7 +17,8 @@ const format = require('date-fns/format')
 
 const secret = process.env.SECRET_KEY || require('../../config.js')
 const bucketId = 'b8b4280a0b0d21b73981a333' // grantApplications
-const keyring = storj.KeyRing(`${__dirname}/../..`, secret);
+const keyringLocation = process.env.ENV === 'production' ? `${__dirname}/../../..` : `${__dirname}/../..`
+const keyring = storj.KeyRing(keyringLocation, secret);
 const fileParams = [
   'applicationForm',
   'projectBudget',
@@ -27,7 +28,6 @@ const fileParams = [
 
 module.exports = function grantControllerFactory(Application, log, storjClient) {
 
-  log.info(`${__dirname}`)
   function loadFiles(files) {
     let data = []
 

@@ -48,6 +48,7 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
   }
 
   function writeFile(file) {
+    console.log('derp');
     const tmppath = `./${file.hapi.filename}.crypt`;
     const storjSecret = new storj.DataCipherKeyIv();
     const encrypter = new storj.EncryptStream(storjSecret);

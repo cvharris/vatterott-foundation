@@ -170,13 +170,21 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
     query[`${whichFile}.fileName`] = request.params.filename
     const appl = yield Application.findOne(query).exec()
     const fileId = appl[whichFile].storjId
+    log.info('FileId', {
+      fileId: fileId
+    });
     const mimetype = mime.lookup(appl[whichFile].fileType)
+    log.info('mimetype', {
+      mimetype: mimetype
+    })
     const fileSecret = keyring.get(fileId);
+    log.info('fileSecret', {
+      fileSecret: fileSecret
+    });
 
     const decrypter = new storj.DecryptStream(fileSecret);
     log.info('Troubleshooting download', {
-      fileId: fileId,
-      whichFile: whichFile
+      decr: decrypter
     })
 
     storjClient.createFileStream(bucketId, fileId, { exclude: [] }, function(err, stream) {

@@ -36,8 +36,7 @@ module.exports = function(log, server, userController, User) {
 
   function* logInUser(request, reply) {
     log.info('routes logging user in', {
-      email: request.payload.email,
-      payload: request.payload
+      email: request.payload.email
     })
     const query = User.findOne({ email: request.payload.email })
     const user = yield query.exec()

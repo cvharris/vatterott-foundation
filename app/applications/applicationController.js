@@ -174,11 +174,16 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
     const fileSecret = keyring.get(fileId);
 
     const decrypter = new storj.DecryptStream(fileSecret);
+    log.info('Troubleshooting download', {
+      fileId: fileId,
+      whichFile: whichFile
+    })
 
     storjClient.createFileStream(bucketId, fileId, { exclude: [] }, function(err, stream) {
       if (err) {
         return log.error('error with Storj file stream', err.message);
       }
+      log.info('Created file stream')
 
       // Handle stream errors
       stream.on('error', function(err) {

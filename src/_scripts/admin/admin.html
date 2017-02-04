@@ -3,6 +3,7 @@
     <span class="logout-button link-like" ng-click="adminCtrl.logout()">Logout</span>
   </h1>
 <p>Hi Bill!</p>
+<p ng-if="adminCtrl.waitingOnDownload === true"><i class="fa fa-pulse fa-spinner"></i>&nbsp;&nbsp;Downloading file...</p>
 <table class="applications-list">
   <thead>
     <tr class="grant-application header">

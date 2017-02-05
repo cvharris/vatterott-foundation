@@ -1,9 +1,9 @@
 ---
 - name: "Access Academies"
-  link: "https://accessacademies.org"
+  link: "accessacademies.org"
 
 - name: "Almost Home"
-  link: "https://almosthomestl.org/"
+  link: "almosthomestl.org/"
 
 - name: "ALS Association"
   link: "www.alsa-stl.org/"
@@ -12,46 +12,46 @@
   link: "www.alz.org/stl/"
 
 - name: "American Liver Foundation"
-  link: "http://www.liverfoundation.org/"
+  link: "www.liverfoundation.org/"
 
 - name: "American Youth Foundation"
-  link: "https://ayf.com/"
+  link: "ayf.com/"
 
 - name: "Archdiocese of St. Louis"
-  link: "http://archstl.org/"
+  link: "archstl.org/"
 
 - name: "Assistance League of Saint Louis"
   link: "www.assistanceleague.org"
 
 - name: "Better Family Life, Inc"
-  link: "http://betterfamilylife.org"
+  link: "betterfamilylife.org"
 
 - name: "Beyond Housing"
   link: "www.beyondhousing.org/"
 
 - name: "Birthright Counseling"
-  link: "http://birthright.org"
+  link: "birthright.org"
 
 - name: "Blessed Teresa of Calcutta Catholic School"
-  link: "http://www.btcparish.org/site"
+  link: "www.btcparish.org/site"
 
 - name: "Camp Happy Day"
-  link: "http://www.camphappydays.org/"
+  link: "www.camphappydays.org/"
 
 - name: "Cardinal Carberry Senior Living Center"
-  link: "http://www.cardinalritterseniorservices.org"
+  link: "www.cardinalritterseniorservices.org"
 
 - name: "Cardinal Glennon Children's Hospital Foundation"
   link: ""
 
 - name: "Cardinal Ritter College Prep"
-  link: "http://www.cardinalritterprep.net/"
+  link: "www.cardinalritterprep.net/"
 
 - name: "Cardinal Ritter Institute"
   link: ""
 
 - name: "Cardinal Ritter Senior Services"
-  link: "http://www.cardinalritterseniorservices.org/"
+  link: "www.cardinalritterseniorservices.org/"
 
 - name: "Caritas Center-Ladies of Charity"
   link: ""
@@ -192,7 +192,7 @@
   link: ""
 
 - name: "Food Outreach, Inc."
-  link: "http://www.foodoutreach.org/"
+  link: "www.foodoutreach.org/"
 
 - name: "Franciscan Connection"
   link: ""
@@ -264,7 +264,7 @@
   link: ""
 
 - name: "Let's Start, Inc,."
-  link: "http://www.letsstart.org"
+  link: "www.letsstart.org"
 
 - name: "Lift for Life Academy and Gym"
   link: ""
@@ -291,7 +291,7 @@
   link: ""
 
 - name: "Marian Middle School"
-  link: "http://www.marianmiddleschool.org"
+  link: "www.marianmiddleschool.org"
 
 - name: "Martha's Hands"
   link: ""
@@ -300,7 +300,7 @@
   link: ""
 
 - name: "Meds and Food For Kids"
-  link: "http://mfkhaiti.org"
+  link: "mfkhaiti.org"
 
 - name: "Memory Care Home Solutions"
   link: ""
@@ -375,7 +375,7 @@
   link: ""
 
 - name: "Our Lady's Inn"
-  link: "http://www.ourladysinn.org"
+  link: "www.ourladysinn.org"
 
 - name: "Our Little Haven"
   link: ""
@@ -387,7 +387,7 @@
   link: ""
 
 - name: "Peter and Paul Community Services"
-  link: "http://www.ppcsinc.org/"
+  link: "www.ppcsinc.org/"
 
 - name: "Piasa Area Habitat for Humanity"
   link: ""
@@ -429,7 +429,7 @@
   link: ""
 
 - name: "Sister Thea Bowman Catholic School"
-  link: "http://www.stbcs.com/wp/"
+  link: "www.stbcs.com/wp/"
 
 - name: "Sisters of Most Precious Blood"
   link: ""
@@ -477,7 +477,7 @@
   link: ""
 
 - name: "St. Charles Lwanga Center"
-  link: "http://www.archstl.org/lwangacenter"
+  link: "www.archstl.org/lwangacenter"
 
 - name: "St. Dominic H.S. - Scholarship (4 yr. Pledge)"
   link: ""
@@ -513,13 +513,13 @@
   link: ""
 
 - name: "St. Louis Area Women Religious Collaborative"
-  link: "http://www.stlcatholicsisters.org/collaborating-ministries"
+  link: "www.stlcatholicsisters.org/collaborating-ministries"
 
 - name: "St. Louis Bicycle Works"
   link: ""
 
 - name: "St. Louis Catholic Academy"
-  link: "http://www.stlcatholicacademy.org/"
+  link: "www.stlcatholicacademy.org/"
 
 - name: "St. Louis Children's Hospital Foundation"
   link: ""
@@ -567,7 +567,7 @@
   link: ""
 
 - name: "St. Vincent Home for Children"
-  link: "http://www.saintvincenthome.org/"
+  link: "www.saintvincenthome.org/"
 
 - name: "St. Wenceslaus Catholic Church"
   link: ""
@@ -579,7 +579,7 @@
   link: ""
 
 - name: "The Institute for Peace & Justice"
-  link: "http://www.ipj-ppj.org"
+  link: "www.ipj-ppj.org"
 
 - name: "The Learning Tree"
   link: ""
@@ -609,7 +609,7 @@
   link: ""
 
 - name: "Today And Tomorrow Educational Foundation"
-  link: "http://www.archstl.org/ttef"
+  link: "www.archstl.org/ttef"
 
 - name: "Tree House Healing Ministry"
   link: ""
@@ -633,10 +633,10 @@
   link: ""
 
 - name: "Vitae Care Foundation"
-  link: "http://www.vitaefoundation.org/"
+  link: "www.vitaefoundation.org/"
 
 - name: "Woman's Place"
-  link: "http://womansplacestl.org/"
+  link: "womansplacestl.org/"
 
 - name: "Women in Charge"
   link: ""

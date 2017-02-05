@@ -14,7 +14,7 @@ module.exports = function (log, User) {
   const validate = function* (decoded, request, callback) {
     log.info('validating user', {
       decoded: decoded,
-      uri: request.url
+      uri: request.url.path
     })
     // do your checks to see if the person is valid
     if (!decoded.id) {

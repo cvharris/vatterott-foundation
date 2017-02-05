@@ -4,6 +4,7 @@ const co = require('co')
 const fs = require('fs')
 const mime = require('mime')
 const path = require('path')
+const ReadStream = require('readable-stream');
 const Boom = require('boom')
 const Sugar = require('sugar')
 const _ = require('lodash')
@@ -17,7 +18,6 @@ const format = require('date-fns/format')
 
 const secret = process.env.SECRET_KEY || require('../../config.js')
 const bucketId = 'b8b4280a0b0d21b73981a333' // grantApplications
-const keyring = storj.KeyRing(`${__dirname}/../..`, secret);
 const fileParams = [
   'applicationForm',
   'projectBudget',
@@ -50,12 +50,9 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
   function writeFile(file) {
     console.log('derp');
     const tmppath = `./${file.hapi.filename}.crypt`;
-    const storjSecret = new storj.DataCipherKeyIv();
-    const encrypter = new storj.EncryptStream(storjSecret);
 
     return new Promise(resolve => {
-      file.pipe(encrypter)
-        .pipe(fs.createWriteStream(tmppath))
+      file.pipe(fs.createWriteStream(tmppath))
         .on('finish', () => {
           storjClient.createToken(bucketId, 'PUSH', function(err, token) {
             if (err) {
@@ -70,7 +67,6 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
                 Boom.internal('Unable to store Stroj file', err.message)
                 return
               }
-              keyring.set(storjFile.id, storjSecret);
 
               fs.unlink(tmppath, function(err) {
                 if (err) {
@@ -166,33 +162,24 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
     log.info('Downloading file', {
       filename: request.params.filename
     })
+
     const whichFile = Sugar.String.camelize(request.params.filename.split('-')[0], false)
     const query = {}
     query[`${whichFile}.fileName`] = request.params.filename
     const appl = yield Application.findOne(query).exec()
     const fileId = appl[whichFile].storjId
     const mimetype = mime.lookup(appl[whichFile].fileType)
-    const fileSecret = keyring.get(fileId);
-    log.info('fileSecret', {
-      keyring: keyring,
-      fileSecret: fileSecret
-    });
-
-    const decrypter = new storj.DecryptStream(fileSecret);
-    log.info('Troubleshooting download')
 
     storjClient.createFileStream(bucketId, fileId, { exclude: [] }, function(err, stream) {
       if (err) {
         return log.error('error with Storj file stream', err.message);
       }
 
-      // Handle stream errors
       stream.on('error', function(err) {
         Boom.badImplementation('Failed to download shard', err.message);
       })
-
-      return reply(null, stream.pipe(decrypter)).header('Content-disposition', `attachment; filename=${request.params.filename}`).header('Content-type', mimetype)
-    });
+      return reply(null, stream).header('Content-disposition', `attachment; filename=${request.params.filename}`).header('Content-type', mimetype)
+    })
   }
 
   function* deleteApplication(request, reply) {
@@ -241,7 +228,6 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
           Boom.internal('Could not remove file from Storj', err)
         }
 
-        keyring.del(fileId);
         log.info('Deleted file', {
           fileId: fileId
         })

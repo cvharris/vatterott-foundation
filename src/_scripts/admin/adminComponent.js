@@ -17,10 +17,11 @@ const adminComp = {
     ctrl.downloadFile = function(filename) {
       ctrl.waitingOnDownload = true
       GrantApplication.downloadFile({ filename: filename }).then(res => {
-        const blob = new Blob([res.data], {type: res.headers()['content-type']});
+        const blob = new Blob([res.data.data], {type: res.data.headers['content-type']});
         FileSaver.saveAs(blob, filename);
         ctrl.waitingOnDownload = false
       }, err => {
+        ctrl.waitingOnDownload = false
         console.error('error!', err);
       })
     }

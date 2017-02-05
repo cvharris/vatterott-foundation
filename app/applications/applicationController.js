@@ -227,10 +227,6 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
           log.error('Could not remove file from Storj', fileId, bucketId, err)
           Boom.internal('Could not remove file from Storj', err)
         }
-
-        log.info('Deleted file', {
-          fileId: fileId
-        })
         resolve({
           fileId: fileId
         })

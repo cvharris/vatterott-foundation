@@ -30,6 +30,7 @@
     "good": "7.0.2",
     "good-console": "6.3.1",
     "good-squeeze": "5.0.0",
+    "graceful-fs": "^4.1.11",
     "gulp": "3.9.0",
     "gulp-angular-templatecache": "1.8.0",
     "gulp-changed": "1.3.0",
@@ -57,7 +58,7 @@
     "imagemin-svgo": "4.2.0",
     "inert": "4.0.3",
     "joi": "9.0.4",
-    "jquery": "2.2.0",
+    "jquery": "^3.2.1",
     "js-yaml": "3.5.2",
     "less": "2.7.2",
     "lodash": "4.17.2",
@@ -66,10 +67,10 @@
     "ng-file-upload": "12.2.x",
     "normalize.css": "3.0.3",
     "nunjucks": "2.4.0",
-    "pluto-path": "0.3.0",
+    "pluto-path": "1.1.0",
     "proxy-middleware": "0.15.0",
     "rimraf": "2.5.0",
-    "storj": "^4.0.1",
+    "storj-lib": "^6.8.0",
     "sugar": "2.0.4",
     "url": "0.11.0",
     "vinyl-buffer": "1.0.0",
@@ -84,7 +85,7 @@
     "postinstall": "gulp build --production"
   },
   "engines": {
-    "node": "6.9.1"
+    "node": ">6.9.1"
   },
   "browserify": {
     "transform": [

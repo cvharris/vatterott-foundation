@@ -17,7 +17,6 @@ co(function* () {
   }).then(plutoModule => {
     const log = plutoModule.get('log')
     log.info(`Starting ${app.name}...`)
-    plutoModule.eagerlyLoadAll()
   }).catch(err => {
     console.error(err.stack)
   })

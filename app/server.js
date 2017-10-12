@@ -35,7 +35,7 @@ module.exports = function (log, User) {
   const server = new Hapi.Server();
 
   server.connection({
-    port: process.env.PORT || 3002,
+    port: process.env.PORT || 3008,
     router: {
       isCaseSensitive: false,
       stripTrailingSlash: true

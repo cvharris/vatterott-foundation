@@ -2,7 +2,7 @@
 const url = require('url')
 const proxy = require('proxy-middleware')
 
-export default function(gulp, plugins, args, config, taskTarget, browserSync) {
+export default function (gulp, plugins, args, config, taskTarget, browserSync) {
   // BrowserSync
   gulp.task('browserSync', () => {
     const proxyOptions = url.parse('http://localhost:3002');

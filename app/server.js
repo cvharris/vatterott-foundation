@@ -21,7 +21,7 @@ module.exports = function (log, User) {
       return callback(null, false)
     }
     else {
-      const user = yield User.findOne({_id: decoded.id}).exec()
+      const user = yield User.findOne({ _id: decoded.id }).exec()
       if (!user) {
         return callback(null, false)
       } else if (user && !user.loggedIn) {
@@ -77,7 +77,7 @@ module.exports = function (log, User) {
       key: secret,
       validateFunc: co.wrap(validate),
       verifyOptions: {
-        algorithms: [ 'HS256' ]
+        algorithms: ['HS256']
       }
     });
 

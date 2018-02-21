@@ -3,6 +3,7 @@
 const mongoose = require('mongoose')
 
 const localConnection = 'mongodb://127.0.0.1:27017/vatterottFoundation'
+
 mongoose.Promise = global.Promise
 
 module.exports = function (log) {

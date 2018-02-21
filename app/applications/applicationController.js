@@ -54,21 +54,21 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
     return new Promise(resolve => {
       file.pipe(fs.createWriteStream(tmppath))
         .on('finish', () => {
-          storjClient.createToken(bucketId, 'PUSH', function(err, token) {
+          storjClient.createToken(bucketId, 'PUSH', function (err, token) {
             if (err) {
               log.error('Storj token generation error', err.message);
               Boom.internal('Unable to create Storj token', err.message)
               return
             }
 
-            storjClient.storeFileInBucket(bucketId, token.token, tmppath, function(err, storjFile) {
+            storjClient.storeFileInBucket(bucketId, token.token, tmppath, function (err, storjFile) {
               if (err) {
                 log.error('Storj error storing file', err.message);
                 Boom.internal('Unable to store Stroj file', err.message)
                 return
               }
 
-              fs.unlink(tmppath, function(err) {
+              fs.unlink(tmppath, function (err) {
                 if (err) {
                   log.error(err);
                   Boom.internal('Error deleting temp file', err)
@@ -107,7 +107,7 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
 
     return reply(application)
 
-	}
+  }
 
   function* list(request, reply) {
     // Lists grant applications for the current deadline and the requesting user
@@ -119,7 +119,7 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
     return reply(application)
   }
 
-	function* upload(request, reply) {
+  function* upload(request, reply) {
     let uploadedFiles = Object.keys(request.payload)
 
     if (uploadedFiles.length === 0) {
@@ -156,26 +156,27 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
 
       return reply(appl)
     }
-	}
+  }
 
   function* download(request, reply) {
+    const decoded = decodeURIComponent(request.params.filename)
     log.info('Downloading file', {
-      filename: request.params.filename
+      filename: decoded
     })
 
-    const whichFile = Sugar.String.camelize(request.params.filename.split('-')[0], false)
+    const whichFile = Sugar.String.camelize(decoded.split('-')[0], false)
     const query = {}
-    query[`${whichFile}.fileName`] = request.params.filename
+    query[`${whichFile}.fileName`] = decoded
     const appl = yield Application.findOne(query).exec()
     const fileId = appl[whichFile].storjId
     const mimetype = mime.lookup(appl[whichFile].fileType)
 
-    storjClient.createFileStream(bucketId, fileId, { exclude: [] }, function(err, stream) {
+    storjClient.createFileStream(bucketId, fileId, { exclude: [] }, function (err, stream) {
       if (err) {
         return log.error('error with Storj file stream', err.message);
       }
 
-      stream.on('error', function(err) {
+      stream.on('error', function (err) {
         Boom.badImplementation('Failed to download shard', err.message);
       })
       return reply(null, stream).header('Content-disposition', `attachment; filename=${request.params.filename}`).header('Content-type', mimetype)
@@ -235,7 +236,7 @@ module.exports = function grantControllerFactory(Application, log, storjClient) 
   }
 
   return {
-		list: co.wrap(list),
+    list: co.wrap(list),
     ownCurrent: co.wrap(ownCurrent),
     download: co.wrap(download),
     deleteApplication: co.wrap(deleteApplication),

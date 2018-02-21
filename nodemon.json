@@ -1,3 +1,9 @@
 {
-  "ignore": ["qa", "tmp", "src", "grantApplications"]
+  "exec": "node --inspect",
+  "ignore": [
+    "qa",
+    "tmp",
+    "src",
+    "grantApplications"
+  ]
 }

@@ -14,10 +14,10 @@ const adminComp = {
 
     }
 
-    ctrl.downloadFile = function(filename) {
+    ctrl.downloadFile = function (filename) {
       ctrl.waitingOnDownload = true
-      GrantApplication.downloadFile({ filename: filename }).then(res => {
-        const blob = new Blob([res.data.data], {type: res.data.headers['content-type']});
+      GrantApplication.downloadFile({ filename: encodeURIComponent(filename) }).then(res => {
+        const blob = new Blob([res.data.data], { type: res.data.headers['content-type'] });
         FileSaver.saveAs(blob, filename);
         ctrl.waitingOnDownload = false
       }, err => {
@@ -26,7 +26,7 @@ const adminComp = {
       })
     }
 
-    ctrl.deleteFile = function(appId, filename) {
+    ctrl.deleteFile = function (appId, filename) {
       GrantApplication.removeFile({ appId: appId, filename: filename }).then(res => {
         const appIndex = _.findIndex(ctrl.applications, it => it.id === appId)
         ctrl.applications[appIndex] = res
@@ -35,7 +35,7 @@ const adminComp = {
       })
     }
 
-    ctrl.deleteApplication = function(applId) {
+    ctrl.deleteApplication = function (applId) {
       GrantApplication.removeApplication({ appId: applId }).then(res => {
         const appIndex = _.findIndex(ctrl.applications, it => it.id === applId)
         ctrl.applications.splice(appIndex, 1)
@@ -45,7 +45,7 @@ const adminComp = {
 
     }
 
-    ctrl.logout = function() {
+    ctrl.logout = function () {
       $state.go('logout')
     }
   }

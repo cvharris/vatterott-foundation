@@ -36,7 +36,7 @@
             {# TODO: turn this into a module #}
             <li>
               <a class="social-media-link" href=""><i class="fa fa-facebook"></i></a>
-            </li>
+            </li>                    
             <li>
               <a class="social-media-link" href=""><i class="fa fa-twitter"></i></a>
             </li>
@@ -45,6 +45,9 @@
             </li>
           </ul>
           <ul class="important-links links">
+            <li>
+              <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T23XHSVD43HMG" target="_blank">Donate</a>
+            </li>
             <li>
               <a href="/terms-of-use">Terms of Use</a>
             </li>

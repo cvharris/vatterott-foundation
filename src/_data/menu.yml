@@ -1,20 +1,29 @@
----
 - label: 'Home'
   route: '/'
   description: 'High level information about the Vatterott Foundation'
+  target: '_self'
 
 - label: 'Who We Help'
   route: '/who-we-help'
   description: "List of all organizations we've helped in recent years"
+  target: '_self'
 
 - label: 'Applications'
   route: '/applications'
   description: 'Information on who qualifies for a grant and how to apply for one'
+  target: '_self'
 
 - label: 'VFYB'
   route: '/youth-board'
   description: 'The Vatterott Foundation Youth Board, with its grants and policies'
+  target: '_self'
 
 - label: 'Contact Us'
   route: '#contact-us'
   description: 'Best ways you can reach out and contact us'
+  target: '_self'
+
+- label: 'Donate'
+  route: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T23XHSVD43HMG'
+  description: 'Follow the link to donate'
+  target: '_blank'

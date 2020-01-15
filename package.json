@@ -53,7 +53,7 @@
     "gulp-sourcemaps": "1.6.0",
     "gulp-uglify": "1.5.1",
     "gulp-util": "3.0.7",
-    "hapi": "15.2.0",
+    "hapi": "18.1.0",
     "hapi-auth-jwt2": "7.2.0",
     "imagemin-pngquant": "4.2.0",
     "imagemin-svgo": "4.2.0",

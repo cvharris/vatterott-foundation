@@ -4,7 +4,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Vatterott Foundation',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,7 +14,16 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        href:
+          'https://fonts.googleapis.com/css?family=Prompt:300,300i,400,400i,700',
+        rel: 'stylesheet',
+        media: 'none',
+        onload: "this.media='all';"
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -23,18 +32,15 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    'normalize.css/normalize.css',
+    'font-awesome/css/font-awesome.min.css',
+    '~/assets/styles/main.less'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [],
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
-  ],
   /*
    ** Nuxt.js modules
    */

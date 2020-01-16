@@ -8,9 +8,16 @@
     </div>
     <div class="menu">
       {% for item in site.data.menu %}
-      <a title="<$  item.description  $>" href="<$  item.route  $>" target="<$ item.target $>" class="menu-item">
-        <$  item.label  $>
-      </a>
+      <div class="menu-item">
+        <a title="<$  item.description  $>" href="<$  item.route  $>" target="<$ item.target $>" class="menu-link">
+          <$  item.label  $>
+        </a>
+        <div class="secondary-menu">
+          {% for child in item.children %}
+          <a title="<$ child.description $>" href="<$ child.route $>" target="<$ child.target $>" class="child-link"><$ child.label $></a>
+          {% endfor %}
+        </div>
+      </div>
       {% endfor %}
     </div>
     <div id="menu-reveal" class="menu-button-container right">

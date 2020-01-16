@@ -62,26 +62,55 @@
   display: none;
 
   .menu-item {
-    color: white;
     margin: 0 1rem;
     position: relative;
+    cursor: pointer;
+    
+    .menu-link, .child-link {
+      color: white;
 
-    &::after {
-      content: '';
-      display: inline;
+      &::after {
+        content: '';
+        display: inline;
+        position: absolute;
+        bottom: 0rem;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-bottom: 2px solid transparent;
+      }
+    }
+
+    .secondary-menu {
+      display: none;
       position: absolute;
-      bottom: 0rem;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      border-bottom: 2px solid transparent;
+      padding: 0;
+      padding-top: 1rem;
+      margin: 0;
+    }
+
+    .child-link {
+      display: inline-block;
+      background-color: @offBlack;
+      padding: .5rem 1rem;
+    }
+
+    
+    .menu-link, .child-link {
+      &:hover {
+        color: white;
+        text-decoration: none;
+
+        &::after{
+          border-bottom: 2px solid @red-color;
+        }
+      }
     }
 
     &:hover {
-      text-decoration: none;
 
-      &::after{
-        border-bottom: 2px solid @red-color;
+      .secondary-menu {
+        display: block;
       }
     }
 

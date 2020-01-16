@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "date-fns": "1.25.0",
+    "firebase": "^7.6.2",
     "font-awesome": "^4.7.0",
     "imagemin-pngquant": "4.2.0",
     "imagemin-svgo": "4.2.0",

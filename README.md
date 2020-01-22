@@ -1,26 +1,22 @@
-# Vatterott-Foundation readme
+# nuxt-new
 
-## Running this site
+> Website for the Vatterott Foundation
 
-First, you need to install MongoDB
+## Build Setup
 
-```sh
-brew install mongodb
-mkdir -p /data/db
-sudo chown -R `id -un` /data/db
+``` bash
+# install dependencies
+$ npm run install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
 ```
 
-```sh
-npm install
-npm install -g nodemon gulp
-```
-
-Run the following commands in two separate windows
-
-```sh
-gulp serve
-```
-
-```sh
-nodemon
-```
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

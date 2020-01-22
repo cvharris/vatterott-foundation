@@ -6,7 +6,7 @@
   @media (min-width: @tablet) {
     padding: @spacing-unit @spacing-unit * 1.5;
     max-width: @content-width;
-  };
+  }
 }
 
 .main-container {
@@ -44,8 +44,9 @@ main {
   width: 100%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.3);
   padding: 1rem 3rem;
-  border-radius: .25rem;
-  transition: background-color 0.5s @timing-function, box-shadow 0.5s @timing-function;
+  border-radius: 0.25rem;
+  transition: background-color 0.5s @timing-function,
+    box-shadow 0.5s @timing-function;
   margin: 0 auto 2rem auto;
   cursor: pointer;
   border: none;
@@ -54,7 +55,8 @@ main {
 
   &:hover {
     background-color: lighten(@blue-primary, 5%);
-    box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19),
+      0 13px 25px 0 rgba(0, 0, 0, 0.3);
     color: @white;
   }
 
@@ -93,7 +95,6 @@ main {
   }
 
   @media (min-width: @tablet) {
-
     > .parallax-image {
       position: fixed;
       height: 100vh;
@@ -101,11 +102,11 @@ main {
   }
 }
 
-
 .text-shadow {
   -webkit-text-stroke: 1px @black;
   color: @white;
-  text-shadow: 3px 3px 0 @black, -1px -1px 0 @black, 1px -1px 0 @black, -1px 1px 0 @black, 1px 1px 0 @black;
+  text-shadow: 3px 3px 0 @black, -1px -1px 0 @black, 1px -1px 0 @black,
+    -1px 1px 0 @black, 1px 1px 0 @black;
 }
 
 .page-title {
@@ -122,7 +123,8 @@ main {
 .red-double-border {
   position: relative;
 
-  &:before, &:after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     position: absolute;
@@ -153,13 +155,12 @@ main {
 }
 
 .main-container {
-
   &:after {
     content: '';
     position: fixed;
     top: 0;
     right: 0;
-    width: ~"calc(100vw - 300px)";
+    width: ~'calc(100vw - 300px)';
     height: 100%;
     background: fade(@black, 85);
     display: block;
@@ -182,8 +183,8 @@ body {
   position: relative;
   height: 100%;
 
-  &.menuOpen {
-    .main-container {
+  .main-container {
+    &.menuOpen {
       // overflow: hidden;
 
       &:after {
@@ -191,19 +192,19 @@ body {
         transform: translate3d(-300px, 0, 0);
         transition-duration: 0.5s;
         transition-property: opacity, transform;
-        transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
       }
-    }
 
-    main {
-      transform: translate3d(-300px, 0, 0);
-    }
+      main {
+        transform: translate3d(-300px, 0, 0);
+      }
 
-    #main-menu {
-      visibility: visible;
-      transition: transform 0.5s;
-      transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
-      transform: translate3d(0, 0, 0);
+      #main-menu {
+        visibility: visible;
+        transition: transform 0.5s;
+        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: translate3d(0, 0, 0);
+      }
     }
   }
 }

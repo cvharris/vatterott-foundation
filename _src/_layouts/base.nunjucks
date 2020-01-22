@@ -15,19 +15,19 @@
 <!--<![endif]-->
 
   <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="The Vatterott Foundation" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:description" content="Family philanthropy for the amelioration of human poverty, the advance of education, the promotion of the public welfare, and the advance of religion." />
-    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="http://www.vatterottfoundation.org/images/profile.jpg" />
-    <meta property="og:image:type" content="image/jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://www.vatterottfoundation.org" />
-    <title>The Vatterott Foundation</title>
-    <meta name="description" content="Family philanthropy for the amelioration of human poverty, the advance of education, the promotion of the public welfare, and the advance of religion"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="google-site-verification" content="IVDez7EEwbCw6YsqMYH6Y1vBgwmLw_KNdcgyjx-7RA0" />
+    {# <meta charset="utf-8"/> #}
+    {# <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> #}
+    {# <meta prefix="og: http://ogp.me/ns#" property="og:title" content="The Vatterott Foundation" /> #}
+    {# <meta prefix="og: http://ogp.me/ns#" property="og:description" content="Family philanthropy for the amelioration of human poverty, the advance of education, the promotion of the public welfare, and the advance of religion." /> #}
+    {# <meta prefix="og: http://ogp.me/ns#" property="og:image" content="http://www.vatterottfoundation.org/images/profile.jpg" /> #}
+    {# <meta property="og:image:type" content="image/jpg" /> #}
+    {# <meta property="og:image:width" content="1200" /> #}
+    {# <meta property="og:image:height" content="630" /> #}
+    {# <meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://www.vatterottfoundation.org" /> #}
+    {# <title>The Vatterott Foundation</title> #}
+    {# <meta name="description" content="Family philanthropy for the amelioration of human poverty, the advance of education, the promotion of the public welfare, and the advance of religion"/> #}
+    {# <meta name="viewport" content="width=device-width, initial-scale=1.0"/> #}
+    {# <meta name="google-site-verification" content="IVDez7EEwbCw6YsqMYH6Y1vBgwmLw_KNdcgyjx-7RA0" /> #}
     <base href="/">
   </head>
   <body>

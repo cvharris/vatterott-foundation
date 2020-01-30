@@ -6,7 +6,7 @@
       register for an account
     </p>
     <div class="centered-form">
-      <form name="credentialsForm" @submit="submitCredentials">
+      <form name="credentialsForm" @submit.prevent="submitCredentials">
         <fieldset>
           <div>
             <div v-if="emailTaken">
@@ -57,13 +57,13 @@
         </fieldset>
       </form>
       <div class="form-footer">
-        <div class="login-switch" v-if="isNewUser">
+        <div class="login-switch" v-if="!isNewUser">
           <p>Don't have an account?</p>
           <button class="secondary" @click="changeFormType">
             Register
           </button>
         </div>
-        <div class="login-switch" v-if="!isNewUser">
+        <div class="login-switch" v-if="isNewUser">
           <p>Already have an account?</p>
           <button class="secondary" @click="changeFormType">
             Sign In
@@ -80,19 +80,45 @@ export default {
     return {
       email: '',
       authentication: '',
-      type: '',
-      isNewUser: false,
+      isNewUser: true,
       emailTaken: false,
       registered: false,
       signedIn: false,
       incorrectAuth: false
     }
   },
+  computed: {
+    type: function() {
+      return this.isNewUser ? 'Register' : 'Sign In'
+    }
+  },
   methods: {
-    $onInit() {},
-    submitCredentials() {},
+    submitCredentials() {
+      if (this.isNewUser) {
+        this.$auth
+          .createUserWithEmailAndPassword(this.email, this.authentication)
+          .then(() => {
+            this.registered = true
+          })
+          .catch((error) => {
+            this.emailTaken = true
+          })
+      } else {
+        this.$auth
+          .signInWithEmailAndPassword(this.email, this.authentication)
+          .then((data) => {
+            this.signedIn = true
+          })
+          .catch((error) => {
+            console.log(error)
+            this.incorrectAuth = true
+          })
+      }
+    },
     resetFormMessages() {},
-    changeFormType() {},
+    changeFormType() {
+      this.isNewUser = !this.isNewUser
+    },
     cancel() {}
   }
 }

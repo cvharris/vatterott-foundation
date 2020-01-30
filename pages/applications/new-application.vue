@@ -34,6 +34,11 @@ export default {
     GrantApplication,
     LoginForm,
     LogoutComponent
+  },
+  mounted() {
+    setTimeout(() => {
+      console.log(this.$auth.currentUser.uid)
+    }, 1500)
   }
 }
 </script>

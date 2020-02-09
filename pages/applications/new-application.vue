@@ -1,24 +1,34 @@
 <template>
   <div>
-    <div>
-      <h3>Admin Component</h3>
-      <admin-component />
-    </div>
+    <template v-if="!initializing">
+      <div v-if="!currentUserId">
+        <login-form />
+      </div>
 
-    <div>
-      <h3>Grant Application</h3>
-      <grant-application />
-    </div>
-
-    <div>
-      <h3>Login Form</h3>
-      <login-form />
-    </div>
-
-    <div>
-      <h3>Logout Component</h3>
-      <logout-component />
-    </div>
+      <div v-else>
+        <button
+          v-if="showApplication"
+          class=" toggle-button link-like mt-5"
+          @click="toggleView"
+        >
+          <!-- {{ showApplication ? 'Admin Page' : 'Grant Application' }} -->
+          Admin
+        </button>
+        <button
+          v-if="!showApplication"
+          class="toggle-button link-like mt-5"
+          @click="toggleView"
+        >
+          Grant Application
+        </button>
+        <div v-if="showApplication">
+          <grant-application />
+        </div>
+        <div v-if="!showApplication">
+          <admin-component />
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -26,22 +36,42 @@
 import AdminComponent from '../../components/AdminComponent'
 import GrantApplication from '../../components/GrantApplication'
 import LoginForm from '../../components/LoginForm'
-import LogoutComponent from '../../components/LogoutComponent'
+import { mapState } from 'vuex'
 
 export default {
+  data() {
+    return {
+      showApplication: true
+    }
+  },
+  middleware: ['auth'],
   components: {
     AdminComponent,
     GrantApplication,
-    LoginForm,
-    LogoutComponent
+    LoginForm
   },
-  mounted() {
-    setTimeout(() => {
-      console.log(this.$auth.currentUser.uid)
-    }, 1500)
+  computed: { ...mapState(['initializing', 'currentUserId']) },
+  methods: {
+    toggleView() {
+      this.showApplication = !this.showApplication
+    }
   }
+
+  // mounted() {
+  //   setTimeout(() => {
+  //     console.log(this.$auth.currentUser.uid)
+  //   }, 1500)
+  // }
 }
 </script>
 
-<style>
-</style>
+<style scoped>
+.toggle-button {
+  /* box-sizing: border-box; */
+  font-size: 1rem;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #212121;
+  border-radius: 6px;
+}
+</style>>

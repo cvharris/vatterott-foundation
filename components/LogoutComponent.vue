@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h1 class="page-title">Logout</h1>
-    <p>{{ logoutCtrl.message }}</p>
-  </div>
+  <span class="logout-button link-like" @click="logout">Logout</span>
 </template>
 
 <script>
@@ -13,7 +10,9 @@ export default {
     }
   },
   methods: {
-    logout() {}
+    logout() {
+      this.$auth.signOut()
+    }
   }
 }
 </script>

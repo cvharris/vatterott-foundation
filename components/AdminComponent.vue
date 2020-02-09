@@ -3,7 +3,7 @@
     <div class="container">
       <h1 class="page-title">
         Admin
-        <span class="logout-button link-like" @click="logout">Logout</span>
+        <logout-component />
       </h1>
       <p>Hi Bill!</p>
     </div>
@@ -122,10 +122,13 @@
 </template>
 
 <script>
+import LogoutComponent from './LogoutComponent'
+
 export default {
   data() {
     return {
       waitingOnDownload: false,
+      // showApplication: false,
       applications: [
         {
           company: '',
@@ -146,6 +149,9 @@ export default {
     deleteFile() {},
     deleteApplication() {},
     logout() {}
+  },
+  components: {
+    LogoutComponent
   }
 }
 </script>

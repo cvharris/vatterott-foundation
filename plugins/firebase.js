@@ -1,6 +1,7 @@
 import fb from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
+import 'firebase/storage'
 
 export default (context, inject) => {
   const config = {
@@ -18,8 +19,10 @@ export default (context, inject) => {
 
   const db = fb.firestore()
   const auth = fb.auth()
+  const storage = fb.storage()
 
   inject('db', db)
   inject('auth', auth)
   inject('firebase', fb)
+  inject('storage', storage)
 }

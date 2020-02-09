@@ -2,13 +2,7 @@
   <div>
     <h1 class="page-title">
       New Application
-      <span
-        class="logout-button admin link-like"
-        v-if="user.admin"
-        @click="goToAdmin"
-        >Admin Page</span
-      >
-      <span class="logout-button link-like" @click="logout">Logout</span>
+      <logout-component />
     </h1>
     <p>
       You must upload all of these files before the deadline to submit a valid
@@ -18,13 +12,12 @@
       Upload one file now and come back before the deadline. We'll save your
       progress till you come back.
     </p>
-    <form name="grantAppForm" @submit="uploadForm">
+    <form name="grantAppForm" @submit.prevent="onUploadForm">
       <label for="company"
         ><span class="required">Organization Name</span>
         <input
           type="text"
           name="company"
-          :disabled="lockFields"
           v-model="currentApplication.company"
           required
           placeholder="ex. Non-Profits 'R Us"
@@ -36,7 +29,6 @@
         <input
           type="text"
           name="contactName"
-          :disabled="lockFields"
           v-model="currentApplication.contactName"
           required
           placeholder="ex. Charles Vatterott"
@@ -48,7 +40,6 @@
         <input
           type="text"
           name="contactPhone"
-          :disabled="lockFields"
           v-model="currentApplication.contactPhone"
           required
           placeholder="ex. 314-222-2222"
@@ -68,18 +59,15 @@
               >download</a
             >)
           </div>
-          <div
-            class="uploaded"
-            v-if="currentApplication.applicationForm.uploaded"
-          >
+          <div class="uploaded" v-if="currentApplication.applicationForm">
             <i class="fa fa-check-square"></i>Uploaded!
           </div>
           <input
             id="application"
             :class="{
-              'invisible-input': currentApplication.applicationForm.uploaded
+              'invisible-input': currentApplication.applicationForm
             }"
-            :disabled="currentApplication.applicationForm.uploaded"
+            :disabled="!!currentApplication.applicationForm"
             type="file"
             name="applicationForm"
             @change="onFileUpload($event, 'applicationForm')"
@@ -93,18 +81,15 @@
               >download</a
             >)
           </div>
-          <div
-            class="uploaded"
-            v-if="currentApplication.projectBudget.uploaded"
-          >
+          <div class="uploaded" v-if="currentApplication.projectBudget">
             <i class="fa fa-check-square"></i>Uploaded!
           </div>
           <input
             id="project-budget"
             :class="{
-              'invisible-input': currentApplication.projectBudget.uploaded
+              'invisible-input': currentApplication.projectBudget
             }"
-            :disabled="currentApplication.projectBudget.uploaded"
+            :disabled="!!currentApplication.projectBudget"
             type="file"
             name="projectBudget"
             @change="onFileUpload($event, 'projectBudget')"
@@ -113,15 +98,15 @@
 
         <label for="current-budget">
           <div>Current Organizational Budget</div>
-          <div class="uploaded" v-if="currentApplication.orgBudget.uploaded">
+          <div class="uploaded" v-if="currentApplication.orgBudget">
             <i class="fa fa-check-square"></i>Uploaded!
           </div>
           <input
             id="current-budget"
             :class="{
-              'invisible-input': currentApplication.orgBudget.uploaded
+              'invisible-input': currentApplication.orgBudget
             }"
-            :disabled="currentApplication.orgBudget.uploaded"
+            :disabled="!!currentApplication.orgBudget"
             type="file"
             name="orgBudget"
             @change="onFileUpload($event, 'orgBudget')"
@@ -130,15 +115,15 @@
 
         <label for="irs-letter">
           <div>IRS Letter of Determination</div>
-          <div class="uploaded" v-if="currentApplication.irsLetter.uploaded">
+          <div class="uploaded" v-if="currentApplication.irsLetter">
             <i class="fa fa-check-square"></i>Uploaded!
           </div>
           <input
             id="irs-letter"
             :class="{
-              'invisible-input': currentApplication.irsLetter.uploaded
+              'invisible-input': currentApplication.irsLetter
             }"
-            :disabled="currentApplication.irsLetter.uploaded"
+            :disabled="!!currentApplication.irsLetter"
             type="file"
             name="irsLetter"
             @change="onFileUpload($event, 'irsLetter')"
@@ -183,6 +168,8 @@
 </template>
 
 <script>
+import LogoutComponent from './LogoutComponent'
+
 export default {
   data() {
     return {
@@ -191,31 +178,75 @@ export default {
         company: '',
         contactName: '',
         contactPhone: '',
-        applicationForm: { uploaded: false },
-        projectBudget: { uploaded: false },
-        orgBudget: { uploaded: false },
-        irsLetter: { uploaded: false }
+        applicationForm: '',
+        projectBudget: '',
+        orgBudget: '',
+        irsLetter: '',
+        userId: ''
       },
       unfinished: false,
       needFile: false,
       uploading: false,
+      uploaded: false,
       completed: false,
-      lockFields: true
+      showApplication: false,
+      uploadedForm: '',
+      applicationId: ''
     }
+  },
+  mounted: async function() {
+    this.$db
+      .collection('uploadedForms')
+      .where('userId', '==', this.$auth.currentUser.uid)
+      .onSnapshot((applicationSnapshot) => {
+        console.log(applicationSnapshot)
+        this.uploadedForm = ''
+        if (!applicationSnapshot.empty) {
+          applicationSnapshot.forEach((form) => {
+            this.applicationId = form.id
+            const application = form.data()
+            this.currentApplication = application
+          })
+        } else {
+          this.applicationId = this.$db.collection('uploadedForms').doc().id
+        }
+      })
   },
   methods: {
     $onInit() {},
-    uploadForm() {},
+    async onUploadForm() {
+      this.currentApplication.userId = this.$auth.currentUser.uid
+      await this.$db
+        .collection('uploadedForms')
+        .doc(this.applicationId)
+        .set(this.currentApplication)
+      this.uploaded = true
+      this.uploadedForm = ''
+      setTimeout(() => {
+        this.uploaded = false
+      }, 5000)
+    },
     hasAtLeastOneUploadedFile() {},
     checkIfCompleted() {},
-    goToAdmin() {},
     resetFormMessages() {},
     logout() {},
     onFileUpload(event, whichDocument) {
-      var files = e.target.files
+      const files = event.target.files
       if (!files.length) return
-      this.currentApplication[whichDocument] = files[0]
+      const file = files[0]
+      const sampleFileName = `${this.$auth.currentUser.uid}/${this.applicationId}/${file.name}`
+      this.currentApplication[whichDocument] = sampleFileName
+      this.$storage
+        .ref()
+        .child(sampleFileName)
+        .put(file)
+        .then(function(snapshot) {
+          console.log('Uploaded a blob or file!')
+        })
     }
+  },
+  components: {
+    LogoutComponent
   }
 }
 </script>

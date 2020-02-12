@@ -1,4 +1,6 @@
 export const state = () => ({
+  currentUserId: '',
+  initializing: true,
   menu: [
     {
       label: 'Home',
@@ -75,3 +77,12 @@ export const state = () => ({
     }
   ]
 })
+
+export const mutations = {
+  finishInitializing: function(state) {
+    state.initializing = false
+  },
+  setCurrentUserId: function(state, uid) {
+    state.currentUserId = uid
+  }
+}

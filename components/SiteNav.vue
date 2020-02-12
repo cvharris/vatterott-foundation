@@ -2,31 +2,27 @@
   <div>
     <nav id="main-menu" class="right nav-menu">
       <div class="menu-section">
-        <!-- {% for section in site.data.menu %}
-        {% if section.children.length %}
-        {% else %}-->
-        <template v-for="(section, i) in sections">
-          <nuxt-link
-            :key="i"
-            :to="section.route"
-            :target="section.target"
-            class="section-link"
-            @click.native="toggleMenu"
-          >{{ section.label }}</nuxt-link>
-          <!-- {% endif %}
-          {% for child in section.children %}-->
-          <nuxt-link
-            v-for="(child, j) in section.children"
-            :key="j"
-            :title="child.description"
-            :to="child.route"
-            target="child.target"
-            @click.native="toggleMenu"
-            class="section-link"
-          >{{ child.label }}</nuxt-link>
+        <template>
+          <div v-for="(section, i) in sections" :key="i">
+            <nuxt-link
+              :to="section.route"
+              :target="section.target"
+              class="section-link"
+              @click.native="toggleMenu"
+              >{{ section.label }}</nuxt-link
+            >
+          </div>
+          <div v-for="(child, j) in sections.children" :key="j">
+            <nuxt-link
+              :title="child.description"
+              :to="child.route"
+              target="child.target"
+              @click.native="toggleMenu"
+              class="section-link"
+              >{{ child.label }}</nuxt-link
+            >
+          </div>
         </template>
-        <!-- {% endfor %}
-        {% endfor %}-->
       </div>
     </nav>
   </div>

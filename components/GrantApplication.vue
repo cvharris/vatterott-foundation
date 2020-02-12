@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="align-body">
     <h1 class="page-title">
       New Application
       <logout-component />
@@ -202,9 +202,13 @@ export default {
         console.log(applicationSnapshot)
         this.uploadedForm = ''
         if (!applicationSnapshot.empty) {
+          //if the application snapshot is not empty, run this code
           applicationSnapshot.forEach((form) => {
+            //set form.id to applicationId
             this.applicationId = form.id
+            //creates new variable with the data, snapshot does not have automatically 'DocumentData'
             const application = form.data()
+            //how we save the information to the current user
             this.currentApplication = application
           })
         } else {
@@ -233,7 +237,9 @@ export default {
     onFileUpload(event, whichDocument) {
       const files = event.target.files
       if (!files.length) return
+      //name file variable
       const file = files[0]
+      //create file path using object concatenation
       const sampleFileName = `${this.$auth.currentUser.uid}/${this.applicationId}/${file.name}`
       this.currentApplication[whichDocument] = sampleFileName
       this.$storage

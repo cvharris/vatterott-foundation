@@ -6,21 +6,25 @@
       </div>
 
       <div v-else>
-        <button
-          v-if="showApplication"
-          class=" toggle-button link-like mt-5"
-          @click="toggleView"
-        >
-          <!-- {{ showApplication ? 'Admin Page' : 'Grant Application' }} -->
-          Admin
-        </button>
-        <button
-          v-if="!showApplication"
-          class="toggle-button link-like mt-5"
-          @click="toggleView"
-        >
-          Grant Application
-        </button>
+        <div class="button-align">
+          <button
+            v-if="showApplication"
+            class=" toggle-button link-like mt-5"
+            @click="toggleView"
+          >
+            <!-- {{ showApplication ? 'Admin Page' : 'Grant Application' }} -->
+            Admin Page
+          </button>
+        </div>
+        <div class="button-align">
+          <button
+            v-if="!showApplication"
+            class="toggle-button link-like mt-5"
+            @click="toggleView"
+          >
+            Grant Application
+          </button>
+        </div>
         <div v-if="showApplication">
           <grant-application />
         </div>
@@ -73,5 +77,10 @@ export default {
   padding: 0.25rem 0.5rem;
   border: 1px solid #212121;
   border-radius: 6px;
+}
+
+.button-align {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>>

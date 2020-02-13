@@ -6,21 +6,20 @@
       </div>
 
       <div v-else>
-        <div class="button-align">
+        <div v-if="isAdmin" class="button-align">
           <button
             v-if="showApplication"
-            class=" toggle-button link-like mt-5"
             @click="toggleView"
+            class=" toggle-button link-like mt-5"
           >
-            <!-- {{ showApplication ? 'Admin Page' : 'Grant Application' }} -->
             Admin Page
           </button>
         </div>
         <div class="button-align">
           <button
             v-if="!showApplication"
-            class="toggle-button link-like mt-5"
             @click="toggleView"
+            class="toggle-button link-like mt-5"
           >
             Grant Application
           </button>
@@ -37,35 +36,29 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import AdminComponent from '../../components/AdminComponent'
 import GrantApplication from '../../components/GrantApplication'
 import LoginForm from '../../components/LoginForm'
-import { mapState } from 'vuex'
 
 export default {
+  components: {
+    AdminComponent,
+    GrantApplication,
+    LoginForm
+  },
   data() {
     return {
       showApplication: true
     }
   },
   middleware: ['auth'],
-  components: {
-    AdminComponent,
-    GrantApplication,
-    LoginForm
-  },
-  computed: { ...mapState(['initializing', 'currentUserId']) },
+  computed: { ...mapState(['initializing', 'currentUserId', 'isAdmin']) },
   methods: {
     toggleView() {
       this.showApplication = !this.showApplication
     }
   }
-
-  // mounted() {
-  //   setTimeout(() => {
-  //     console.log(this.$auth.currentUser.uid)
-  //   }, 1500)
-  // }
 }
 </script>
 
@@ -82,5 +75,5 @@ export default {
 .button-align {
   display: flex;
   justify-content: flex-end;
-}
-</style>>
+}</style
+>>

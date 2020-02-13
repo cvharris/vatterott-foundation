@@ -1,6 +1,7 @@
 export const state = () => ({
   currentUserId: '',
   initializing: true,
+  isAdmin: false,
   menu: [
     {
       label: 'Home',
@@ -79,10 +80,23 @@ export const state = () => ({
 })
 
 export const mutations = {
-  finishInitializing: function(state) {
+  finishInitializing(state) {
     state.initializing = false
   },
-  setCurrentUserId: function(state, uid) {
+  setCurrentUserId(state, uid) {
     state.currentUserId = uid
+  },
+  setIsAdmin(state, isAdmin) {
+    state.isAdmin = isAdmin
+  }
+}
+
+export const actions = {
+  initializeUser({ commit }) {
+    this.$auth.currentUser.getIdTokenResult().then((tokenResult) => {
+      if (tokenResult.claims.admin === true) {
+        commit('setIsAdmin', true)
+      }
+    })
   }
 }

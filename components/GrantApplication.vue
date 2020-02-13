@@ -12,13 +12,13 @@
       Upload one file now and come back before the deadline. We'll save your
       progress till you come back.
     </p>
-    <form name="grantAppForm" @submit.prevent="onUploadForm">
+    <form @submit.prevent="onUploadForm" name="grantAppForm">
       <label for="company"
         ><span class="required">Organization Name</span>
         <input
+          v-model="currentApplication.company"
           type="text"
           name="company"
-          v-model="currentApplication.company"
           required
           placeholder="ex. Non-Profits 'R Us"
         />
@@ -27,9 +27,9 @@
       <label for="name"
         ><span class="required">Contact Name</span>
         <input
+          v-model="currentApplication.contactName"
           type="text"
           name="contactName"
-          v-model="currentApplication.contactName"
           required
           placeholder="ex. Charles Vatterott"
         />
@@ -38,9 +38,9 @@
       <label for="phone"
         ><span class="required">Contact Phone #</span>
         <input
+          v-model="currentApplication.contactPhone"
           type="text"
           name="contactPhone"
-          v-model="currentApplication.contactPhone"
           required
           placeholder="ex. 314-222-2222"
         />
@@ -59,7 +59,7 @@
               >download</a
             >)
           </div>
-          <div class="uploaded" v-if="currentApplication.applicationForm">
+          <div v-if="currentApplication.applicationForm" class="uploaded">
             <i class="fa fa-check-square"></i>Uploaded!
           </div>
           <input
@@ -68,9 +68,9 @@
               'invisible-input': currentApplication.applicationForm
             }"
             :disabled="!!currentApplication.applicationForm"
+            @change="onFileUpload($event, 'applicationForm')"
             type="file"
             name="applicationForm"
-            @change="onFileUpload($event, 'applicationForm')"
           />
         </label>
 
@@ -81,7 +81,7 @@
               >download</a
             >)
           </div>
-          <div class="uploaded" v-if="currentApplication.projectBudget">
+          <div v-if="currentApplication.projectBudget" class="uploaded">
             <i class="fa fa-check-square"></i>Uploaded!
           </div>
           <input
@@ -90,15 +90,15 @@
               'invisible-input': currentApplication.projectBudget
             }"
             :disabled="!!currentApplication.projectBudget"
+            @change="onFileUpload($event, 'projectBudget')"
             type="file"
             name="projectBudget"
-            @change="onFileUpload($event, 'projectBudget')"
           />
         </label>
 
         <label for="current-budget">
           <div>Current Organizational Budget</div>
-          <div class="uploaded" v-if="currentApplication.orgBudget">
+          <div v-if="currentApplication.orgBudget" class="uploaded">
             <i class="fa fa-check-square"></i>Uploaded!
           </div>
           <input
@@ -107,15 +107,15 @@
               'invisible-input': currentApplication.orgBudget
             }"
             :disabled="!!currentApplication.orgBudget"
+            @change="onFileUpload($event, 'orgBudget')"
             type="file"
             name="orgBudget"
-            @change="onFileUpload($event, 'orgBudget')"
           />
         </label>
 
         <label for="irs-letter">
           <div>IRS Letter of Determination</div>
-          <div class="uploaded" v-if="currentApplication.irsLetter">
+          <div v-if="currentApplication.irsLetter" class="uploaded">
             <i class="fa fa-check-square"></i>Uploaded!
           </div>
           <input
@@ -124,9 +124,9 @@
               'invisible-input': currentApplication.irsLetter
             }"
             :disabled="!!currentApplication.irsLetter"
+            @change="onFileUpload($event, 'irsLetter')"
             type="file"
             name="irsLetter"
-            @change="onFileUpload($event, 'irsLetter')"
           />
         </label>
       </fieldset>
@@ -171,6 +171,9 @@
 import LogoutComponent from './LogoutComponent'
 
 export default {
+  components: {
+    LogoutComponent
+  },
   data() {
     return {
       user: { admin: false },
@@ -194,21 +197,20 @@ export default {
       applicationId: ''
     }
   },
-  mounted: async function() {
+  mounted() {
     this.$db
       .collection('uploadedForms')
       .where('userId', '==', this.$auth.currentUser.uid)
       .onSnapshot((applicationSnapshot) => {
-        console.log(applicationSnapshot)
         this.uploadedForm = ''
         if (!applicationSnapshot.empty) {
-          //if the application snapshot is not empty, run this code
+          // if the application snapshot is not empty, run this code
           applicationSnapshot.forEach((form) => {
-            //set form.id to applicationId
+            // set form.id to applicationId
             this.applicationId = form.id
-            //creates new variable with the data, snapshot does not have automatically 'DocumentData'
+            // creates new variable with the data, snapshot does not have automatically 'DocumentData'
             const application = form.data()
-            //how we save the information to the current user
+            // how we save the information to the current user
             this.currentApplication = application
           })
         } else {
@@ -237,9 +239,9 @@ export default {
     onFileUpload(event, whichDocument) {
       const files = event.target.files
       if (!files.length) return
-      //name file variable
+      // name file variable
       const file = files[0]
-      //create file path using object concatenation
+      // create file path using object concatenation
       const sampleFileName = `${this.$auth.currentUser.uid}/${this.applicationId}/${file.name}`
       this.currentApplication[whichDocument] = sampleFileName
       this.$storage
@@ -250,12 +252,8 @@ export default {
           console.log('Uploaded a blob or file!')
         })
     }
-  },
-  components: {
-    LogoutComponent
   }
 }
 </script>
 
-<style>
-</style>
+<style></style>

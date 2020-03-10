@@ -1,11 +1,10 @@
 <template>
-  <div>
-    <div class="container">
+  <div class="container">
+    <div class="align-header">
       <h1 class="page-title">
         Admin
-        <logout-component />
       </h1>
-      <p>Hi Bill!</p>
+      <slot />
     </div>
     <div class="section">
       <div v-if="waitingOnDownload" class="spinner-container">
@@ -33,79 +32,83 @@
           >
             <td colspan="10">There are no applications to review!</td>
           </tr>
-          <tr class="grant-application" v-for="appl in applications">
+          <tr
+            v-for="appl in applications"
+            :key="appl.id"
+            class="grant-application"
+          >
             <td class="org-col">{{ appl.company }}</td>
             <td class="contact-col">
               {{ appl.contactName }} - {{ appl.contactPhone }}
             </td>
             <td class="form-col">
-              <span class="no-link" v-show="!appl.applicationForm"></span>
-              <div class="file-actions" v-show="appl.applicationForm">
+              <span v-show="!appl.applicationForm" class="no-link"></span>
+              <div v-show="appl.applicationForm" class="file-actions">
                 {{ getFileNameFromPath(appl.applicationForm) }}
                 <span
-                  class="file-button download"
                   @click="downloadFile(appl.applicationForm)"
+                  class="file-button download"
                 >
                   <i class="fa fa-download"></i>
                 </span>
                 <span
-                  class="file-button trash secondary"
                   @click="
                     deleteFile(appl.id, appl.applicationForm, 'applicationForm')
                   "
+                  class="file-button trash secondary"
                 >
                   <i class="fa fa-trash"></i>
                 </span>
               </div>
             </td>
             <td class="proj-col">
-              <span class="no-link" v-show="!appl.projectBudget"></span>
-              <div class="file-actions" v-show="appl.projectBudget">
+              <span v-show="!appl.projectBudget" class="no-link"></span>
+              <div v-show="appl.projectBudget" class="file-actions">
                 <span
-                  class="file-button download"
                   @click="downloadFile(appl.projectBudget)"
+                  class="file-button download"
                 >
                   <i class="fa fa-download"></i>
                 </span>
                 <span
-                  class="file-button trash secondary"
                   @click="
                     deleteFile(appl.id, appl.projectBudget, 'projectBudget')
                   "
+                  class="file-button trash secondary"
                 >
                   <i class="fa fa-trash"></i>
                 </span>
               </div>
             </td>
             <td class="budget-col">
-              <span class="no-link" v-show="!appl.orgBudget"></span>
-              <div class="file-actions" v-show="appl.orgBudget">
+              <span v-show="!appl.orgBudget" class="no-link"></span>
+              <div v-show="appl.orgBudget" class="file-actions">
                 <span
-                  class="file-button download"
                   @click="downloadFile(appl.orgBudget)"
+                  class="file-button download"
                 >
                   <i class="fa fa-download"></i>
                 </span>
                 <span
-                  class="file-button trash secondary"
                   @click="deleteFile(appl.id, appl.orgBudget, 'orgBudget')"
+                  class="file-button trash secondary"
                 >
                   <i class="fa fa-trash"></i>
                 </span>
               </div>
             </td>
             <td class="irs-col">
-              <span class="no-link" v-show="!appl.irsLetter"></span>
-              <div class="file-actions" v-show="appl.irsLetter">
+              <span v-show="!appl.irsLetter" class="no-link"></span>
+              <div v-show="appl.irsLetter" class="file-actions">
                 <span
-                  class="file-button download"
                   @click="downloadFile(appl.irsLetter)"
+                  class="file-button download"
                 >
                   <i class="fa fa-download"></i>
                 </span>
                 <span
-                  class="file-button trash secondary"
                   @click="deleteFile(appl.id, appl.irsLetter, 'irsLetter')"
+                  class="file-button trash secondary"
                 >
                   <i class="fa fa-trash"></i>
                 </span>
@@ -116,8 +119,8 @@
             </td>
             <td class="action-col">
               <span
-                class="file-button trash"
                 @click="deleteApplication(appl.id)"
+                class="file-button trash"
               >
                 <i class="fa fa-trash"></i>
               </span>
@@ -130,7 +133,6 @@
 </template>
 
 <script>
-import LogoutComponent from './LogoutComponent'
 import { saveAs } from 'file-saver'
 
 export default {
@@ -152,7 +154,7 @@ export default {
       ]
     }
   },
-  mounted: async function() {
+  mounted() {
     this.$db.collection('uploadedForms').onSnapshot((formsSnapshot) => {
       this.applications = []
       formsSnapshot.forEach((doc) => {
@@ -191,33 +193,19 @@ export default {
       // console.log(editedName)
       return editedName[2]
     }
-  },
-  components: {
-    LogoutComponent
   }
 }
 </script>
 
 <style>
-.align-body {
-  padding-left: 12%;
-  padding-right: 12%;
-}
-.spacing {
+.button-align {
   display: flex;
-  justify-content: space-around;
-  padding-bottom: 5%;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-button {
-  margin-top: 2rem;
-  margin-right: 9rem;
-  -webkit-appearance: none;
-  background: transparent;
-  border: none;
-  outline: none;
-  border-radius: 6px;
-  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  padding: 0.5rem 1rem;
+.align-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

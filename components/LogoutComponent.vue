@@ -1,5 +1,5 @@
 <template>
-  <span class="logout-button link-like" @click="logout">Logout</span>
+  <span @click="logout" class="link-like">Logout</span>
 </template>
 
 <script>
@@ -17,5 +17,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

@@ -10,12 +10,18 @@
           <div>
             <div v-if="showApplication">
               <grant-application>
-                <button-toggle />
+                <button-toggle
+                  :showApplication="showApplication"
+                  @clicked-toggle-button="toggleView"
+                />
               </grant-application>
             </div>
             <div v-if="!showApplication">
               <admin-component>
-                <button-toggle />
+                <button-toggle
+                  :showApplication="showApplication"
+                  @clicked-toggle-button="toggleView"
+                />
               </admin-component>
             </div>
           </div>

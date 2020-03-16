@@ -1,20 +1,11 @@
 <template>
-  <div class="button-position">
-    <button
-      v-if="showApplication"
-      @click="toggleView"
-      class=" toggle-button link-like"
-    >
-      {{ showApplication ? 'Admin Page' : 'Grant Application' }}
+  <div @click="toggle" class="button-position">
+    <button v-if="showApplication" class=" toggle-button link-like">
+      Admin Page
     </button>
-    <button
-      v-if="!showApplication"
-      @click="toggleView"
-      class="toggle-button link-like"
-    >
-      {{ showApplication ? 'Grant Application' : 'Admin Page' }}
+    <button v-if="!showApplication" class="toggle-button link-like">
+      Grant Application
     </button>
-
     <button class="toggle-button link-like">
       <logout-component />
     </button>
@@ -28,14 +19,15 @@ export default {
   components: {
     LogoutComponent
   },
-  data() {
-    return {
-      showApplication: true
+  props: {
+    showApplication: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
-    toggleView() {
-      this.showApplication = !this.showApplication
+    toggle() {
+      this.$emit('clicked-toggle-button')
     }
   }
 }

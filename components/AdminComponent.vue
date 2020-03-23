@@ -39,7 +39,9 @@
           >
             <td class="org-col">{{ appl.company }}</td>
             <td class="contact-col">
-              {{ appl.contactName }} - {{ appl.contactPhone }}
+              <span v-if="!!appl.contactName">{{ appl.contactName }}</span
+              ><span v-if="!!appl.contactName && !!appl.contactPhone"> - </span
+              ><span v-if="!!appl.contactPhone">{{ appl.contactPhone }}</span>
             </td>
             <td class="form-col">
               <span v-show="!appl.applicationForm" class="no-link"></span>
@@ -64,6 +66,7 @@
             <td class="proj-col">
               <span v-show="!appl.projectBudget" class="no-link"></span>
               <div v-show="appl.projectBudget" class="file-actions">
+                {{ getFileNameFromPath(appl.projectBudget) }}
                 <span
                   @click="downloadFile(appl.projectBudget)"
                   class="file-button download"
@@ -83,6 +86,7 @@
             <td class="budget-col">
               <span v-show="!appl.orgBudget" class="no-link"></span>
               <div v-show="appl.orgBudget" class="file-actions">
+                {{ getFileNameFromPath(appl.orgBudget) }}
                 <span
                   @click="downloadFile(appl.orgBudget)"
                   class="file-button download"
@@ -100,6 +104,7 @@
             <td class="irs-col">
               <span v-show="!appl.irsLetter" class="no-link"></span>
               <div v-show="appl.irsLetter" class="file-actions">
+                {{ getFileNameFromPath(appl.irsLetter) }}
                 <span
                   @click="downloadFile(appl.irsLetter)"
                   class="file-button download"
@@ -182,15 +187,39 @@ export default {
         })
     },
     async deleteApplication(applicationId) {
+      const application = this.applications.find(
+        ({ id }) => id === applicationId
+      )
+      console.log(applicationId, application)
+      if (application.applicationForm !== '') {
+        await this.deleteFile(
+          applicationId,
+          application.applicationForm,
+          'applicationForm'
+        )
+      }
+      if (application.projectBudget !== '') {
+        await this.deleteFile(
+          applicationId,
+          application.projectBudget,
+          'projectBudget'
+        )
+      }
+      if (application.orgBudget !== '') {
+        await this.deleteFile(applicationId, application.orgBudget, 'orgBudget')
+      }
+      if (application.irsLetter !== '') {
+        await this.deleteFile(applicationId, application.irsLetter, 'irsLetter')
+      }
       await this.$db
         .collection('uploadedForms')
         .doc(applicationId)
         .delete()
     },
+
     logout() {},
     getFileNameFromPath(path) {
       const editedName = path.split('/')
-      // console.log(editedName)
       return editedName[2]
     }
   }

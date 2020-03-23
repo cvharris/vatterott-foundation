@@ -246,7 +246,8 @@ export default {
         .ref()
         .child(sampleFileName)
         .put(file)
-        .then(function(snapshot) {
+        .then((snapshot) => {
+          this.onUploadForm()
           console.log('Uploaded a blob or file!')
         })
     }

@@ -21,8 +21,8 @@ export default (context, inject) => {
   const auth = fb.auth()
   const storage = fb.storage()
 
-  inject('db', db) //refers to firestore
+  inject('db', db) // refers to firestore
   inject('auth', auth)
-  inject('firebase', fb) //main firebase object
-  inject('storage', storage)
+  inject('firebase', fb) // main firebase object
+  inject('storage', storage) // refers to Storage
 }

@@ -1,9 +1,11 @@
 <template>
   <div class="align-body">
-    <h1 class="page-title">
-      New Application
-      <logout-component />
-    </h1>
+    <div class="align-header">
+      <h1 class="page-title">
+        New Application
+      </h1>
+      <slot />
+    </div>
     <p>
       You must upload all of these files before the deadline to submit a valid
       application, but you don't have to upload every file all at once.
@@ -168,12 +170,7 @@
 </template>
 
 <script>
-import LogoutComponent from './LogoutComponent'
-
 export default {
-  components: {
-    LogoutComponent
-  },
   data() {
     return {
       user: { admin: false },
@@ -248,7 +245,8 @@ export default {
         .ref()
         .child(sampleFileName)
         .put(file)
-        .then(function(snapshot) {
+        .then((snapshot) => {
+          this.onUploadForm()
           console.log('Uploaded a blob or file!')
         })
     }
@@ -256,4 +254,10 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.align-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+</style>

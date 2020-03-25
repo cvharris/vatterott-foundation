@@ -194,12 +194,11 @@ export default {
       applicationId: ''
     }
   },
-  async mounted() {
+  mounted() {
     this.$db
       .collection('uploadedForms')
       .where('userId', '==', this.$auth.currentUser.uid)
       .onSnapshot((applicationSnapshot) => {
-        console.log(applicationSnapshot)
         this.uploadedForm = ''
         if (!applicationSnapshot.empty) {
           // if the application snapshot is not empty, run this code

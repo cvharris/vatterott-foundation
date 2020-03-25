@@ -57,12 +57,6 @@ export default {
       this.showApplication = !this.showApplication
     }
   }
-
-  // mounted() {
-  //   setTimeout(() => {
-  //     console.log(this.$auth.currentUser.uid)
-  //   }, 1500)
-  // }
 }
 </script>
 

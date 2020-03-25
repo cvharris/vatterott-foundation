@@ -2,6 +2,8 @@
 
 > Website for the Vatterott Foundation
 
+https://vatterottfoundation.org
+
 ## Build Setup
 
 ``` bash

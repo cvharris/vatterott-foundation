@@ -18,7 +18,7 @@
     "font-awesome": "^4.7.0",
     "imagemin-pngquant": "4.2.0",
     "imagemin-svgo": "4.2.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "lodash": "4.17.2",
     "normalize.css": "3.0.3",
     "nuxt": "^2.0.0",

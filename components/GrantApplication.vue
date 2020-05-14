@@ -6,13 +6,12 @@
       </h1>
       <slot />
     </div>
+  <div class="form-container">
     <p>
-      You must upload all of these files before the deadline to submit a valid
-      application, but you don't have to upload every file all at once.
+      You must upload all of these files before the deadline to submit a valid application, but you don't have to upload every file all at once.
     </p>
     <p>
-      Upload one file now and come back before the deadline. We'll save your
-      progress till you come back.
+      Upload one file now and come back before the deadline. We'll save your progress till you come back.
     </p>
     <form @submit.prevent="onUploadForm" name="grantAppForm">
       <label for="company"
@@ -166,6 +165,7 @@
         </button>
       </div>
     </form>
+</div>
   </div>
 </template>
 
@@ -263,5 +263,15 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+.align-body {
+  padding-left: 15%;
+  padding-right: 15%;
 }
 </style>

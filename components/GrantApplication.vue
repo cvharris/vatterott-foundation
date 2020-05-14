@@ -191,11 +191,12 @@ export default {
       completed: false,
       showApplication: false,
       uploadedForm: '',
-      applicationId: ''
+      applicationId: '',
+      unsubscribe: null
     }
   },
   mounted() {
-    this.$db
+    this.unsubscribe = this.$db
       .collection('uploadedForms')
       .where('userId', '==', this.$auth.currentUser.uid)
       .onSnapshot((applicationSnapshot) => {
@@ -214,6 +215,9 @@ export default {
           this.applicationId = this.$db.collection('uploadedForms').doc().id
         }
       })
+  },
+  beforeDestroy() {
+    this.unsubscribe()
   },
   methods: {
     $onInit() {},

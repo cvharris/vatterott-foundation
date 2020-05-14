@@ -15,14 +15,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import LogoutComponent from '../components/LogoutComponent'
 
 export default {
-  data() {
-    return {
-      isAdmin: false
-    }
-  },
+
   components: {
     LogoutComponent
   },
@@ -32,12 +29,8 @@ export default {
       default: true
     }
   },
-  mounted() {
-    this.$auth.currentUser.getIdTokenResult().then(tokenResult => {
-      if (tokenResult.claims.admin === true) {
-        this.isAdmin = true
-      }
-    })
+  computed: {
+    ...mapState(['isAdmin'])
   },
   methods: {
     toggle() {

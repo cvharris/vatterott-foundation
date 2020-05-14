@@ -1,11 +1,13 @@
 <template>
   <div @click="toggle" class="button-position">
+    <div v-if="isAdmin">
     <button v-if="showApplication" class=" toggle-button link-like">
       Admin Page
     </button>
     <button v-if="!showApplication" class="toggle-button link-like">
       Grant Application
     </button>
+    </div>
     <button class="toggle-button link-like">
       <logout-component />
     </button>
@@ -16,6 +18,11 @@
 import LogoutComponent from '../components/LogoutComponent'
 
 export default {
+  data() {
+    return {
+      isAdmin: false
+    }
+  },
   components: {
     LogoutComponent
   },
@@ -24,6 +31,13 @@ export default {
       type: Boolean,
       default: true
     }
+  },
+  mounted() {
+    this.$auth.currentUser.getIdTokenResult().then(tokenResult => {
+      if (tokenResult.claims.admin === true) {
+        this.isAdmin = true
+      }
+    })
   },
   methods: {
     toggle() {

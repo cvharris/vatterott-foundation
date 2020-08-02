@@ -66,18 +66,7 @@
       </div>
       <div class="container">
         <h2 class="section-header">{{ missionstatementtitle }}</h2>
-        <blockquote class="centered-quotations">
-          <p>{{ missionstatementA }}
-          <strong>{{ missionstatementboldA }}</strong>
-          {{ missionstatementB }}
-          <strong>{{ missionstatementboldB }}</strong>
-          {{ missionstatementC }}
-          <strong>{{ missionstatementboldC }}</strong>
-          {{ missionstatementD }}
-          <strong>{{ missionstatementboldD }}</strong>
-          {{ missionstatementE }}
-          </p>
-        </blockquote>
+        <blockquote v-html="missionstatement" class="centered-quotations" />
         <a class="action-button" href="/trustees">{{ missionbutton }}</a>
       </div>
     </div>
@@ -103,7 +92,7 @@
           {{ firsthistoryquote }}
         </p>
         <div class="picture-display">
-          <div class="figures" v-for="(figure, i) in figures" :key="i">
+          <div v-for="(figure, i) in figures" :key="i" class="figures">
             <figure>
               <img :src="figure.image" />
               <figcaption>{{ figure.caption }}</figcaption>
@@ -184,6 +173,8 @@
 </template>
 
 <script>
+import markdown from '~/plugins/markdown'
+
 export default {
   head() {
     return {
@@ -211,15 +202,7 @@ export default {
       subfocalareaD,
       focalareabutton,
       missionstatementtitle,
-      missionstatementA,
-      missionstatementboldA,
-      missionstatementB,
-      missionstatementboldB,
-      missionstatementC,
-      missionstatementboldC,
-      missionstatementD,
-      missionstatementboldD,
-      missionstatementE,
+      missionstatement,
       missionbutton,
       historytitle,
       firsthistoryblockquoteA,
@@ -272,15 +255,7 @@ export default {
       subfocalareaD,
       focalareabutton,
       missionstatementtitle,
-      missionstatementA,
-      missionstatementboldA,
-      missionstatementB,
-      missionstatementboldB,
-      missionstatementC,
-      missionstatementboldC,
-      missionstatementD,
-      missionstatementboldD,
-      missionstatementE,
+      missionstatement: markdown(missionstatement),
       missionbutton,
       historytitle,
       firsthistoryblockquoteA,

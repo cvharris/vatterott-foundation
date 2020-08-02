@@ -2,7 +2,7 @@
 
 > Website for the Vatterott Foundation
 
-https://vatterottfoundation.org
+<https://vatterottfoundation.org>
 
 ## Build Setup
 
@@ -12,6 +12,9 @@ $ npm run install
 
 # serve with hot reload at localhost:3000
 $ npm run dev
+
+# In another terminal run the local CMS admin server
+$ npx netlify-cms-proxy-server # make sure port 8081 is open
 
 # build for production and launch server
 $ npm run build

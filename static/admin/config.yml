@@ -2,168 +2,146 @@ backend:
   name: git-gateway
   branch: master
 
+local_backend: true
+
 media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "trustees"
-    label: "Trustees"
-    format: "frontmatter"
-    folder: "assets/content/pages/trustees"
-    # create: true
-    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  - label: 'All Pages'
+    name: 'pages'
     editor:
       preview: false
-    fields:
-      - { label: "Subtitle", name: "subtitle", widget: "string" }
-      - { label: "Trustees", name: "trustees", widget: "string" }
-      - { label: "Title", name: "title", widget: "string" }
+    files:
+    - name: "trustees"
+      label: "Trustees"
+      format: "frontmatter"
+      file: "assets/content/pages/trustees"
+      fields:
+        - { label: "Subtitle", name: "subtitle", widget: "string" }
+        - { label: "Trustees", name: "trustees", widget: "string" }
+        - { label: "Title", name: "title", widget: "string" }
 
-  - name: "who-we-help"
-    label: "Who We Help"
-    format: "frontmatter"
-    folder: "assets/content/pages/who-we-help"
-    # create: true
-    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: "Subtitle", name: "subtitle", widget: "string" }
-      - { label: "Orgs", name: "orgs", widget: "string" }
-      - { label: "Title", name: "title", widget: "string" }
+    - name: "who-we-help"
+      label: "Who We Help"
+      format: "frontmatter"
+      file: "assets/content/pages/who-we-help"
+      fields:
+        - { label: "Subtitle", name: "subtitle", widget: "string" }
+        - { label: "Orgs", name: "orgs", widget: "string" }
+        - { label: "Title", name: "title", widget: "string" }
 
-  - name: "privacy-policy"
-    label: "Privacy Policy"
-    format: "frontmatter"
-    folder: "assets/content/pages/privacy-policy"
-    # create: true
-    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+    - name: "privacy-policy"
+      label: "Privacy Policy"
+      format: "frontmatter"
+      file: "assets/content/pages/privacy-policy"
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "terms-of-use"
-    label: "Terms of Use"
-    format: "frontmatter"
-    folder: "assets/content/pages/terms-of-use"
-    # create: true
-    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-  
-  - name: "grant-application"
-    label: "Grant Application"
-    format: "frontmatter"
-    folder: "assets/content/pages/grant-application"
-    # create: true
-    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+    - name: "terms-of-use"
+      label: "Terms of Use"
+      format: "frontmatter"
+      file: "assets/content/pages/terms-of-use"
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Body", name: "body", widget: "markdown" }
+    
+    - name: "grant-application"
+      label: "Grant Application"
+      format: "frontmatter"
+      file: "assets/content/pages/grant-application"
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "youth-board"
-    label: "Vatterott Family Youth Board"
-    format: "frontmatter"
-    folder: "assets/content/pages/youth-board"
-    # create: true
-    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Orgs", name: "orgs", widget: "string" }
-      - { label: "Figures", name: "figures", widget: "string" }
-      - { label: "Grants", name: "grants", widget: "string" }
-      - { label: "Description", name: "description", widget: "string"}
-      - { label: "Blockquote", name: "blockquote", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Citation", name: "citation", widget: "string" }
-      - { label: "About", name: "about", widget: "string" }
-      - { label: "Videocaption", name: "videocaption", widget: "string" }
-      - { label: "Videodescription", name: "videodescription", widget: "string"}
+    - name: "youth-board"
+      label: "Vatterott Family Youth Board"
+      format: "frontmatter"
+      file: "assets/content/pages/youth-board"
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Body", name: "body", widget: "markdown" }
+        - { label: "Orgs", name: "orgs", widget: "string" }
+        - { label: "Figures", name: "figures", widget: "string" }
+        - { label: "Grants", name: "grants", widget: "string" }
+        - { label: "Description", name: "description", widget: "string"}
+        - { label: "Blockquote", name: "blockquote", widget: "string" }
+        - { label: "Author", name: "author", widget: "string" }
+        - { label: "Citation", name: "citation", widget: "string" }
+        - { label: "About", name: "about", widget: "string" }
+        - { label: "Videocaption", name: "videocaption", widget: "string" }
+        - { label: "Videodescription", name: "videodescription", widget: "string"}
 
-  - name: "homepage"
-    label: "Vatterott Foundation"
-    format: "frontmatter"
-    folder: "assets/content/pages/home.md"
-    # create: true
-    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Slogan", name: "slogan", widget: "string" }
-      - { label: "Applybuttontext", name: "applybuttontext", widget: "string" }
-      - { label: "Focalareatitle", name: "focalareatitle", widget: "string" }
-      # - { focalareaimageA: }
-      - { label: "AreatitleA", name: "areatitleA", widget: "string" }
-      - { label: "SubfocalareaA", name: "subfocalareaA", widget: "string" } 
-      # - {focalareaimageB: }
-      - { label: "AreatitleB", name: "areatitleB", widget: "string" }
-      - { label: "SubfocalareaB", name: "subfocalareaB", widget: "string" }
-      # - {focalareaimageC: }
-      - { label: "AreatitleC", name: "areatitleC", widget: "string" }
-      - { label: "SubfocalareaC", name: "subfocalareaC", widget: "string" } 
-      # - { label: focalareaimageD , name: }
-      - { label: "AreatitleD", name: "areatitleD", widget: "string" }
-      - { label: "SubfocalareaD", name: "subfocalareaD", widget: "string" }
-      - { label: "Focalareabutton", name: "focalareabutton", widget: "string" }
-      - { label: "Missionstatementtitle", name: "missionstatementtitle", widget: "string" }
-      # - { label: "Missionstatement", name: "missionstatement", widget: "string" }
-      - { label: "missionstatementA", name: "missionstatementA", widget: "string"}
-      - { label: "missionstatementboldA", name: "missionstatementboldA", widget: "string" }
-      - { label: "missionstatementB", name: "missionstatementB", widget: "string" }
-      - { label: "missionstatementboldB", name: "missionstatementboldB", widget: "string" }
-      - { label: "missionstatementC", name: "missionstatementC", widget: "string" }
-      - { label: "missionstatementboldC", name: "missionstatementboldC", widget: "string" } 
-      - { label: "missionstatementD", name: "missionstatementD", widget: "string" }
-      - { label: "missionstatementboldD", name: "missionstatementboldD", widget: "string" }
-      - { label: "missionstatementE", name: "missionstatementE", widget: "string" }
+    - name: "homepage"
+      label: "Vatterott Foundation"
+      format: "frontmatter"
+      file: "assets/content/pages/home.md"
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Slogan", name: "slogan", widget: "string" }
+        - { label: "Applybuttontext", name: "applybuttontext", widget: "string" }
+        - { label: "Focalareatitle", name: "focalareatitle", widget: "string" }
+        # - { focalareaimageA: }
+        - { label: "AreatitleA", name: "areatitleA", widget: "string" }
+        - { label: "SubfocalareaA", name: "subfocalareaA", widget: "string" } 
+        # - {focalareaimageB: }
+        - { label: "AreatitleB", name: "areatitleB", widget: "string" }
+        - { label: "SubfocalareaB", name: "subfocalareaB", widget: "string" }
+        # - {focalareaimageC: }
+        - { label: "AreatitleC", name: "areatitleC", widget: "string" }
+        - { label: "SubfocalareaC", name: "subfocalareaC", widget: "string" } 
+        # - { label: focalareaimageD , name: }
+        - { label: "AreatitleD", name: "areatitleD", widget: "string" }
+        - { label: "SubfocalareaD", name: "subfocalareaD", widget: "string" }
+        - { label: "Focalareabutton", name: "focalareabutton", widget: "string" }
+        - { label: "Missionstatementtitle", name: "missionstatementtitle", widget: "string" }
+        # - { label: "Missionstatement", name: "missionstatement", widget: "string" }
+        - { label: "missionstatementA", name: "missionstatementA", widget: "string"}
+        - { label: "missionstatementboldA", name: "missionstatementboldA", widget: "string" }
+        - { label: "missionstatementB", name: "missionstatementB", widget: "string" }
+        - { label: "missionstatementboldB", name: "missionstatementboldB", widget: "string" }
+        - { label: "missionstatementC", name: "missionstatementC", widget: "string" }
+        - { label: "missionstatementboldC", name: "missionstatementboldC", widget: "string" } 
+        - { label: "missionstatementD", name: "missionstatementD", widget: "string" }
+        - { label: "missionstatementboldD", name: "missionstatementboldD", widget: "string" }
+        - { label: "missionstatementE", name: "missionstatementE", widget: "string" }
 
-      - { label: "Missionbutton", name: "missionbutton", widget: "string" }
-      - { label: "Historytitle", name: "historytitle", widget: "string" }
-      # - { label: "Firsthistoryblockquote", name: "firsthistoryblockquote", widget: "string" }
-      - {label: "FirsthistoryblockquoteA", name: "firsthistoryblockquoteA", widget: "string"}
-      - {label: "FirsthistoryblockquoteboldA", name: "firsthistoryblockquoteboldA", widget: "string"}
-      - {label: "FirsthistoryblockquoteB", name: "firsthistoryblockquoteB", widget: "string"}
-      - {label: "FirsthistoryblockquoteboldB", name: "firsthistoryblockquoteboldB", widget: "string"}
-      - {label: "FirsthistoryblockquoteC", name: "firsthistoryblockquoteC", widget: "string"} 
-      - {label: "FirsthistoryblockquoteboldC", name: "firsthistoryblockquoteboldC", widget: "string" } 
-      - {label: "FirsthistoryblockquoteD", name: "firsthistoryblockquoteD", widget: "string" }
-      - { label: "Firsthistoryquote", name: "firsthistoryquote", widget: "string" }
-      - { label: "Blockquoteauthor", name: "blockquoteauthor", widget: "string" }
-      - { label: "Blockquoteauthortitle", name: "blockquoteauthortitle", widget: "string" }
-      - { label: "Figures", name: "figures", widget: "string" }
-      - { label: "Secondhistoryquotea", name: "secondhistoryquotea", widget: "string" }
-      - { label: "Quotelinka", name: "quotelinka", widget: "string" }
-      - { label: "Secondhistoryquoteb", name: "secondhistoryquoteb", widget: "string" }
-      # - { label: "Secondhistoryblockquote", name: "secondhistoryblockquote", widget: "string" }
-      - {label: "SecondhistoryblockquoteA", name: "secondhistoryblockquoteA", widget: "string"}
-      - {label: "SecondhistoryblockquoteboldA", name: "secondhistoryblockquoteboldA", widget: "string"}
-      - {label: "SecondhistoryblockquoteB", name: "secondhistoryblockquoteB", widget: "string" }
-      - { label: "Thirdhistoryquotea", name: "thirdhistoryquotea", widget: "string" }
-      - { label: "Quotelinkb", name: "quotelinkb", widget: "string" }
-      - { label: "Thirdhistoryquoteb", name: "thirdhistoryquoteb", widget: "string" }
-      - { label: "Fourthhistoryquote", name: "fourthhistoryquote", widget: "string" }
-      - { label: "Vfybheader", name: "vfybheader", widget: "string" }
-      - { label: "Vfybquotea", name: "vfybquotea", widget: "string" }
-      - { label: "VfybblockquoteA", name: "vfybblockquoteA", widget: "string"}
-      - { label: "VfybblockquoteboldA", name: "vfybblockquoteboldA", widget: "string"}
-      - { label: "VfybblockquoteB", name: "vfybblockquoteB", widget: "string"}
-      - { label: "VfybblockquoteboldB", name: "vfybblockquoteboldB", widget: "string"}
-      - { label: "VfybblockquoteC", name: "vfybblockquoteC", widget: "string"}
-      - { label: "VfybblockquoteboldA", name: "vfybblockquoteboldA", widget: "string"}
-      - { label: "Vfybquoteb", name: "vfybquoteb", widget: "string" }
-      - { label: "Vfybbutton", name: "vfybbutton", widget: "string" }
-      - { label: "Applytitle", name: "applytitle", widget: "string" }
-      - { label: "Applytext", name: "applytext", widget: "string" }
-      - { label: "Applybutton", name: "applybutton", widget: "string" }
+        - { label: "Missionbutton", name: "missionbutton", widget: "string" }
+        - { label: "Historytitle", name: "historytitle", widget: "string" }
+        # - { label: "Firsthistoryblockquote", name: "firsthistoryblockquote", widget: "string" }
+        - {label: "FirsthistoryblockquoteA", name: "firsthistoryblockquoteA", widget: "string"}
+        - {label: "FirsthistoryblockquoteboldA", name: "firsthistoryblockquoteboldA", widget: "string"}
+        - {label: "FirsthistoryblockquoteB", name: "firsthistoryblockquoteB", widget: "string"}
+        - {label: "FirsthistoryblockquoteboldB", name: "firsthistoryblockquoteboldB", widget: "string"}
+        - {label: "FirsthistoryblockquoteC", name: "firsthistoryblockquoteC", widget: "string"} 
+        - {label: "FirsthistoryblockquoteboldC", name: "firsthistoryblockquoteboldC", widget: "string" } 
+        - {label: "FirsthistoryblockquoteD", name: "firsthistoryblockquoteD", widget: "string" }
+        - { label: "Firsthistoryquote", name: "firsthistoryquote", widget: "string" }
+        - { label: "Blockquoteauthor", name: "blockquoteauthor", widget: "string" }
+        - { label: "Blockquoteauthortitle", name: "blockquoteauthortitle", widget: "string" }
+        - { label: "Figures", name: "figures", widget: "string" }
+        - { label: "Secondhistoryquotea", name: "secondhistoryquotea", widget: "string" }
+        - { label: "Quotelinka", name: "quotelinka", widget: "string" }
+        - { label: "Secondhistoryquoteb", name: "secondhistoryquoteb", widget: "string" }
+        # - { label: "Secondhistoryblockquote", name: "secondhistoryblockquote", widget: "string" }
+        - {label: "SecondhistoryblockquoteA", name: "secondhistoryblockquoteA", widget: "string"}
+        - {label: "SecondhistoryblockquoteboldA", name: "secondhistoryblockquoteboldA", widget: "string"}
+        - {label: "SecondhistoryblockquoteB", name: "secondhistoryblockquoteB", widget: "string" }
+        - { label: "Thirdhistoryquotea", name: "thirdhistoryquotea", widget: "string" }
+        - { label: "Quotelinkb", name: "quotelinkb", widget: "string" }
+        - { label: "Thirdhistoryquoteb", name: "thirdhistoryquoteb", widget: "string" }
+        - { label: "Fourthhistoryquote", name: "fourthhistoryquote", widget: "string" }
+        - { label: "Vfybheader", name: "vfybheader", widget: "string" }
+        - { label: "Vfybquotea", name: "vfybquotea", widget: "string" }
+        - { label: "VfybblockquoteA", name: "vfybblockquoteA", widget: "string"}
+        - { label: "VfybblockquoteboldA", name: "vfybblockquoteboldA", widget: "string"}
+        - { label: "VfybblockquoteB", name: "vfybblockquoteB", widget: "string"}
+        - { label: "VfybblockquoteboldB", name: "vfybblockquoteboldB", widget: "string"}
+        - { label: "VfybblockquoteC", name: "vfybblockquoteC", widget: "string"}
+        - { label: "Vfybquoteb", name: "vfybquoteb", widget: "string" }
+        - { label: "Vfybbutton", name: "vfybbutton", widget: "string" }
+        - { label: "Applytitle", name: "applytitle", widget: "string" }
+        - { label: "Applytext", name: "applytext", widget: "string" }
+        - { label: "Applybutton", name: "applybutton", widget: "string" }
       

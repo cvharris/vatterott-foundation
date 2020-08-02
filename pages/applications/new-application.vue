@@ -8,7 +8,7 @@
       <div v-else>
         <div class="button-align">
           <div>
-            <div v-if="showApplication">
+            <div v-if="!isAdmin || showApplication">
               <grant-application>
                 <button-toggle
                   :showApplication="showApplication"
@@ -16,7 +16,7 @@
                 />
               </grant-application>
             </div>
-            <div v-if="!showApplication">
+            <div v-if="isAdmin && !showApplication">
               <admin-component>
                 <button-toggle
                   :showApplication="showApplication"
@@ -51,7 +51,7 @@ export default {
     }
   },
   middleware: ['auth'],
-  computed: { ...mapState(['initializing', 'currentUserId']) },
+  computed: { ...mapState(['initializing', 'currentUserId', 'isAdmin']) },
   methods: {
     toggleView() {
       this.showApplication = !this.showApplication

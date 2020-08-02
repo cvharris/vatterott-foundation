@@ -14,51 +14,47 @@
             />
           </div>
           <p class="slogan">
-            Celebrating over 70 Years
-            <br />Supporting St. Louis Non-Profits
+            {{ slogan }}
           </p>
-          <a class="action-button" href="/applications">Apply for a Grant</a>
+          <a class="action-button" href="/applications">{{
+            applybuttontext
+          }}</a>
         </div>
       </div>
     </div>
     <div id="what-we-do" class="normal-section red-double-border">
       <div class="container">
-        <h2 class="section-header">Our Focus Areas</h2>
+        <h2 class="section-header">{{ focalareatitle }}</h2>
         <div class="do-boxes">
           <div id="education" class="do-box">
-            <h3 class="do-header">Educational Opportunities</h3>
+            <h3 class="do-header">{{ areatitleA }}</h3>
             <p class="do-description">
-              Catholic elementary and secondary education for disadvantaged
-              youth
+              {{ subfocalareaA }}
             </p>
           </div>
           <div id="sickness" class="do-box">
             <h3 class="do-header">
-              Amelioration of
-              <br />Sickness & Distress
+              {{ areatitleB }}
             </h3>
             <p class="do-description">
-              Health care organizations that treat under-served populations
+              {{ subfocalareaB }}
             </p>
           </div>
         </div>
-        <a class="action-button" href="/who-we-help">Find Out Who We Help</a>
+        <a class="action-button" href="/who-we-help">{{ focalareabutton }}</a>
         <div class="do-boxes">
           <div id="welfare" class="do-box">
             <h3 class="do-header">
-              Promotion of
-              <br />Public Welfare
+              {{ areatitleC }}
             </h3>
             <p class="do-description">
-              Services for the poor and assisting mothers who choose life for
-              unborn children
+              {{ subfocalareaC }}
             </p>
           </div>
           <div id="religious" class="do-box">
-            <h3 class="do-header">Religious Advancement</h3>
+            <h3 class="do-header">{{ areatitleD }}</h3>
             <p class="do-description">
-              Religious orders that uphold a Catholic presence in low-income
-              communities and provide spiritual services to those in need
+              {{ subfocalareaD }}
             </p>
           </div>
         </div>
@@ -69,97 +65,82 @@
         <div id="vatterott-family" class="parallax-image"></div>
       </div>
       <div class="container">
-        <h2 class="section-header">Mission Statement</h2>
+        <h2 class="section-header">{{ missionstatementtitle }}</h2>
         <blockquote class="centered-quotations">
-          For the
-          <strong>amelioration of human poverty</strong>, sickness, and
-          distress, for the <strong>advancement of education</strong>, science,
-          and learning, for the
-          <strong>promotion of the public welfare</strong> and for the
-          <strong>advancement of religion</strong> and the realization of
-          Christ's Kingdom on earth, all for the greater glory of God.
+          <p>{{ missionstatementA }}
+          <strong>{{ missionstatementboldA }}</strong>
+          {{ missionstatementB }}
+          <strong>{{ missionstatementboldB }}</strong>
+          {{ missionstatementC }}
+          <strong>{{ missionstatementboldC }}</strong>
+          {{ missionstatementD }}
+          <strong>{{ missionstatementboldD }}</strong>
+          {{ missionstatementE }}
+          </p>
         </blockquote>
-        <a class="action-button" href="/trustees">See Our Current Trustees</a>
+        <a class="action-button" href="/trustees">{{ missionbutton }}</a>
       </div>
     </div>
     <div id="about" class="normal-section red-double-border">
       <div class="container">
-        <h2 class="section-header">Our History</h2>
+        <h2 class="section-header">{{ historytitle }}</h2>
         <blockquote class="big-quote">
           <p>
-            To me, a home consecrated to
-            <span style="font-variant: small-caps;">God</span>, with all its
-            members looking to Him for direction,
-            <strong>planning</strong> together,
-            <strong>playing</strong> together,
-            <strong>praying</strong> together...survives the years with joy.
+            {{ firsthistoryblockquoteA }}
+            <strong>{{ firsthistoryblockquoteboldA }}</strong>
+            {{ firsthistoryblockquoteB }}
+            <strong>{{ firsthistoryblockquoteboldB }}</strong>
+            {{ firsthistoryblockquoteC }}
+            <strong>{{ firsthistoryblockquoteboldC }}</strong>
+            {{ firsthistoryblockquoteD }}
           </p>
           <footer>
-            <cite class="author">Charles F. Vatterott</cite>
-            <cite class="citation-title">Vatterott Foundation Co-Founder</cite>
+            <cite class="author">{{ blockquoteauthor }}</cite>
+            <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
           </footer>
         </blockquote>
         <p class="home-text">
-          Established in 1948 by Charles F. and Joseph H. Vatterott, the
-          Vatterott Foundation provides funding to non-profit organizations
-          located in the greater St. Louis area that share in the family
-          foundation's focus areas and mission.
+          {{ firsthistoryquote }}
         </p>
-        <div class="figures">
-          <figure>
-            <img
-              src="~assets/images/foundation-co-founder-joseph-vatterott.jpg"
-              alt="Joesph Vatterott, Vatterott Foundation Co-Founder"
-            />
-            <figcaption>Joesph H. Vatterott</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="~assets/images/foundation-co-founder-charles-f-vatterott.jpg"
-              alt="Charles F. Vatterott, Vatterott Foundation Co-Founder"
-            />
-            <figcaption>Charles F. Vatterott</figcaption>
-          </figure>
+        <div class="picture-display">
+          <div class="figures" v-for="(figure, i) in figures" :key="i">
+            <figure>
+              <img :src="figure.image" />
+              <figcaption>{{ figure.caption }}</figcaption>
+            </figure>
+          </div>
         </div>
         <p class="home-text">
-          During a time in which anti-racist dissent often resulted in perilous
-          consequences, the Vatterott Foundation worked to preserve the dignity
-          of all people. Since its first donation to the
+          {{ secondhistoryquoteA }}
           <a
             href="https://books.google.com/books?id=z5V9t5b79TwC&pg=PA140&lpg=PA140&dq=Catholic+Interracial+Council+of+St.+Louis&source=bl&ots=PErB57QUF5&sig=6B76hdc4df0Qa3KhAyNVLbPYPBU&hl=en&sa=X&ved=0ahUKEwjwxsbYrJ_QAhVTImMKHQN-CK8Q6AEIPTAH#v=onepage&q=Catholic%20Interracial%20Council%20of%20St.%20Louis&f=false"
             target="_blank"
-            >Catholic Interracial Council</a
+            >{{ quotelinkA }}</a
           >
-          on October 27, 1948, the Vatterott Foundation remains a committed
-          advocate in promoting racial justice.
+          {{ secondhistoryquoteB }}
         </p>
         <blockquote class="big-quote">
           <p>
-            Our home, while never destitute, was
-            <strong>poor but always happy</strong>. Our parents insisted on us
-            unselfishness and the blessings of poverty; dignity of men; the
-            nobility of labor and&mdash;in full bloom&mdash;sense of
-            responsibility.
+            {{ secondhistoryblockquoteA }}
+            <strong>{{ secondhistoryblockquoteboldA }}</strong>
+            {{ secondhistoryblockquoteB }}
           </p>
           <footer>
-            <cite class="author">Charles F. Vatterott</cite>
-            <cite class="citation-title">Vatterott Foundation Co-Founder</cite>
+            <cite class="author">{{ blockquoteauthor }}</cite>
+            <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
           </footer>
         </blockquote>
         <p class="home-text">
-          For many years the Foundation supported the
+          {{ thirdhistoryquoteA }}
           <a
             href="http://archstl.org/archives/page/holy-angelsour-lady-angels-kinloch"
             target="_blank"
-            >Holy Angels School in Kinloch</a
+            >{{ quotelinkB }}</a
           >
-          by contributing monthly to pay for the salary of the school principal.
-          In that way, the Foundation has helped to maintain a Catholic presence
-          in one of the most needy areas of St. Louis County.
+          {{ thirdhistoryquoteB }}
         </p>
         <p class="home-text">
-          Today the Vatterott Foundation Trustees work to keep the founders'
-          humanitarian and religious spirit alive through their grant-making.
+          {{ fourthhistoryquote }}
         </p>
       </div>
     </div>
@@ -168,37 +149,35 @@
         <div id="vfyb-background" class="parallax-image"></div>
       </div>
       <div class="container">
-        <h2 class="section-header">Vatterott Foundation Youth Board</h2>
+        <h2 class="section-header">{{ vfybheader }}</h2>
         <p class="home-text">
-          In 2000 the Vatterott Foundation extended its tradition of giving by
-          forming the Vatterott Foundation Youth Board (VFYB). The Youth Board
-          is comprised of Vatterott descendants aged 13 to 30 who are interested
-          in giving back to their community in the spirit of their ancestors.
+          {{ vfybquoteA }}
         </p>
         <blockquote class="big-quote">
           <p>
-            I feel that
-            <strong>youthful</strong> energy can lead to
-            <strong>success</strong> as well as <strong>opportunity</strong>.
+            {{ vfybblockquoteA }}
+            <strong>{{ vfybblockquoteboldA }}</strong>
+            {{ vfybblockquoteB }}
+            <strong>{{ vfybblockquoteboldB }}</strong>
+            {{ vfybblockquoteC }}
+            <strong>{{ vfybblockquoteboldC }}</strong>
           </p>
           <footer>
-            <cite class="author">Charles F. Vatterott</cite>
-            <cite class="citation-title">Vatterott Foundation Co-Founder</cite>
+            <cite class="author">{{ blockquoteauthor }}</cite>
+            <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
           </footer>
         </blockquote>
         <p class="home-text">
-          In the spirit of the original foundation, the VFYB takes a unique
-          approach to their grant making. The VFYB focuses on three core aspects
-          of charity: family, community and active participation.
+          {{ vfybquoteB }}
         </p>
-        <a class="action-button" href="/youth-board">Learn more about VFYB</a>
+        <a class="action-button" href="/youth-board">{{ vfybbutton }}</a>
       </div>
     </div>
     <div id="grant-action" class="normal-section red-double-border">
       <div class="container">
-        <h2 class="section-header">Apply Today</h2>
-        <p class="home-text">We are accepting applications for grants now!</p>
-        <a class="action-button" href="/applications">Apply for a Grant</a>
+        <h2 class="section-header">{{ applytitle }}</h2>
+        <p class="home-text">{{ applytext }}</p>
+        <a class="action-button" href="/applications">{{ applybutton }}</a>
       </div>
     </div>
   </div>
@@ -212,11 +191,141 @@ export default {
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
       ]
     }
+  },
+  async asyncData() {
+    // `attributes` is the object of YML Frontmatter data
+    // `html` is the HTML version of the markdown body
+    const { attributes, html } = await import('~/assets/content/pages/home.md')
+    const {
+      title,
+      slogan,
+      applybuttontext,
+      focalareatitle,
+      areatitleA,
+      subfocalareaA,
+      areatitleB,
+      subfocalareaB,
+      areatitleC,
+      subfocalareaC,
+      areatitleD,
+      subfocalareaD,
+      focalareabutton,
+      missionstatementtitle,
+      missionstatementA,
+      missionstatementboldA,
+      missionstatementB,
+      missionstatementboldB,
+      missionstatementC,
+      missionstatementboldC,
+      missionstatementD,
+      missionstatementboldD,
+      missionstatementE,
+      missionbutton,
+      historytitle,
+      firsthistoryblockquoteA,
+      firsthistoryblockquoteboldA,
+      firsthistoryblockquoteB,
+      firsthistoryblockquoteboldB,
+      firsthistoryblockquoteC,
+      firsthistoryblockquoteboldC,
+      firsthistoryblockquoteD,
+      firsthistoryquote,
+      blockquoteauthor,
+      blockquoteauthortitle,
+      figures,
+      secondhistoryquoteA,
+      quotelinkA,
+      secondhistoryquoteB,
+      secondhistoryblockquoteA,
+      secondhistoryblockquoteboldA,
+      secondhistoryblockquoteB,
+      thirdhistoryquoteA,
+      quotelinkB,
+      thirdhistoryquoteB,
+      fourthhistoryquote,
+      vfybheader,
+      vfybquoteA,
+      vfybblockquoteA,
+      vfybblockquoteboldA,
+      vfybblockquoteB,
+      vfybblockquoteboldB,
+      vfybblockquoteC,
+      vfybblockquoteboldC,
+      vfybquoteB,
+      vfybbutton,
+      applytitle,
+      applytext,
+      applybutton
+    } = attributes
+    return {
+      title,
+      slogan,
+      applybuttontext,
+      focalareatitle,
+      areatitleA,
+      subfocalareaA,
+      areatitleB,
+      subfocalareaB,
+      areatitleC,
+      subfocalareaC,
+      areatitleD,
+      subfocalareaD,
+      focalareabutton,
+      missionstatementtitle,
+      missionstatementA,
+      missionstatementboldA,
+      missionstatementB,
+      missionstatementboldB,
+      missionstatementC,
+      missionstatementboldC,
+      missionstatementD,
+      missionstatementboldD,
+      missionstatementE,
+      missionbutton,
+      historytitle,
+      firsthistoryblockquoteA,
+      firsthistoryblockquoteboldA,
+      firsthistoryblockquoteB,
+      firsthistoryblockquoteboldB,
+      firsthistoryblockquoteC,
+      firsthistoryblockquoteboldC,
+      firsthistoryblockquoteD,
+      firsthistoryquote,
+      blockquoteauthor,
+      blockquoteauthortitle,
+      figures,
+      secondhistoryquoteA,
+      quotelinkA,
+      secondhistoryquoteB,
+      secondhistoryblockquoteA,
+      secondhistoryblockquoteboldA,
+      secondhistoryblockquoteB,
+      thirdhistoryquoteA,
+      quotelinkB,
+      thirdhistoryquoteB,
+      fourthhistoryquote,
+      vfybheader,
+      vfybquoteA,
+      vfybblockquoteA,
+      vfybblockquoteboldA,
+      vfybblockquoteB,
+      vfybblockquoteboldB,
+      vfybblockquoteC,
+      vfybblockquoteboldC,
+      vfybquoteB,
+      vfybbutton,
+      applytitle,
+      applytext,
+      applybutton,
+      html
+    }
   }
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+@import '../assets/styles/shared/vars';
+
 #vfyb-background {
   background-image: url(~assets/images/cousins.jpg);
 }
@@ -227,5 +336,74 @@ export default {
 
 #vatterott-family {
   background-image: url(~assets/images/vatterott-family.jpg);
+}
+
+.picture-display {
+  display: flex;
+  justify-content: space-around;
+}
+// .do-boxes {
+//   display: block;
+//   flex-wrap: wrap;
+//   justify-content: space-around;
+//   border-radius: 1rem;
+//   padding: 1rem 0;
+
+//   @media (min-width: @tablet) {
+//     padding: 3rem 0;
+//   }
+// }
+
+// .do-box {
+//   position: relative;
+//   z-index: 1;
+//   color: white;
+//   flex: 1 0 100vw;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 3rem 1rem;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     display: block;
+//     left: 0;
+//     top: 0;
+//     height: 100%;
+//     width: 100%;
+//     background: black;
+//     opacity: 0.5;
+//     z-index: -1;
+//   }
+
+//   @media (min-width: @tablet) {
+//     padding: 2rem;
+//     margin: 1rem;
+//     flex: 1 0 275px;
+//   }
+// }
+
+.home-text {
+  font-size: 20px;
+  margin-bottom: 2rem;
+
+  @media (min-width: @tablet) {
+    text-indent: 3rem;
+  }
+}
+.container {
+  padding: 2rem 1.5rem;
+  max-width: 60rem;
+  margin: 0 auto;
+
+  @media (min-width: @tablet) {
+    padding: @spacing-unit @spacing-unit * 1.5;
+    max-width: @content-width;
+  }
 }
 </style>

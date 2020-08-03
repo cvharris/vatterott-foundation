@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="container">
     <template v-if="!initializing">
       <div v-if="!currentUserId">
         <login-form />
       </div>
-
       <div v-else>
         <div class="button-align">
           <div>
@@ -16,7 +15,7 @@
                 />
               </grant-application>
             </div>
-            <div v-if="isAdmin && !showApplication">
+            <div v-else-if="isAdmin && !showApplication">
               <admin-component>
                 <button-toggle
                   :showApplication="showApplication"

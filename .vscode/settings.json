@@ -1,5 +1,9 @@
 {
   "editor.formatOnPaste": true,
   "editor.minimap.enabled": true,
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.markdownlint": true,
+    "source.fixAll.eslint": true 
+  }
 }

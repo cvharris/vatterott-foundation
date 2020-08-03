@@ -158,13 +158,15 @@ export default {
     }
   },
   mounted() {
-    this.unsubscribe = this.$db.collection('uploadedForms').onSnapshot((formsSnapshot) => {
-      this.applications = []
-      formsSnapshot.forEach((doc) => {
-        const form = { ...doc.data(), id: doc.id }
-        this.applications.push(form)
+    this.unsubscribe = this.$db
+      .collection('uploadedForms')
+      .onSnapshot((formsSnapshot) => {
+        this.applications = []
+        formsSnapshot.forEach((doc) => {
+          const form = { ...doc.data(), id: doc.id }
+          this.applications.push(form)
+        })
       })
-    })
   },
   beforeDestroy() {
     this.unsubscribe()

@@ -8,6 +8,7 @@ export default function({ store, app: { $auth } }) {
     } else {
       // User is signed out.
       store.commit('setCurrentUserId', '')
+      store.commit('setIsAdmin', false)
     }
     store.commit('finishInitializing')
   })

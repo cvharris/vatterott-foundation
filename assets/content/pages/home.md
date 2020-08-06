@@ -18,7 +18,7 @@ subfocalareaD: 'Religious orders that uphold a Catholic presence in low-income c
 focalareabutton: 'Find Out Who We Help'
 missionstatementtitle: 'Mission Statement'
 missionstatement: >-
-  'For the **amelioration of human poverty**, sickness, and distress, for the **advancement of education** science, and learning, for the **promotion of the public welfare** and for the **advancement of religion** and the realization of Christ's Kingdom on earth, all for the greater glory of God.'
+  For the **amelioration of human poverty**, sickness, and distress, for the **advancement of education**, science, and learning, for the **promotion of the public welfare**, and for the **advancement of religion** and the realization of Christ's Kingdom on earth, all for the greater glory of God.
 missionbutton: 'See Our Current Trustees'
 historytitle: 'Our History'
 firsthistoryblockquote: >-

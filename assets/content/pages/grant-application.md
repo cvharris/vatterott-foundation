@@ -29,27 +29,22 @@ In order to be considered for a grant your organization and request must meet th
 <div class="page-description" style="text-align: center;"> If you feel that your organization or project is a good match with the Vatterott Foundation’s funding priorities, you may apply for a grant by downloading and submitting the following documents. Please <a href="mailto:info@vatterottfoundation.org">email</a> us if you have any questions.
 </div>
 <fieldset>
-<legend class="section-description">&nbsp;Please submit the following documents:&nbsp;</legend>
-      <ul class="checkboxes">
-        <li>
-          <input id="application" type="checkbox" />
-          <label for="application">Application Form (please <a href="/public/VF_Application_Form.docx">use attached format</a> which is specific for the Vatterott Foundation)</label>
-        </li>
-        <li>
-          <input id="project-budget" type="checkbox" />
-          <label for="project-budget">Project Budget Template Form (<a href="/public/VF_Budget_Template_Form.xls">download</a>)</label>
-        </li>
-        <li>
-          <input id="current-budget" type="checkbox" />
-          <label for="current-budget">Current Organizational Budget</label>
-        </li>
-        <li>
-          <input id="current-budget" type="checkbox" />
-          <label for="current-budget">IRS Letter of Determination</label>
-        </li>
-      </ul>
-      </fieldset>
-  <br>
+  <legend class="section-description">&nbsp;Please submit the following documents:&nbsp;</legend>
+    <ul class="checkboxes">
+      <li>
+        <label for="application">Application Form (please <a href="/public/VF_Application_Form.docx">use attached format</a> which is specific for the Vatterott Foundation)</label>
+      </li>
+      <li>
+        <label for="project-budget">Project Budget Template Form (<a href="/public/VF_Budget_Template_Form.xls">download</a>)</label>
+      </li>
+      <li>
+        <label for="current-budget">Current Organizational Budget</label>
+      </li>
+      <li>
+        <label for="current-budget">IRS Letter of Determination</label>
+      </li>
+    </ul>
+</fieldset>
 
 <div style="text-align: center;">Our applications follow the guidelines of the Common Grant Application & Budget Template.<br> You can <a href="/public/CGA_User_Guide.pdf">download the CGA User Guide here</a>. </div><br>
 
@@ -62,8 +57,8 @@ In order to be considered for a grant your organization and request must meet th
 You can now submit your application online!
 
 <a class="action-button" href="/applications/new-application">
-      Submit Application Online
-    </a>
+  Submit Application Online
+</a>
 
 **OR**
 

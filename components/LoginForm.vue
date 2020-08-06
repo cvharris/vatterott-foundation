@@ -6,14 +6,14 @@
       register for an account
     </p>
     <div class="centered-form">
-      <form name="credentialsForm" @submit.prevent="submitCredentials">
+      <form @submit.prevent="submitCredentials" name="credentialsForm">
         <fieldset>
           <div>
             <div v-if="emailTaken">
               <p><strong>That e-mail address is already taken.</strong></p>
               <p>
                 Try
-                <span class="link-like" @click="changeFormType"
+                <span @click="changeFormType" class="link-like"
                   >signing in</span
                 >
                 instead or registering with a different e-mail address.
@@ -40,32 +40,32 @@
           </div>
 
           <label for="email"> E-mail address </label>
-          <input type="email" name="email" v-model="email" required />
+          <input v-model="email" type="email" name="email" required />
 
           <label for="authentication">Password</label>
           <input
+            v-model="authentication"
             type="password"
             name="authentication"
-            v-model="authentication"
             required
           />
 
-          <button class="secondary" @click="cancel">
+          <button @click="cancel" class="secondary">
             Cancel
           </button>
           <button class="primary" type="submit">{{ type }}</button>
         </fieldset>
       </form>
       <div class="form-footer">
-        <div class="login-switch" v-if="!isNewUser">
+        <div v-if="!isNewUser" class="login-switch">
           <p>Don't have an account?</p>
-          <button class="secondary" @click="changeFormType">
+          <button @click="changeFormType" class="secondary">
             Register
           </button>
         </div>
-        <div class="login-switch" v-if="isNewUser">
+        <div v-if="isNewUser" class="login-switch">
           <p>Already have an account?</p>
-          <button class="secondary" @click="changeFormType">
+          <button @click="changeFormType" class="secondary">
             Sign In
           </button>
         </div>
@@ -80,7 +80,7 @@ export default {
     return {
       email: '',
       authentication: '',
-      isNewUser: true,
+      isNewUser: false,
       emailTaken: false,
       registered: false,
       signedIn: false,
@@ -88,7 +88,7 @@ export default {
     }
   },
   computed: {
-    type: function() {
+    type() {
       return this.isNewUser ? 'Register' : 'Sign In'
     }
   },
@@ -124,5 +124,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

@@ -80,7 +80,7 @@
           {{ firsthistoryquote }}
         </p>
         <div class="picture-display">
-          <div class="figures" v-for="(figure, i) in figures" :key="i">
+          <div v-for="(figure, i) in figures" :key="i" class="figures">
             <figure>
               <img :src="figure.image" />
               <figcaption>{{ figure.caption }}</figcaption>

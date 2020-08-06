@@ -33,9 +33,7 @@
             </p>
           </div>
           <div id="sickness" class="do-box">
-            <h3 class="do-header">
-              {{ areatitleB }}
-            </h3>
+            <h3 v-html="areatitleB" class="do-header"></h3>
             <p class="do-description">
               {{ subfocalareaB }}
             </p>
@@ -44,9 +42,7 @@
         <a class="action-button" href="/who-we-help">{{ focalareabutton }}</a>
         <div class="do-boxes">
           <div id="welfare" class="do-box">
-            <h3 class="do-header">
-              {{ areatitleC }}
-            </h3>
+            <h3 v-html="areatitleC" class="do-header"></h3>
             <p class="do-description">
               {{ subfocalareaC }}
             </p>
@@ -66,18 +62,7 @@
       </div>
       <div class="container">
         <h2 class="section-header">{{ missionstatementtitle }}</h2>
-        <blockquote class="centered-quotations">
-          <p>{{ missionstatementA }}
-          <strong>{{ missionstatementboldA }}</strong>
-          {{ missionstatementB }}
-          <strong>{{ missionstatementboldB }}</strong>
-          {{ missionstatementC }}
-          <strong>{{ missionstatementboldC }}</strong>
-          {{ missionstatementD }}
-          <strong>{{ missionstatementboldD }}</strong>
-          {{ missionstatementE }}
-          </p>
-        </blockquote>
+        <blockquote v-html="missionstatement" class="centered-quotations" />
         <a class="action-button" href="/trustees">{{ missionbutton }}</a>
       </div>
     </div>
@@ -85,15 +70,7 @@
       <div class="container">
         <h2 class="section-header">{{ historytitle }}</h2>
         <blockquote class="big-quote">
-          <p>
-            {{ firsthistoryblockquoteA }}
-            <strong>{{ firsthistoryblockquoteboldA }}</strong>
-            {{ firsthistoryblockquoteB }}
-            <strong>{{ firsthistoryblockquoteboldB }}</strong>
-            {{ firsthistoryblockquoteC }}
-            <strong>{{ firsthistoryblockquoteboldC }}</strong>
-            {{ firsthistoryblockquoteD }}
-          </p>
+          <blockquote v-html="firsthistoryblockquote" />
           <footer>
             <cite class="author">{{ blockquoteauthor }}</cite>
             <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
@@ -120,11 +97,7 @@
           {{ secondhistoryquoteB }}
         </p>
         <blockquote class="big-quote">
-          <p>
-            {{ secondhistoryblockquoteA }}
-            <strong>{{ secondhistoryblockquoteboldA }}</strong>
-            {{ secondhistoryblockquoteB }}
-          </p>
+          <blockquote v-html="secondhistoryblockquote" />
           <footer>
             <cite class="author">{{ blockquoteauthor }}</cite>
             <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
@@ -154,14 +127,7 @@
           {{ vfybquoteA }}
         </p>
         <blockquote class="big-quote">
-          <p>
-            {{ vfybblockquoteA }}
-            <strong>{{ vfybblockquoteboldA }}</strong>
-            {{ vfybblockquoteB }}
-            <strong>{{ vfybblockquoteboldB }}</strong>
-            {{ vfybblockquoteC }}
-            <strong>{{ vfybblockquoteboldC }}</strong>
-          </p>
+          <blockquote v-html="vfybblockquote" />
           <footer>
             <cite class="author">{{ blockquoteauthor }}</cite>
             <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
@@ -184,6 +150,8 @@
 </template>
 
 <script>
+import markdown from '~/plugins/markdown'
+
 export default {
   head() {
     return {
@@ -211,24 +179,10 @@ export default {
       subfocalareaD,
       focalareabutton,
       missionstatementtitle,
-      missionstatementA,
-      missionstatementboldA,
-      missionstatementB,
-      missionstatementboldB,
-      missionstatementC,
-      missionstatementboldC,
-      missionstatementD,
-      missionstatementboldD,
-      missionstatementE,
+      missionstatement,
       missionbutton,
       historytitle,
-      firsthistoryblockquoteA,
-      firsthistoryblockquoteboldA,
-      firsthistoryblockquoteB,
-      firsthistoryblockquoteboldB,
-      firsthistoryblockquoteC,
-      firsthistoryblockquoteboldC,
-      firsthistoryblockquoteD,
+      firsthistoryblockquote,
       firsthistoryquote,
       blockquoteauthor,
       blockquoteauthortitle,
@@ -236,21 +190,14 @@ export default {
       secondhistoryquoteA,
       quotelinkA,
       secondhistoryquoteB,
-      secondhistoryblockquoteA,
-      secondhistoryblockquoteboldA,
-      secondhistoryblockquoteB,
+      secondhistoryblockquote,
       thirdhistoryquoteA,
       quotelinkB,
       thirdhistoryquoteB,
       fourthhistoryquote,
       vfybheader,
       vfybquoteA,
-      vfybblockquoteA,
-      vfybblockquoteboldA,
-      vfybblockquoteB,
-      vfybblockquoteboldB,
-      vfybblockquoteC,
-      vfybblockquoteboldC,
+      vfybblockquote,
       vfybquoteB,
       vfybbutton,
       applytitle,
@@ -264,32 +211,18 @@ export default {
       focalareatitle,
       areatitleA,
       subfocalareaA,
-      areatitleB,
+      areatitleB: markdown(areatitleB),
       subfocalareaB,
-      areatitleC,
+      areatitleC: markdown(areatitleC),
       subfocalareaC,
       areatitleD,
       subfocalareaD,
       focalareabutton,
       missionstatementtitle,
-      missionstatementA,
-      missionstatementboldA,
-      missionstatementB,
-      missionstatementboldB,
-      missionstatementC,
-      missionstatementboldC,
-      missionstatementD,
-      missionstatementboldD,
-      missionstatementE,
+      missionstatement: markdown(missionstatement),
       missionbutton,
       historytitle,
-      firsthistoryblockquoteA,
-      firsthistoryblockquoteboldA,
-      firsthistoryblockquoteB,
-      firsthistoryblockquoteboldB,
-      firsthistoryblockquoteC,
-      firsthistoryblockquoteboldC,
-      firsthistoryblockquoteD,
+      firsthistoryblockquote: markdown(firsthistoryblockquote),
       firsthistoryquote,
       blockquoteauthor,
       blockquoteauthortitle,
@@ -297,21 +230,14 @@ export default {
       secondhistoryquoteA,
       quotelinkA,
       secondhistoryquoteB,
-      secondhistoryblockquoteA,
-      secondhistoryblockquoteboldA,
-      secondhistoryblockquoteB,
+      secondhistoryblockquote: markdown(secondhistoryblockquote),
       thirdhistoryquoteA,
       quotelinkB,
       thirdhistoryquoteB,
       fourthhistoryquote,
       vfybheader,
       vfybquoteA,
-      vfybblockquoteA,
-      vfybblockquoteboldA,
-      vfybblockquoteB,
-      vfybblockquoteboldB,
-      vfybblockquoteC,
-      vfybblockquoteboldC,
+      vfybblockquote: markdown(vfybblockquote),
       vfybquoteB,
       vfybbutton,
       applytitle,
@@ -342,51 +268,6 @@ export default {
   display: flex;
   justify-content: space-around;
 }
-// .do-boxes {
-//   display: block;
-//   flex-wrap: wrap;
-//   justify-content: space-around;
-//   border-radius: 1rem;
-//   padding: 1rem 0;
-
-//   @media (min-width: @tablet) {
-//     padding: 3rem 0;
-//   }
-// }
-
-// .do-box {
-//   position: relative;
-//   z-index: 1;
-//   color: white;
-//   flex: 1 0 100vw;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 3rem 1rem;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: cover;
-
-//   &::after {
-//     content: '';
-//     position: absolute;
-//     display: block;
-//     left: 0;
-//     top: 0;
-//     height: 100%;
-//     width: 100%;
-//     background: black;
-//     opacity: 0.5;
-//     z-index: -1;
-//   }
-
-//   @media (min-width: @tablet) {
-//     padding: 2rem;
-//     margin: 1rem;
-//     flex: 1 0 275px;
-//   }
-// }
 
 .home-text {
   font-size: 20px;

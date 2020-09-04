@@ -6,21 +6,21 @@
         {{ subtitle }}
       </p>
       <div class="trustees-list">
-        <div v-for="(trustee, id) in trustees" :key="id" class="trustee">
+        <div v-for="trustee in trustees" :key="trustee.name" class="trustee">
           <div class="trustee-information">
             <div>
-              <h3 class="trustee-name">{{ trustee.name }}</h3>
+              <h3 class="trustee-name">{{ trustee }}</h3>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="administrator">
-      <h2>Administrator</h2>
+      <h2>{{ administratortitle }}</h2>
       <div class="trustees-list">
         <div class="trustee">
           <div class="trustee-information">
-            <h3 class="trustee-name">William Vatterott</h3>
+            <h3 class="trustee-name">{{ administrator }}</h3>
           </div>
         </div>
       </div>
@@ -34,8 +34,14 @@ export default {
     // `attributes` is the object of YML Frontmatter data
     // `html` is the HTML version of the markdown body
     const sections = await import('~/assets/content/pages/trustees.md')
-    const { title, subtitle, trustees } = sections.attributes
-    return { title, subtitle, trustees }
+    const {
+      title,
+      subtitle,
+      trustees,
+      administratortitle,
+      administrator
+    } = sections.attributes
+    return { title, subtitle, trustees, administratortitle, administrator }
   }
 }
 </script>

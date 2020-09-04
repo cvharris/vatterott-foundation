@@ -1,21 +1,21 @@
 <template>
   <div>
     <div class="container">
-      <h1 class="page-title">{{ title }}</h1>
+      <h1 class="page-title">{{ titlesection.title }}</h1>
       <p class="page-description">
-        {{ description }}
+        {{ titlesection.description }}
       </p>
       <blockquote class="big-quote">
         <p>
-          {{ blockquote }}
+          {{ titlesection.blockquote }}
         </p>
         <footer>
-          <cite class="author">{{ author }}</cite>
-          <cite class="citation-title">{{ citation }}</cite>
+          <cite class="author">{{ titlesection.author }}</cite>
+          <cite class="citation-title">{{ titlesection.citation }}</cite>
         </footer>
       </blockquote>
       <section id="vfyb-about">
-        <h2 class="page-section-header">{{ about }}</h2>
+        <h2 class="page-section-header">{{ aboutVFYB.about }}</h2>
         <figure>
           <iframe
             src="https://player.vimeo.com/video/73003706"
@@ -27,14 +27,17 @@
             allowfullscreen
           ></iframe>
           <figcaption class="video-caption">
-            {{ videocaption }}
+            {{ aboutVFYB.videocaption }}
           </figcaption>
         </figure>
         <p>
-          {{ videodescription }}
+          {{ figuresection.figuredescription }}
         </p>
         <div class="figures">
-          <div v-for="(figure, i) in figures" :key="i">
+          <div
+            v-for="figure in figuresection.figures"
+            :key="figure.captiontitle"
+          >
             <figure class="core-aspects">
               <div>
                 <img :src="figure.image" />
@@ -48,17 +51,23 @@
         </div>
       </section>
       <section id="vfyb-grants">
-        <div v-html="html" />
+        <div v-html="html">{{ body }}</div>
       </section>
       <section id="vfyb-grantees">
-        <h2 class="page-section-header">VFYB Previous Organizations</h2>
-        <ul class="all-organizations">
-          <li v-for="(org, i) in orgs" :key="i" class="organization">
-            <a :href="org.link" class="organization-link" target="_blank">
-              <h3 class="organization-name">{{ org.name }}</h3>
-            </a>
-          </li>
-        </ul>
+        <div>
+          <h2 class="page-section-header">{{ organization.orgtitle }}</h2>
+          <ul class="all-organizations">
+            <li
+              v-for="org in organization.orgs"
+              :key="org.link"
+              class="organization"
+            >
+              <a :href="org.link" class="organization-link" target="_blank">
+                <h3 class="organization-name">{{ org.name }}</h3>
+              </a>
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
   </div>
@@ -72,31 +81,20 @@ export default {
     const { attributes, html } = await import(
       '~/assets/content/pages/youth-board.md'
     )
+    console.log(attributes)
     const {
-      title,
-      orgs,
-      figures,
-      grants,
-      description,
-      blockquote,
-      author,
-      citation,
-      about,
-      videocaption,
-      videodescription
+      titlesection,
+      organization,
+      aboutVFYB,
+      figuresection,
+      body
     } = attributes
     return {
-      title,
-      orgs,
-      figures,
-      grants,
-      description,
-      blockquote,
-      author,
-      citation,
-      about,
-      videocaption,
-      videodescription,
+      titlesection,
+      organization,
+      aboutVFYB,
+      figuresection,
+      body,
       html
     }
   }

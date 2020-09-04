@@ -4,7 +4,7 @@
       <h1 class="page-title">{{ title }}</h1>
       <p class="page-description">{{ subtitle }}</p>
       <ul class="all-organizations">
-        <li v-for="(org, id) in orgs" :key="id" class="organization">
+        <li v-for="org in orgs" :key="org.link" class="organization">
           <a :href="org.link" class="organization-link" target="_blank">
             <h3 class="organization-name">{{ org.name }}</h3>
           </a>

@@ -14,43 +14,45 @@
             />
           </div>
           <p class="slogan">
-            {{ slogan }}
+            {{ header.slogan }}
           </p>
           <a class="action-button" href="/applications">{{
-            applybuttontext
+            header.applybuttontext
           }}</a>
         </div>
       </div>
     </div>
     <div id="what-we-do" class="normal-section red-double-border">
       <div class="container">
-        <h2 class="section-header">{{ focalareatitle }}</h2>
+        <h2 class="section-header">{{ focusareas.focalareatitle }}</h2>
         <div class="do-boxes">
           <div id="education" class="do-box">
-            <h3 class="do-header">{{ areatitleA }}</h3>
+            <h3 class="do-header">{{ focusareas.areatitleA }}</h3>
             <p class="do-description">
-              {{ subfocalareaA }}
+              {{ focusareas.subfocalareaA }}
             </p>
           </div>
           <div id="sickness" class="do-box">
-            <h3 v-html="areatitleB" class="do-header"></h3>
+            <h3 v-html="focusareas.areatitleB" class="do-header"></h3>
             <p class="do-description">
-              {{ subfocalareaB }}
+              {{ focusareas.subfocalareaB }}
             </p>
           </div>
         </div>
-        <a class="action-button" href="/who-we-help">{{ focalareabutton }}</a>
+        <a class="action-button" href="/who-we-help">{{
+          focusareas.focalareabutton
+        }}</a>
         <div class="do-boxes">
           <div id="welfare" class="do-box">
-            <h3 v-html="areatitleC" class="do-header"></h3>
+            <h3 v-html="focusareas.areatitleC" class="do-header"></h3>
             <p class="do-description">
-              {{ subfocalareaC }}
+              {{ focusareas.subfocalareaC }}
             </p>
           </div>
           <div id="religious" class="do-box">
-            <h3 class="do-header">{{ areatitleD }}</h3>
+            <h3 class="do-header">{{ focusareas.areatitleD }}</h3>
             <p class="do-description">
-              {{ subfocalareaD }}
+              {{ focusareas.subfocalareaD }}
             </p>
           </div>
         </div>
@@ -61,59 +63,74 @@
         <div id="vatterott-family" class="parallax-image"></div>
       </div>
       <div class="container">
-        <h2 class="section-header">{{ missionstatementtitle }}</h2>
-        <blockquote v-html="missionstatement" class="centered-quotations" />
-        <a class="action-button" href="/trustees">{{ missionbutton }}</a>
+        <h2 class="section-header">{{ mission.missionstatementtitle }}</h2>
+        <blockquote
+          v-html="mission.missionstatement"
+          class="centered-quotations"
+        />
+        <a class="action-button" href="/trustees">{{
+          mission.missionbutton
+        }}</a>
       </div>
     </div>
     <div id="about" class="normal-section red-double-border">
       <div class="container">
-        <h2 class="section-header">{{ historytitle }}</h2>
+        <h2 class="section-header">{{ history.historytitle }}</h2>
         <blockquote class="big-quote">
-          <blockquote v-html="firsthistoryblockquote" />
+          <blockquote v-html="history.firsthistoryblockquote" />
           <footer>
-            <cite class="author">{{ blockquoteauthor }}</cite>
-            <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
+            <cite class="author">{{ history.blockquoteauthor }}</cite>
+            <cite class="citation-title">{{
+              history.blockquoteauthortitle
+            }}</cite>
           </footer>
         </blockquote>
         <p class="home-text">
-          {{ firsthistoryquote }}
+          {{ history.firsthistoryquote }}
         </p>
         <div class="picture-display">
-          <div v-for="(figure, i) in figures" :key="i" class="figures">
+          <div
+            v-for="figure in history.figures"
+            :key="figure.image"
+            class="figures"
+          >
             <figure>
               <img :src="figure.image" />
               <figcaption>{{ figure.caption }}</figcaption>
             </figure>
           </div>
         </div>
-        <p class="home-text">
-          {{ secondhistoryquoteA }}
-          <a
-            href="https://books.google.com/books?id=z5V9t5b79TwC&pg=PA140&lpg=PA140&dq=Catholic+Interracial+Council+of+St.+Louis&source=bl&ots=PErB57QUF5&sig=6B76hdc4df0Qa3KhAyNVLbPYPBU&hl=en&sa=X&ved=0ahUKEwjwxsbYrJ_QAhVTImMKHQN-CK8Q6AEIPTAH#v=onepage&q=Catholic%20Interracial%20Council%20of%20St.%20Louis&f=false"
-            target="_blank"
-            >{{ quotelinkA }}</a
-          >
-          {{ secondhistoryquoteB }}
-        </p>
+        <div>
+          <p class="home-text">
+            {{ history.secondhistoryquoteA }}
+            <a
+              href="https://books.google.com/books?id=z5V9t5b79TwC&pg=PA140&lpg=PA140&dq=Catholic+Interracial+Council+of+St.+Louis&source=bl&ots=PErB57QUF5&sig=6B76hdc4df0Qa3KhAyNVLbPYPBU&hl=en&sa=X&ved=0ahUKEwjwxsbYrJ_QAhVTImMKHQN-CK8Q6AEIPTAH#v=onepage&q=Catholic%20Interracial%20Council%20of%20St.%20Louis&f=false"
+              target="_blank"
+              >{{ history.quotelinkA }}</a
+            >
+            {{ history.secondhistoryquoteB }}
+          </p>
+        </div>
         <blockquote class="big-quote">
-          <blockquote v-html="secondhistoryblockquote" />
+          <blockquote v-html="history.secondhistoryblockquote" />
           <footer>
-            <cite class="author">{{ blockquoteauthor }}</cite>
-            <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
+            <cite class="author">{{ history.blockquoteauthor }}</cite>
+            <cite class="citation-title">{{
+              history.blockquoteauthortitle
+            }}</cite>
           </footer>
         </blockquote>
         <p class="home-text">
-          {{ thirdhistoryquoteA }}
+          {{ history.thirdhistoryquoteA }}
           <a
             href="http://archstl.org/archives/page/holy-angelsour-lady-angels-kinloch"
             target="_blank"
-            >{{ quotelinkB }}</a
+            >{{ history.quotelinkB }}</a
           >
-          {{ thirdhistoryquoteB }}
+          {{ history.thirdhistoryquoteB }}
         </p>
         <p class="home-text">
-          {{ fourthhistoryquote }}
+          {{ history.fourthhistoryquote }}
         </p>
       </div>
     </div>
@@ -122,28 +139,30 @@
         <div id="vfyb-background" class="parallax-image"></div>
       </div>
       <div class="container">
-        <h2 class="section-header">{{ vfybheader }}</h2>
+        <h2 class="section-header">{{ vfyb.vfybheader }}</h2>
         <p class="home-text">
-          {{ vfybquoteA }}
+          {{ vfyb.vfybquoteA }}
         </p>
         <blockquote class="big-quote">
-          <blockquote v-html="vfybblockquote" />
+          <blockquote v-html="vfyb.vfybblockquote" />
           <footer>
-            <cite class="author">{{ blockquoteauthor }}</cite>
-            <cite class="citation-title">{{ blockquoteauthortitle }}</cite>
+            <cite class="author">{{ vfyb.blockquoteauthor }}</cite>
+            <cite class="citation-title">{{ vfyb.blockquoteauthortitle }}</cite>
           </footer>
         </blockquote>
         <p class="home-text">
-          {{ vfybquoteB }}
+          {{ vfyb.vfybquoteB }}
         </p>
-        <a class="action-button" href="/youth-board">{{ vfybbutton }}</a>
+        <a class="action-button" href="/youth-board">{{ vfyb.vfybbutton }}</a>
       </div>
     </div>
     <div id="grant-action" class="normal-section red-double-border">
       <div class="container">
-        <h2 class="section-header">{{ applytitle }}</h2>
-        <p class="home-text">{{ applytext }}</p>
-        <a class="action-button" href="/applications">{{ applybutton }}</a>
+        <h2 class="section-header">{{ apply.applytitle }}</h2>
+        <p class="home-text">{{ apply.applytext }}</p>
+        <a class="action-button" href="/applications">{{
+          apply.applybutton
+        }}</a>
       </div>
     </div>
   </div>
@@ -164,85 +183,25 @@ export default {
     // `attributes` is the object of YML Frontmatter data
     // `html` is the HTML version of the markdown body
     const { attributes, html } = await import('~/assets/content/pages/home.md')
-    const {
-      title,
-      slogan,
-      applybuttontext,
-      focalareatitle,
-      areatitleA,
-      subfocalareaA,
-      areatitleB,
-      subfocalareaB,
-      areatitleC,
-      subfocalareaC,
-      areatitleD,
-      subfocalareaD,
-      focalareabutton,
-      missionstatementtitle,
-      missionstatement,
-      missionbutton,
-      historytitle,
-      firsthistoryblockquote,
-      firsthistoryquote,
-      blockquoteauthor,
-      blockquoteauthortitle,
-      figures,
-      secondhistoryquoteA,
-      quotelinkA,
-      secondhistoryquoteB,
-      secondhistoryblockquote,
-      thirdhistoryquoteA,
-      quotelinkB,
-      thirdhistoryquoteB,
-      fourthhistoryquote,
-      vfybheader,
-      vfybquoteA,
-      vfybblockquote,
-      vfybquoteB,
-      vfybbutton,
-      applytitle,
-      applytext,
-      applybutton
-    } = attributes
+    const { header, focusareas, mission, history, vfyb, apply } = attributes
     return {
-      title,
-      slogan,
-      applybuttontext,
-      focalareatitle,
-      areatitleA,
-      subfocalareaA,
-      areatitleB: markdown(areatitleB),
-      subfocalareaB,
-      areatitleC: markdown(areatitleC),
-      subfocalareaC,
-      areatitleD,
-      subfocalareaD,
-      focalareabutton,
-      missionstatementtitle,
-      missionstatement: markdown(missionstatement),
-      missionbutton,
-      historytitle,
-      firsthistoryblockquote: markdown(firsthistoryblockquote),
-      firsthistoryquote,
-      blockquoteauthor,
-      blockquoteauthortitle,
-      figures,
-      secondhistoryquoteA,
-      quotelinkA,
-      secondhistoryquoteB,
-      secondhistoryblockquote: markdown(secondhistoryblockquote),
-      thirdhistoryquoteA,
-      quotelinkB,
-      thirdhistoryquoteB,
-      fourthhistoryquote,
-      vfybheader,
-      vfybquoteA,
-      vfybblockquote: markdown(vfybblockquote),
-      vfybquoteB,
-      vfybbutton,
-      applytitle,
-      applytext,
-      applybutton,
+      header,
+      focusareas: {
+        ...focusareas,
+        areatitleB: markdown(focusareas.areatitleB),
+        areatitleC: markdown(focusareas.areatitleC)
+      },
+      mission: {
+        ...mission,
+        missionstatement: markdown(mission.missionstatement)
+      },
+      history: {
+        ...history,
+        firsthistoryblockquote: markdown(history.firsthistoryblockquote),
+        secondhistoryblockquote: markdown(history.secondhistoryblockquote)
+      },
+      vfyb: { ...vfyb, vfybblockquote: markdown(vfyb.vfybblockquote) },
+      apply,
       html
     }
   }

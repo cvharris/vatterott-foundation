@@ -1,6 +1,48 @@
 ---
 title: 'Grant Application'
 subtitle: 'The Vatterott Foundation funds organizations working in its Focus Areas, based on specific goals and strategies outlined by the programs. Grants are awarded solely for charitable purposes. Trustees review applications quarterly. The Foundation accepts applications on a rolling/ ongoing basis. Deadlines for organizations to be are considered at the quarterly meetings: February 15, May 15, August 15, and November 15.'
+
+appdescriptions:
+   header2: Submit New Application
+   goodmatchA: If you feel that your organization or project is a good match with the Vatterott Foundation’s funding priorities, you may apply for a grant by downloading and submitting the following documents. Please 
+   emailtextlink: email 
+   goodmatchB: us if you have any questions.
+   
+documents:
+   sectionlabel: 'Please submit the following documents:'
+   applicationlabelA: Application Form (please
+   applicationlink: use attached format
+   applicationlabelB: which is specific for the Vatterott Foundation)
+   budgetlabel: Project Budget Template Form
+   budgetlink: " (download)"
+   currentbudget: Current Organizational Budget
+   irsletter: IRS Letter of Determination
+
+guidelines: 
+   applicationguidelines: >-
+      Our applications follow the guidelines of the Common Grant Application & Budget Template.
+   guidelinelink: You can download the CGA User Guide here.
+
+options:
+   header3: Three Options to Submit Application
+   online:
+      option1: '1. Submit Application Online'
+      option1text: You can now submit your application online!
+      submitbutton: Submit Application Online
+   or: OR
+   email:
+      option2: 2. Email Application
+      option2text: You can simply email the documents to 
+      emailaddresslink: info@vatterottfoundation.org
+   or2: OR
+   mail:
+      option3: 3. Mail-In Application
+      option3text: 'Please send application materials to:'
+      address:
+         addressline1: Vatterott Foundation
+         addressline2: 10143 Paget Drive
+         addressline3: St. Louis, MO 63132
+
 ---
 
 ## Determine Eligibility
@@ -23,58 +65,3 @@ In order to be considered for a grant your organization and request must meet th
    - Capital Campaigns
    - Specific Program Support
    - **Note:** Grants to individuals are not available
-
-## Submit New Application
-
-<div class="page-description" style="text-align: center;"> If you feel that your organization or project is a good match with the Vatterott Foundation’s funding priorities, you may apply for a grant by downloading and submitting the following documents. Please <a href="mailto:info@vatterottfoundation.org">email</a> us if you have any questions.
-</div>
-<fieldset>
-  <legend class="section-description">&nbsp;Please submit the following documents:&nbsp;</legend>
-    <ul class="checkboxes">
-      <li>
-        <label for="application">Application Form (please <a href="/public/VF_Application_Form.docx">use attached format</a> which is specific for the Vatterott Foundation)</label>
-      </li>
-      <li>
-        <label for="project-budget">Project Budget Template Form (<a href="/public/VF_Budget_Template_Form.xls">download</a>)</label>
-      </li>
-      <li>
-        <label for="current-budget">Current Organizational Budget</label>
-      </li>
-      <li>
-        <label for="current-budget">IRS Letter of Determination</label>
-      </li>
-    </ul>
-</fieldset>
-
-<div style="text-align: center;">Our applications follow the guidelines of the Common Grant Application & Budget Template.<br> You can <a href="/public/CGA_User_Guide.pdf">download the CGA User Guide here</a>. </div><br>
-
-## Three Options to Submit Application
-
-<div style="text-align: center;">
-
-**1. Submit Application Online**
-
-You can now submit your application online!
-
-<a class="action-button" href="/applications/new-application">
-  Submit Application Online
-</a>
-
-**OR**
-
-**2. Email Application**
-
-You can simply email the documents to info@vatterottfoundation.org
-
-**OR**
-
-**3. Mail-In Application**
-
-Please send application materials to:
-
-</div>
- <address style="text-align: center;">
-        <br><strong>Vatterott Foundation</strong><br>
-        10143 Paget Drive<br>
-        St. Louis, MO 63132
-      </address>

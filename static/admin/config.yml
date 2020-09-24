@@ -1,0 +1,268 @@
+backend:
+  name: git-gateway
+  branch: master
+
+local_backend: true
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - label: 'All Pages'
+    name: 'pages'
+    editor:
+      preview: false
+    files:
+    - name: trustees
+      label: Trustees
+      format: frontmatter
+      file: assets/content/pages/trustees.md
+      fields:
+        - label: Title
+          name: title
+          widget: string
+        - label: Subtitle
+          name: subtitle
+          widget: string 
+        - label: Trustees
+          name: trustees
+          widget: list 
+        - label: Administratortitle
+          name: administratortitle  
+          widget: string
+        - label: Administrator
+          name: administrator 
+          widget: string
+
+    - name: who-we-help
+      label: Who We Help
+      format: frontmatter
+      file: assets/content/pages/who-we-help.md
+      fields:
+        - label: Title
+          name: title
+          widget: string 
+        - label: Subtitle
+          name: subtitle
+          widget: string 
+        - label: Orgs
+          name: orgs
+          widget: list 
+          fields: 
+            - label: Name
+              name: name
+              widget: string
+            - label: Link
+              name: link
+              widget: string 
+              required: false
+        
+    - name: privacy-policy
+      label: Privacy Policy
+      format: frontmatter
+      file: assets/content/pages/privacy-policy.md
+      fields:
+        - label: Title
+          name: title
+          widget: string 
+        - label: Body
+          name: body
+          widget: markdown 
+
+    - name: terms-of-use
+      label: Terms of Use
+      format: frontmatter
+      file: assets/content/pages/terms-of-use.md
+      fields:
+        - label: Title
+          name: title
+          widget: string 
+        - label: Body
+          name: body
+          widget: markdown 
+    
+    - name: grant-application
+      label: Grant Application
+      format: frontmatter
+      file: assets/content/pages/grant-application.md
+      fields:
+        - label: Title
+          name: title
+          widget: string 
+        - label: Subtitle
+          name: subtitle
+          widget: string
+        - label: Body
+          name: body
+          widget: markdown 
+        
+        - label: Options
+          name: options
+          widget: object
+          fields:
+            - { label: Header3, name: header3, widget: string }
+            - label: Online
+              name: online 
+              widget: object
+              fields:  
+                 - { label: Option1, name: option1,widget: string }
+                 - { label: Option1text, name: option1text, widget: string }
+                 - { label: Submitbutton, name: submitbutton, widget: string }
+            - label: Or
+              name: or
+              widget: string 
+            - label: Email
+              name: email 
+              widget: object
+              fields:
+                 - { label: Option2, name: option2, widget: string }
+                 - { label: Option2text, name: option2text, widget: string }
+                 - { label: Emailaddresslink, name: emailaddresslink, widget: string }
+            - label: Or2
+              name: or2
+              widget: string 
+            - label: Mail 
+              name: mail 
+              widget: object
+              fields:  
+                 - { label: Option3, name: option3, widget: string }
+                 - { label: Option3text, name: option3text, widget: string }
+                 - label: Address
+                   name: address 
+                   widget: "object" 
+                   fields:
+                      - {label: Addressline1, name: addressline1, widget: string }
+                      - {label: Addressline2, name: addressline2, widget: string }
+                      - {label: Addressline3, name: addressline3, widget: string }
+
+    - name: "youth-board"
+      label: "Vatterott Family Youth Board"
+      format: "frontmatter"
+      file: "assets/content/pages/youth-board.md"
+      fields:
+        -  label: Titlesection
+           name: titlesection
+           widget: object
+           fields: 
+              -  { label: Title, name: title, widget: string }
+              -  { label: Description, name: description, widget: string }
+              -  { label: Blockquote, name: blockquote, widget: string }
+              -  { label: Author, name: author, widget: string }
+              -  { label: Citation, name: citation, widget: string }
+        -  label: AboutVFYB
+           name: aboutVFYB 
+           widget: object
+           fields:
+              -  { label: About, name: about, widget: string}
+              -  { label: Videourl, name: videourl, widget: string }
+              -  { label: Videocaption, name: videocaption, widget: string }
+
+        - label: Figuresection 
+          name: figuresection        
+          widget: object
+          fields:
+            -  { label: Figuredescription, name: figuredescription, widget: string }
+            - label: Figures
+              name: figures
+              widget: list 
+              fields:
+                - { label: Image, name: image, widget: image }
+                - { label: Captiontitle, name: captiontitle, widget: string }
+                - { label: Maincaption, name: maincaption, widget: string }
+
+        - label: Body 
+          name: body 
+          widget: markdown 
+
+        - label: Organization
+          name: organization 
+          widget: object
+          fields:
+            - { label: Orgtitle, name: orgtitle, widget: string }
+            - label: Orgs
+              name: orgs
+              widget: list
+              fields:
+                - { label: Name, name: name, widget: string }
+                - { label: Link, name: link, widget: string, required: false }
+
+    - name: homepage
+      label: Vatterott Foundation
+      format: frontmatter
+      file: assets/content/pages/home.md
+      fields:
+        - label: "Header"
+          name: "header" 
+          widget: "object"
+          fields:
+            - { label: Title, name: title , widget: string }
+            - { label: Slogan, name: slogan, widget: string }
+            - { label: Applybuttontext, name: applybuttontext, widget: string }
+
+        - label: "Focusareas"
+          name: "focusareas" 
+          widget: "object"
+          fields:  
+            - { label: Focalareatitle, name: focalareatitle, widget: string }
+            - { label: AreatitleA, name: areatitleA, widget: string }
+            - { label: SubfocalareaA, name: subfocalareaA, widget: string } 
+            - { label: AreatitleB, name: areatitleB, widget: markdown }
+            - { label: SubfocalareaB, name: subfocalareaB, widget: string }
+            - { label: Focalareabutton, name: focalareabutton, widget: string }
+            - { label: AreatitleC, name: areatitleC, widget: markdown }
+            - { label: SubfocalareaC, name: subfocalareaC, widget: string } 
+            - { label: AreatitleD, name: areatitleD, widget: string }
+            - { label: SubfocalareaD, name: subfocalareaD, widget: string }
+
+        - label: Mission
+          name: mission
+          widget: object
+          fields:  
+            - { label: Missionstatementtitle, name: missionstatementtitle, widget: string }
+            - { label: Missionstatement, name: missionstatement, widget: markdown }
+            - { label: Missionbutton, name: missionbutton, widget: string }
+
+        - label: History
+          name: history 
+          widget: object
+          fields:
+            - { label: Historytitle, name: historytitle, widget: string }
+            - { label: Firsthistoryblockquote, name: firsthistoryblockquote, widget: markdown }
+            - { label: Blockquoteauthor, name: blockquoteauthor, widget: string }
+            - { label: Blockquoteauthortitle, name: blockquoteauthortitle, widget: string }
+            - { label: Firsthistoryquote, name: firsthistoryquote, widget: string }
+            - label: Figures
+              name: figures
+              widget: list 
+              fields:
+                - { label: Image, name: image, widget: image }
+                - { label: Caption, name: caption, widget: string }
+            - { label: Secondhistoryquote, name: secondhistoryquote, widget: markdown }
+            # - { label: QuotelinkA, name: quotelinkA, widget: markdown }
+            # - { label: SecondhistoryquoteB, name: secondhistoryquoteB, widget: string }
+            - { label: Secondhistoryblockquote, name: secondhistoryblockquote, widget: markdown } 
+            - { label: Thirdhistoryquote, name: thirdhistoryquote, widget: markdown }
+            # - { label: QuotelinkB, name: quotelinkB, widget: markdown }
+            # - { label: ThirdhistoryquoteB, name: thirdhistoryquoteB, widget: string }
+            - { label: Fourthhistoryquote, name: fourthhistoryquote, widget: string }
+
+        - label: Vfyb
+          name: vfyb 
+          widget: object
+          fields:  
+            - { label: Vfybheader, name: vfybheader, widget: string }
+            - { label: VfybquoteA, name: vfybquoteA, widget: string }
+            - { label: Vfybblockquote, name: vfybblockquote, widget: markdown }
+            - { label: Blockquoteauthor, name: blockquoteauthor, widget: string }
+            - { label: Blockquoteauthortitle, name: blockquoteauthortitle, widget: string }
+            - { label: VfybquoteB, name: vfybquoteB, widget: string }
+            - { label: Vfybbutton, name: vfybbutton, widget: string }
+
+        - label: Apply
+          name: apply 
+          widget: object
+          fields:
+            - { label: Applytitle, name: applytitle, widget: string }
+            - { label: Applytext, name: applytext, widget: string }
+            - { label: Applybutton, name: applybutton, widget: string }
+        

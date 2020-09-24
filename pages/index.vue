@@ -100,17 +100,7 @@
             </figure>
           </div>
         </div>
-        <div>
-          <p class="home-text">
-            {{ history.secondhistoryquoteA }}
-            <a
-              href="https://books.google.com/books?id=z5V9t5b79TwC&pg=PA140&lpg=PA140&dq=Catholic+Interracial+Council+of+St.+Louis&source=bl&ots=PErB57QUF5&sig=6B76hdc4df0Qa3KhAyNVLbPYPBU&hl=en&sa=X&ved=0ahUKEwjwxsbYrJ_QAhVTImMKHQN-CK8Q6AEIPTAH#v=onepage&q=Catholic%20Interracial%20Council%20of%20St.%20Louis&f=false"
-              target="_blank"
-              >{{ history.quotelinkA }}</a
-            >
-            {{ history.secondhistoryquoteB }}
-          </p>
-        </div>
+        <div v-html="history.secondhistoryquote" class="home-text"></div>
         <blockquote class="big-quote">
           <blockquote v-html="history.secondhistoryblockquote" />
           <footer>
@@ -120,15 +110,7 @@
             }}</cite>
           </footer>
         </blockquote>
-        <p class="home-text">
-          {{ history.thirdhistoryquoteA }}
-          <a
-            href="http://archstl.org/archives/page/holy-angelsour-lady-angels-kinloch"
-            target="_blank"
-            >{{ history.quotelinkB }}</a
-          >
-          {{ history.thirdhistoryquoteB }}
-        </p>
+        <div v-html="history.thirdhistoryquote" class="home-text"></div>
         <p class="home-text">
           {{ history.fourthhistoryquote }}
         </p>
@@ -198,9 +180,14 @@ export default {
       history: {
         ...history,
         firsthistoryblockquote: markdown(history.firsthistoryblockquote),
-        secondhistoryblockquote: markdown(history.secondhistoryblockquote)
+        secondhistoryquote: markdown(history.secondhistoryquote),
+        secondhistoryblockquote: markdown(history.secondhistoryblockquote),
+        thirdhistoryquote: markdown(history.thirdhistoryquote)
       },
-      vfyb: { ...vfyb, vfybblockquote: markdown(vfyb.vfybblockquote) },
+      vfyb: {
+        ...vfyb,
+        vfybblockquote: markdown(vfyb.vfybblockquote)
+      },
       apply,
       html
     }

@@ -8,7 +8,7 @@ titlesection:
 
 aboutVFYB:
   about: 'About the VFYB'
-  video: ''
+  videourl: 'https://player.vimeo.com/video/73003706'
   videocaption: 'Promo video by one of our very own: Stephen Greathouse'
 
 figuresection:

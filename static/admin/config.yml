@@ -95,35 +95,6 @@ collections:
         - label: Body
           name: body
           widget: markdown 
-
-        - label: Appdescriptions
-          name: appdescriptions
-          widget: object
-          fields:      
-            - { label: Header2, name: header2, widget: string }
-            - { label: GoodmatchA, name: goodmatchA, widget: string }
-            - { label: Emailtextlink, name: emailtextlink, widget: string }
-            - { label: GoodmatchB, name: goodmatchB, widget: string }
-
-        - label: Documents
-          name: documents 
-          widget: object   
-          fields:
-            - { label: Sectionlabel, name: sectionlabel, widget: string }
-            - { label: ApplicationlabelA, name: applicationlabelA, widget: string }
-            - { label: Applicationlink, name: applicationlink, widget: string }
-            - { label: ApplicationlabelB, name: applicationlabelB, widget: string }
-            - { label: Budgetlabel, name: budgetlabel, widget: string }
-            - { label: Budgetlink, name: budgetlink, widget: string }
-            - { label: Currentbudget, name: currentbudget, widget: string }
-            - { label: Irsletter, name: irsletter, widget: string }
-
-        - label: Guidelines
-          name: guidelines
-          widget: object
-          fields:    
-            - { label: Applicationguidelines, name: applicationguidelines, widget: markdown }
-            - { label: Guidelinelink, name: guidelinelink, widget: string }
         
         - label: Options
           name: options
@@ -183,6 +154,7 @@ collections:
            widget: object
            fields:
               -  { label: About, name: about, widget: string}
+              -  { label: Videourl, name: videourl, widget: string }
               -  { label: Videocaption, name: videocaption, widget: string }
 
         - label: Figuresection 
@@ -219,9 +191,9 @@ collections:
       format: frontmatter
       file: assets/content/pages/home.md
       fields:
-        - label: Header
-          name: header 
-          widget: object
+        - label: "Header"
+          name: "header" 
+          widget: "object"
           fields:
             - { label: Title, name: title , widget: string }
             - { label: Slogan, name: slogan, widget: string }
@@ -265,13 +237,13 @@ collections:
               fields:
                 - { label: Image, name: image, widget: image }
                 - { label: Caption, name: caption, widget: string }
-            - { label: SecondhistoryquoteA, name: secondhistoryquoteA, widget: string }
-            - { label: QuotelinkA, name: quotelinkA, widget: string }
-            - { label: SecondhistoryquoteB, name: secondhistoryquoteB, widget: string }
+            - { label: Secondhistoryquote, name: secondhistoryquote, widget: markdown }
+            # - { label: QuotelinkA, name: quotelinkA, widget: markdown }
+            # - { label: SecondhistoryquoteB, name: secondhistoryquoteB, widget: string }
             - { label: Secondhistoryblockquote, name: secondhistoryblockquote, widget: markdown } 
-            - { label: ThirdhistoryquoteA, name: thirdhistoryquoteA, widget: string }
-            - { label: QuotelinkB, name: quotelinkB, widget: string }
-            - { label: ThirdhistoryquoteB, name: thirdhistoryquoteB, widget: string }
+            - { label: Thirdhistoryquote, name: thirdhistoryquote, widget: markdown }
+            # - { label: QuotelinkB, name: quotelinkB, widget: markdown }
+            # - { label: ThirdhistoryquoteB, name: thirdhistoryquoteB, widget: string }
             - { label: Fourthhistoryquote, name: fourthhistoryquote, widget: string }
 
         - label: Vfyb

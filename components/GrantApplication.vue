@@ -160,9 +160,9 @@
         </div>
         <div class="form-actions">
           <button
+            :disabled="grantApp.messages.completed"
             type="submit"
             class="primary"
-            ng-disabled="grantApp.messages.completed"
           >
             Upload Files
           </button>

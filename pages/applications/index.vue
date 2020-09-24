@@ -5,59 +5,10 @@
       <p class="page-description">
         {{ subtitle }}
       </p>
-      <div v-html="html" />
-      <div>
-        <h2>{{ appdescriptions.header2 }}</h2>
-
-        <div class="page-description" style="text-align: center;">
-           {{ appdescriptions.goodmatchA }}
-        <a href="mailto:info@vatterottfoundation.org">{{ appdescriptions.emailtextlink }}</a>
-            {{ appdescriptions.goodmatchB }}
-        </div>
+      <div v-html="html">
       </div>
 
-    <fieldset>
-        <legend class="section-description">
-          &nbsp;{{ documents.sectionlabel }}&nbsp;
-        </legend>
-        <ul class="checkboxes">
-          <li>
-            <input type="checkbox">
-            <label for="application"
-              >{{ documents.applicationlabelA }}
-              <a href="/public/VF_Application_Form.docx">{{
-                documents.applicationlink
-              }}</a>
-              {{ documents.applicationlabelB }}</label
-            >
-          </li>
-          <li>
-            <input type="checkbox">
-            <label for="project-budget"
-              >{{ documents.budgetlabel
-              }}<a href="/public/VF_Budget_Template_Form.xls">{{
-                documents.budgetlink
-              }}</a></label
-            >
-          </li>
-          <li>
-            <input type="checkbox">
-            <label for="current-budget">{{ documents.currentbudget }}</label>
-          </li>
-          <li>
-            <input type="checkbox">
-            <label for="current-budget">{{ documents.irsletter }}</label>
-          </li>
-        </ul>
-    </fieldset>
-
-      <div style="text-align: center;">
-        {{ guidelines.applicationguidelines }}
-        <a href="/public/CGA_User_Guide.pdf"></br>{{ guidelines.guidelinelink }}</a>
-      </div>
-      <br />
-
-      <h2>{{ options.header3 }}</h2>
+      <h2 class="container">{{ options.header3 }}</h2>
 
       <div style="text-align: center;">
        <p class="page-description"> 
@@ -103,16 +54,16 @@ export default {
       title,
       subtitle,
       appdescriptions,
-      documents,
-      guidelines,
+      // documents,
+      // guidelines,
       options
     } = attributes
     return {
       title,
       subtitle,
       appdescriptions,
-      documents,
-      guidelines,
+      // documents,
+      // guidelines,
       options,
       html
     }
@@ -120,4 +71,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.text-align {
+  text-align: center;
+}
+</style>

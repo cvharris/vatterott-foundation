@@ -29,13 +29,12 @@ history:
     founders' humanitarian and religious spirit alive through their
     grant-making.
   historytitle: Our History
-  secondhistoryquoteA: During a time in which anti-racist dissent often resulted
-    in perilous consequences, the Vatterott Foundation worked to preserve the
-    dignity of all people. Since its first donation to the
-  secondhistoryquoteB: on October 27, 1948, the Vatterott Foundation remains a
-    committed advocate in promoting racial justice.
-  quotelinkA: Catholic Interracial Council
-  quotelinkB: Holy Angels School in Kinloch
+  thirdhistoryquote: '[]("http://archstl.org/archives/page/holy-angelsour-lady-angels-kinloch")For
+    many years the Foundation supported the [Holy Angels School in
+    Kinloch]("http://archstl.org/archives/page/holy-angelsour-lady-angels-kinloch")
+    by contributing monthly to pay for the salary of the school principal. In
+    that way, the Foundation has helped to maintain a Catholic presence in one
+    of the most needy areas of St. Louis County.'
   figures:
     - image: /img/foundation-co-founder-joseph-vatterott.jpg
       caption: Joseph H. Vatterott
@@ -45,10 +44,6 @@ history:
     happy**. Our parents insisted on us unselfishness and the blessings of
     poverty; dignity of men; the nobility of labor and--in full bloom--sense of
     responsibility.
-  thirdhistoryquoteA: For many years the Foundation supported the
-  thirdhistoryquoteB: by contributing monthly to pay for the salary of the school
-    principal. In that way, the Foundation has helped to maintain a Catholic
-    presence in one of the most needy areas of St. Louis County.
   firsthistoryblockquote: 'To me, a home consecrated to <span style="font-variant:
     small-caps">God</span>, with all its members looking to Him for direction,
     **planning** together **playing** together, **praying** together...survives
@@ -58,6 +53,12 @@ history:
     located in the greater St. Louis area that share in the family foundation's
     focus areas and mission.
   blockquoteauthor: Charles F. Vatterott
+  secondhistoryquote: During a time in which anti-racist dissent often resulted in
+    perilous consequences, the Vatterott Foundation worked to preserve the
+    dignity of all people. Since its first donation to the [Catholic Interracial
+    Council]("https://books.google.com/books?id=z5V9t5b79TwC&pg=PA140&lpg=PA140&dq=Catholic+Interracial+Council+of+St.+Louis&source=bl&ots=PErB57QUF5&sig=6B76hdc4df0Qa3KhAyNVLbPYPBU&hl=en&sa=X&ved=0ahUKEwjwxsbYrJ_QAhVTImMKHQN-CK8Q6AEIPTAH#v=onepage&q=Catholic%20Interracial%20Council%20of%20St.%20Louis&f=false")
+    on October 27, 1948, the Vatterott Foundation remains a committed advocate
+    in promoting racial justice.
   blockquoteauthortitle: Vatterott Foundation Co-Founder
 vfyb:
   vfybheader: Vatterott Foundation Youth Board

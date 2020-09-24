@@ -18,7 +18,7 @@
         <h2 class="page-section-header">{{ aboutVFYB.about }}</h2>
         <figure>
           <iframe
-            src="https://player.vimeo.com/video/73003706"
+            :src="aboutVFYB.videourl"
             width="640"
             height="360"
             frameborder="0"

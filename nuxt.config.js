@@ -52,7 +52,7 @@ export default {
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/vf-icon.png' },
       {
         href:
           'https://fonts.googleapis.com/css?family=Prompt:300,300i,400,400i,700',

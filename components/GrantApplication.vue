@@ -159,11 +159,7 @@
           </div>
         </div>
         <div class="form-actions">
-          <button
-            :disabled="grantApp.messages.completed"
-            type="submit"
-            class="primary"
-          >
+          <button type="submit" class="primary">
             Upload Files
           </button>
         </div>

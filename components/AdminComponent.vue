@@ -135,6 +135,7 @@
 </template>
 
 <script>
+import format from 'date-fns/format'
 import { saveAs } from 'file-saver'
 
 export default {
@@ -162,8 +163,15 @@ export default {
       .collection('uploadedForms')
       .onSnapshot((formsSnapshot) => {
         this.applications = []
-        formsSnapshot.forEach((doc) => {
-          const form = { ...doc.data(), id: doc.id }
+        formsSnapshot.forEach((snapshot) => {
+          const doc = snapshot.data()
+          const form = {
+            ...doc,
+            id: snapshot.id,
+            updatedAt: doc.updatedAt
+              ? format(doc.updatedAt.toDate(), 'MM-DD-YYYY')
+              : ''
+          }
           this.applications.push(form)
         })
       })
@@ -193,31 +201,59 @@ export default {
       const application = this.applications.find(
         ({ id }) => id === applicationId
       )
-      console.log(applicationId, application)
+
       if (application.applicationForm !== '') {
-        await this.deleteFile(
-          applicationId,
-          application.applicationForm,
-          'applicationForm'
-        )
+        try {
+          await this.deleteFile(
+            applicationId,
+            application.applicationForm,
+            'applicationForm'
+          )
+        } catch (e) {
+          console.error(e)
+        }
       }
       if (application.projectBudget !== '') {
-        await this.deleteFile(
-          applicationId,
-          application.projectBudget,
-          'projectBudget'
-        )
+        try {
+          await this.deleteFile(
+            applicationId,
+            application.projectBudget,
+            'projectBudget'
+          )
+        } catch (e) {
+          console.error(e)
+        }
       }
       if (application.orgBudget !== '') {
-        await this.deleteFile(applicationId, application.orgBudget, 'orgBudget')
+        try {
+          await this.deleteFile(
+            applicationId,
+            application.orgBudget,
+            'orgBudget'
+          )
+        } catch (e) {
+          console.error(e)
+        }
       }
       if (application.irsLetter !== '') {
-        await this.deleteFile(applicationId, application.irsLetter, 'irsLetter')
+        try {
+          await this.deleteFile(
+            applicationId,
+            application.irsLetter,
+            'irsLetter'
+          )
+        } catch (e) {
+          console.error(e)
+        }
       }
-      await this.$db
-        .collection('uploadedForms')
-        .doc(applicationId)
-        .delete()
+      try {
+        await this.$db
+          .collection('uploadedForms')
+          .doc(applicationId)
+          .delete()
+      } catch (e) {
+        console.error(e)
+      }
     },
 
     logout() {},

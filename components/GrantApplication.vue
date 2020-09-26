@@ -235,7 +235,10 @@ export default {
       await this.$db
         .collection('uploadedForms')
         .doc(this.applicationId)
-        .set(this.currentApplication)
+        .set({
+          ...this.currentApplication,
+          updatedAt: this.$firebase.firestore.Timestamp.now()
+        })
       this.uploaded = true
       this.uploadedForm = ''
       setTimeout(() => {

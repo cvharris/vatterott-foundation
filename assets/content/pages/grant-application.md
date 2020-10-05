@@ -53,12 +53,12 @@ If you feel that your organization or project is a good match with the Vatterott
 
 Please submit the following documents:
 
-* Application Form (please [use attached format]("https://www.vatterottfoundation.com/public/VF_Application_Form.docx") which is specific for the Vatterott Foundation)
-* Project Budget Template Form ([download]("https://www.vatterottfoundation.com/public/VF_Budget_Template_Form.xls"))
+* Application Form (please [use attached format](/public/VF_Application_Form.docx) which is specific for the Vatterott Foundation)
+* Project Budget Template Form ([download](/public/VF_Budget_Template_Form.xls))
 * Current Organizational Budget
 * IRS Letter of Determination
 
-\
+
 Our applications follow the guidelines of the Common Grant Application & Budget Template. 
 
-You can [download the CGA User Guide here]("https://www.vatterottfoundation.com/public/CGA_User_Guide.pdf").
+You can [download the CGA User Guide here](/public/CGA_User_Guide.pdf).

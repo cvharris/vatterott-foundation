@@ -60,8 +60,8 @@ The Youth Board funds organizations working in the Foundation’s Focus Areas, b
 
 All Vatterott Foundation Youth Board grant applications are issued by invitation only. Please do not send grant applications without solicitation from the VFYB. Application instructions will be included with the invitation.
 
-**DEADLINE INFORMATION:**
+<!-- **DEADLINE INFORMATION:**
 
-All Vatterott Foundation Youth Board Applications must be submitted before **April 17th, 2017**.  Funding decisions are made in June.
+All Vatterott Foundation Youth Board Applications must be submitted before **April 17th, 2017**.  Funding decisions are made in June. -->
 
 

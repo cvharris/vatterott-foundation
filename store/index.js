@@ -70,7 +70,7 @@ export const state = () => ({
         {
           label: 'Family Calendar',
           route:
-            'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4ZQNQKKFTSQVC&source=url',
+            'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ANX5QS8Y7NP2J',
           description:
             "Donate to expenses related to next year's family calendar"
         }

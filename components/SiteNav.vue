@@ -7,8 +7,8 @@
             <nuxt-link
               :to="section.route"
               :target="section.target"
-              class="section-link"
               @click.native="toggleMenu"
+              class="section-link"
               >{{ section.label }}</nuxt-link
             >
           </div>
@@ -16,8 +16,8 @@
             <nuxt-link
               :title="child.description"
               :to="child.route"
-              target="child.target"
               @click.native="toggleMenu"
+              target="child.target"
               class="section-link"
               >{{ child.label }}</nuxt-link
             >
@@ -101,7 +101,7 @@ export default {
             {
               label: 'Family Calendar',
               route:
-                'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4ZQNQKKFTSQVC&source=url',
+                'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8DVPRN5EQFVPE&source=url',
               description:
                 "Donate to expenses related to next year's family calendar"
             }
@@ -118,5 +118,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

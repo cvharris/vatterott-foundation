@@ -21,7 +21,7 @@
     "imagemin-pngquant": "4.2.0",
     "imagemin-svgo": "4.2.0",
     "jquery": "^3.5.1",
-    "lodash": "4.17.2",
+    "lodash": "4.17.21",
     "markdown-it": "^10.0.0",
     "netlify-cms": "^2.10.56",
     "normalize.css": "3.0.3",

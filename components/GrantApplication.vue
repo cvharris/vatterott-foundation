@@ -1,12 +1,12 @@
 <template>
-  <div class="align-body">
+  <div class="align-body max-w-screen-md w-full">
     <div class="align-header">
       <h1 class="page-title">
         New Application
       </h1>
       <slot />
     </div>
-    <div class="form-container">
+    <div class="form-container w-full">
       <p>
         You must upload all of these files before the deadline to submit a valid
         application, but you don't have to upload every file all at once.
@@ -15,7 +15,7 @@
         Upload one file now and come back before the deadline. We'll save your
         progress till you come back.
       </p>
-      <form @submit.prevent="onUploadForm" name="grantAppForm">
+      <form @submit.prevent="onUploadForm" name="grantAppForm" class="w-full">
         <label for="company"
           ><span class="required">Organization Name</span>
           <input
@@ -49,10 +49,9 @@
           />
         </label>
 
-        <fieldset>
+        <fieldset class="mt-4">
           <legend class="section-description required">
-            &nbsp;We ask that you submit the following documents (at least one
-            at a time)&nbsp;&nbsp;&nbsp;
+            We ask that you submit the following documents
           </legend>
 
           <label for="application">
@@ -150,11 +149,20 @@
           </div>
           <div v-if="completed">
             <p><strong>Application completed!</strong></p>
-            <p>
-              Thank you! You have finished uploading all required files. Our
-              administrator will be in contact with you after reviewing the
-              files. If you have any questions or concerns please e-mail
-              info@vatterottfoundation.org.
+            <p
+              class="p-2 bg-blue-400 text-white border-2 rounded-md border-blue-600"
+            >
+              <i class="fa fa-exclamation-triangle" />
+              <span>
+                Thank you! You have finished uploading all required files. Our
+                administrator will be in contact with you after reviewing the
+                files. If you have any questions or concerns please e-mail
+                <a
+                  class="link-like text-white hover:text-blue-900 underline"
+                  href="mailto:info@vatterottfoundation.org"
+                  >info@vatterottfoundation</a
+                >.</span
+              >
             </p>
           </div>
         </div>
@@ -240,6 +248,7 @@ export default {
           updatedAt: this.$firebase.firestore.Timestamp.now()
         })
       this.uploaded = true
+      this.completed = true
       this.uploadedForm = ''
       setTimeout(() => {
         this.uploaded = false
@@ -280,9 +289,5 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 10%;
-}
-.align-body {
-  padding-left: 15%;
-  padding-right: 15%;
 }
 </style>

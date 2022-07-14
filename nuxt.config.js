@@ -81,7 +81,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/tailwindcss'],
+  purgeCSS: {
+    whitelistPatterns: [/svg-inline--fa/, /^fa-/]
+  },
   /*
    ** Build configuration
    */

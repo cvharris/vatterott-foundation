@@ -3,7 +3,7 @@
     <site-header @menuToggle="toggleMenu" />
     <site-nav @menuToggle="toggleMenu" />
     <main>
-      <nuxt />
+      <nuxt class="flex-1" />
       <site-footer />
     </main>
   </div>

@@ -69,6 +69,10 @@ main {
   }
 }
 
+.flex-1 {
+  flex: 1;
+}
+
 .parallax {
   position: absolute; // added for pseudo-element
   height: 100%;
@@ -173,7 +177,9 @@ main {
 
 main {
   position: relative;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   transition: transform 0.5s;
 }
 
